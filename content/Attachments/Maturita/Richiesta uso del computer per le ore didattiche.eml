@@ -1,0 +1,172 @@
+Received: from DU0PR03MB8741.eurprd03.prod.outlook.com (2603:10a6:10:3c8::20)
+ by VI1PR0302MB3231.eurprd03.prod.outlook.com with HTTPS; Fri, 11 Oct 2024
+ 06:56:28 +0000
+Received: from AS9PR06CA0169.eurprd06.prod.outlook.com (2603:10a6:20b:45c::33)
+ by DU0PR03MB8741.eurprd03.prod.outlook.com (2603:10a6:10:3c8::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8048.18; Fri, 11 Oct
+ 2024 06:56:26 +0000
+Received: from AMS1EPF00000043.eurprd04.prod.outlook.com
+ (2603:10a6:20b:45c:cafe::68) by AS9PR06CA0169.outlook.office365.com
+ (2603:10a6:20b:45c::33) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8048.20 via Frontend
+ Transport; Fri, 11 Oct 2024 06:56:25 +0000
+Authentication-Results: spf=pass (sender IP is 209.85.208.175)
+ smtp.mailfrom=gmail.com; dkim=pass (signature was verified)
+ header.d=gmail.com;dmarc=pass action=none header.from=gmail.com;compauth=pass
+ reason=100
+Received-SPF: Pass (protection.outlook.com: domain of gmail.com designates
+ 209.85.208.175 as permitted sender) receiver=protection.outlook.com;
+ client-ip=209.85.208.175; helo=mail-lj1-f175.google.com; pr=C
+Received: from mail-lj1-f175.google.com (209.85.208.175) by
+ AMS1EPF00000043.mail.protection.outlook.com (10.167.16.40) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8048.13
+ via Frontend Transport; Fri, 11 Oct 2024 06:56:25 +0000
+Received: by mail-lj1-f175.google.com with SMTP id 38308e7fff4ca-2fb388e64b0so1207751fa.0
+        for <nais14300x@istruzione.it>; Thu, 10 Oct 2024 23:56:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1728629785; x=1729234585; darn=istruzione.it;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=km2lVJACYUb04kTAzKhqL3niAFAI/WXYi/C2S/uB7SQ=;
+        b=JbGiVJh7hBehx3SsxYo3haswHHcHCcKHhQjQV0dAnC8EZy9KI06dKVKLcbr8CTZhtA
+         zqbznMN0JOV6vPkRnDPBbbankK5E+Z6PL2VjF53F+O13nXksPYpf2CGAvcrgUCAJbgMq
+         qy+FyZd9Vi3qsbllxVlsRlPDYZjGSX4MHdzb4UDXqC/2GbfNxlJHkyXVlEIEODtYGwNH
+         On953irH8azUVH/EU4twOEkT8SjKsGW8+tLbn9Y+F6NPuAQmf/e88piGMqRyM9SFVDz+
+         2V13VknGx15p5AKkGbjMGdlTV294EcdS6M9RMkWrizDsqRFGMS+vik3ERodUnWR7XZoa
+         Kmlg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1728629785; x=1729234585;
+        h=to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=km2lVJACYUb04kTAzKhqL3niAFAI/WXYi/C2S/uB7SQ=;
+        b=OUCOhzPiCZSzUI4nvVpjVQxf5VgyJMpyjwcSko9gZOCsu38VeXYRMOBOVjuyqquT7f
+         YK3X7Qvx9EgMKshKHxYQb48h2hQHWkrSAOxQsQWJHfGCm3k/jWFafnCtOoRejSKS7FHu
+         CymonFBPIgIl/gAQn+InApNwbidjWcClJnFS1+/eHu8ATXIZ3MJ7ie2QkXcrVkZ7qxnc
+         WhroJH745YP4jqL3LQUxRF1PuXPb8R1E4rlqcSeE4iyu//ztWJhGzzx2VeFkK4nRnS2w
+         0Ra5DYmA4kvaLZJxraQz/92LCReuwgR1JOpg3brxcGGnfjA3cs8ewGNWJHetTgJElB4F
+         z63g==
+X-Gm-Message-State: AOJu0YxfH0oaG0cPWvR4PE3lUo9cPvEuFFUdR4wLxnXCxyjF2oq4NqHT
+	SB8yvHLBMwKJhjwvmz/SJwFil9pyObmVHSa5F1xClHOv7uyVWFUAtU4AwCjpGm4Mz6gf0pdCRH3
+	r3GFFgywpfg1SEHrYdKgr/FgjZdVcaA==
+X-Google-Smtp-Source: AGHT+IHNvvXvhiXLnw0md0qiRkJ6ocMTcKzh6T9PaXTDJA3RHzAPDCmqiprtfxzzQzRMiwBeq+d5o/uCROGqoTLTG80=
+X-Received: by 2002:a2e:460a:0:b0:2fb:2f7c:28dd with SMTP id
+ 38308e7fff4ca-2fb32740971mr4336191fa.18.1728629784737; Thu, 10 Oct 2024
+ 23:56:24 -0700 (PDT)
+From: aantxsocial <tialagochrist@gmail.com>
+Date: Fri, 11 Oct 2024 08:56:13 +0200
+Message-ID: <CAPpWC1E_dg67joE93-8Rt1X=eGYcBs4SYtVEjvzc7fo3vWx=bA@mail.gmail.com>
+Subject: Richiesta uso del computer per le ore didattiche
+To: "Ist. Sup Napoli-" <nais14300x@istruzione.it>
+Content-Type: multipart/alternative; boundary="00000000000044881a06242dfce5"
+Return-Path: tialagochrist@gmail.com
+X-MS-Exchange-Organization-ExpirationStartTime: 11 Oct 2024 06:56:25.9584
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ 6cb5509f-6528-4521-711a-08dce9c1d31c
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: e151b387-5dcd-4fc9-8449-cb4e2570f004:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic:
+ AMS1EPF00000043:EE_|DU0PR03MB8741:EE_|VI1PR0302MB3231:EE_
+X-MS-Exchange-Organization-AuthSource:
+ AMS1EPF00000043.eurprd04.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Office365-Filtering-Correlation-Id: 6cb5509f-6528-4521-711a-08dce9c1d31c
+X-MS-Exchange-AtpMessageProperties: SA|SL
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7093399012|43062017;
+X-Forefront-Antispam-Report:
+ CIP:209.85.208.175;CTRY:US;LANG:it;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail-lj1-f175.google.com;PTR:mail-lj1-f175.google.com;CAT:NONE;SFS:(13230040)(7093399012)(43062017);DIR:INB;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Oct 2024 06:56:25.9584
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6cb5509f-6528-4521-711a-08dce9c1d31c
+X-MS-Exchange-CrossTenant-Id: e151b387-5dcd-4fc9-8449-cb4e2570f004
+X-MS-Exchange-CrossTenant-AuthSource:
+ AMS1EPF00000043.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR03MB8741
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:02.1121894
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.8048.010
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910001)(944506478)(944626604)(920097)(930097)(140003);
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?RzZKY3A4MlkxSGtMdWl5VEVwUklqZld3TlVsVlAyRWYzOVN4ZWtUTWFmT241?=
+ =?utf-8?B?UEE2UnNwUS8vZ2NZRU5lOFFFWm1aeGNHV0JyTE5ZdnkySk5KTnBhT2lWL1Rp?=
+ =?utf-8?B?UU9idEc0TDdNWlNqQ0hxcGJPS3lSRnVCb2VsbTZQUXpielVrbUszUnZUazBj?=
+ =?utf-8?B?VUhTRnJwSGVaYTN2bGRwSkRUZjNmYTZ5d2RUbXJBUzZDOTMweUpvQ2FHd0NS?=
+ =?utf-8?B?UGFRdVluR01ORTB2d3hrQmplMGxoLyt1ZXAxSFRvWER1YnBPeHhkY0pFVnZh?=
+ =?utf-8?B?Ny9ZU3UvcWVQTWE1VkdCb3JHMmQ3ZCs5VjRqcmlqbTFpSWNZTlNudEdQMVF2?=
+ =?utf-8?B?OFBSTUJISEJTSEN4OWxtT01SWnh6dHhZN2ZGK0VrSlJGUENKdnVwSmxGRUZ4?=
+ =?utf-8?B?NUpiRTJQcER0YWlGeWdTS2FjNDZUc011Q0h4UjhJdk9vamdoaTMraHJ3dE10?=
+ =?utf-8?B?M2o0U3JrY3QrRTNOdllZVnRhYUxpc0JJbTRHNHpIekVXYmk5bVRySmFyUFlh?=
+ =?utf-8?B?K203WmN5VStFa1BlanJLRURaMTI5NDdBaWhRQzZBNldiNkk4RmdFSWRZaE04?=
+ =?utf-8?B?QWFlTVkvZTVSekVhbUpGTzZ6L2RVZXZLTVJoK3BtNUR4T3NrVE03ZzM1Rk4z?=
+ =?utf-8?B?TWU5WW1TOXNrcTdDMmE0L2RJTUVDcS9xYW02TERITDRRb3grOHZWVHJkc1ZH?=
+ =?utf-8?B?UzlGeHJ2MEc0VnBDd05OaG10U21YZXBjUVMxNUwxdXZmSE9nV0czS1hITzg5?=
+ =?utf-8?B?ZVVCcVJqOVEraEY4RCtCTlR4RVBNY3JUbFhrZlE2ZUl0bzV3UTZEVkF4Uzh5?=
+ =?utf-8?B?Y0xLMDVpZElySHl1UjNPckJYQStEOEUzQWpUdjdVNXJaay9rQ3E1RVM0bThC?=
+ =?utf-8?B?L3lja1BGOWJBTlhKZDVXeVppd2NDSnpmY2dDL0NSL3NUOUg3QisraUgxa1FS?=
+ =?utf-8?B?SmhvRU5nWmJHUVhRblRzTGRzc3QvZmd3cklqdkdMOXlNeDlkN2o0SjdMV0Jy?=
+ =?utf-8?B?bnlkVHZFL3l2cEtEOEtYSGNMVTRjZjc4aHJmcndnVVhEOEY4cVh5TmhFV0I0?=
+ =?utf-8?B?dkk5MTd3RUd6ODRtZ3MyRWxBdXJGQVhhaFI2VGtaQUpnc0RiSFZlUEkwMUZo?=
+ =?utf-8?B?OEZiek9ISjFYN1E2UWw0QnZRQWVFVlArMHk2eGU0andmY2lwZHQ1anFJNzd1?=
+ =?utf-8?B?eXZVQ3lJMkpmbVRhMUhPc0VlNVZNZU9SOFJzL0RXUm9kWEh0ck81VldxbWVF?=
+ =?utf-8?B?TDFDRVF2MENGck1GcSt2UWdNUWJCNFhHVlJFUXFyTFN1UFNFcjNqa09keWE4?=
+ =?utf-8?B?L3dRU2xqQWJCMnBSdGNVYlhHNFJsZExidjF3bG1RYUZ0RnY3SUtHSE0rN1By?=
+ =?utf-8?B?eENlSHg3MjlCSytGSEZWQkY2RFE2RVdDZyttbTJFeXFGSlBsQ1lWWXJ2OHpa?=
+ =?utf-8?B?SVdxZndtcUlrbmwveFlQNkh6VGlzOWNZbStmS3dNSXRtVFljUmhybkgya1Ns?=
+ =?utf-8?B?eWxSbWd4NXp1UDFQMXNDTklnZ21WTGgxOWFwcWJDRUJxNFFSUXRnd081aXhs?=
+ =?utf-8?B?bXgvcFFXSjZYS0hySjJXMkswZy9CN3A3aURIbVhMSUxwdGtXbFlWd0xsajBn?=
+ =?utf-8?B?QktGQkV1V0hYR1owK2E5ZTBkK3BkUkx4VFVIOXB4dU9SN1gwT3U1Y2FFK3k5?=
+ =?utf-8?B?K3JnSE9RaXJoU2xNS3hJbzZuTEN4cUhCcXY4QStuUzZna0Y5QlJZSStUNHlP?=
+ =?utf-8?B?RzJQRnA0L1hDUXZOcFFQaVdvKzBGNkdINTBNQXRCc3pxNWZZOXUvNWR4UXRt?=
+ =?utf-8?B?elFmdFhnQllhOFovczNnRjRFT2ovSWo3aE95TXBTOEV2ZUMrSHZ3Mm5mL1Zo?=
+ =?utf-8?B?ZDY0YzF1SDM4QkEyR3Q3ZnFFOUY2U3I3QlB5N0FOaFgyQWRJY2lnZE1JazRa?=
+ =?utf-8?B?Vlg1ODVja3RnN2E4SGxNeVlEYU82bHdRdDV0RFpJYmV2cmFiVVNrV0R0V0xy?=
+ =?utf-8?B?R2diQ0E2WktxZGNzQ3J5cUN2eW5tT0c4bGZ5bmpoTVFBakMwODJGT0RTS2E2?=
+ =?utf-8?B?QUJEaExaSzVEbDYwSVpwa1dpTDN5ekZTc1o0MjdBRU9NZ1luVEw4bGxwSmQw?=
+ =?utf-8?B?WW5aQnRTS1NlY1J4VEthMk41OTFtNk5oWGRqeHhJbHhzKys3VXZkOFlTN2hQ?=
+ =?utf-8?B?ODdmcGdXZGdkVWE4ajFSZ3VjUWNjWGxiU0lrVEttVlZoSVdRd3ZmWlA1VG1R?=
+ =?utf-8?B?a3FDWUJNdFREZ2FIQUVOa2paS1RiYTY5ZWN3bS9tKzE1dHlzMEdsMkx0YzZ6?=
+ =?utf-8?B?NWFoczd2TDRYc2twR1F1RHordmpkZjNqQ1Uva2l4Wk10alpmRE9RWEp5clpJ?=
+ =?utf-8?B?VFJqd01hYm9qL3NmV0RPN1FIbWNUSm9aVmFzR0VHYmxTRzM4WjRQc1Zuc2No?=
+ =?utf-8?B?Q1BHWlZDd1pFcCtJQUFJMTJ6TVVLQkoraGNNSWtrS2ttakExYXhpcFZVR2ZJ?=
+ =?utf-8?B?NnhUdFp4cllHdnpnaWNHVFBhN01PNW1SYndRMVBJVlZRdDZQS3llS04yU1pQ?=
+ =?utf-8?B?SnJjeTVkT3hMT0R4bHFhWjFUNEs4RWd1SSsvdHRwV0JXbmpobmF1NjBZcmNr?=
+ =?utf-8?B?aVJETlBIZ3dBREF1TGZ1VStxMWpodU5vUVZqY2xySFZtTXpqcTFrdGR2bVpz?=
+ =?utf-8?B?b1VxMVhtV1dkanhYZXl3MDNSWU5ManNKRnE1bURSTWhtRVgwYUlsMmRveFZ5?=
+ =?utf-8?B?U0E3SGoyY2lpTlNHTHIrcHRuSUJSUkZrWEpDNlFxeTEweWtrblh0T0hQTGU0?=
+ =?utf-8?B?WkZnWkVnMHNYaTNpNWRPVjkyY0RlbVJzdklNR09vMzc4MXZuN29HMENvbDMw?=
+ =?utf-8?B?Ky9JdXhwaVdTNTU4WUN6VlJzdz09?=
+MIME-Version: 1.0
+
+--00000000000044881a06242dfce5
+Content-Type: text/plain; charset="UTF-8"
+
+Buongiorno, io il sottoscritto Jean Lago Christian Tiagouri, alunno della
+classe 4C, vorrei chiedere un'autorizzazione per poter usare il computer in
+classe durante le ore didattiche siccome sopra ci tengo tutti i programmi
+di disegno ed inoltre lo uso per prendere appunti e leggere i libri
+digitali, siccome ho una piccola scoliosi alla schiena e non posso portare
+cose pesanti nello zaino. Grazie mille per l'attenzione.
+
+--00000000000044881a06242dfce5
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"><d=
+iv dir=3D"ltr">Buongiorno, io il sottoscritto Jean Lago Christian&nbsp;Tiag=
+ouri,&nbsp;alunno della classe 4C, vorrei chiedere un'autorizzazione per po=
+ter usare il computer in classe durante le ore didattiche siccome sopra ci =
+tengo tutti i programmi di disegno ed inoltre lo uso per prendere appunti e=
+ leggere i libri digitali, siccome ho una piccola scoliosi alla schiena e n=
+on posso portare cose pesanti nello zaino. Grazie mille per l'attenzione.</=
+div>
+
+--00000000000044881a06242dfce5--

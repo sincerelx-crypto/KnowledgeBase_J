@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AudioFiles</key>
+	<array>
+		<string>ling 2.aiff</string>
+	</array>
+	<key>BeatsPerMinute</key>
+	<integer>110</integer>
+	<key>FrameRateIndex</key>
+	<integer>1</integer>
+	<key>HasGrid</key>
+	<false/>
+	<key>ImpulsResponsesFiles</key>
+	<array/>
+	<key>NumberOfTracks</key>
+	<integer>1</integer>
+	<key>PlaybackFiles</key>
+	<array/>
+	<key>SampleRate</key>
+	<real>44100</real>
+	<key>SamplerInstrumentsFiles</key>
+	<array>
+		<string>${CONTENT_iOS:Library.bundle}/Application Support/Instrument Library/Sampler/Sampler Instruments/Metronome Woodblock 2.exs</string>
+	</array>
+	<key>SignatureKey</key>
+	<integer>7</integer>
+	<key>SongGenderKey</key>
+	<string>ringtone</string>
+	<key>SongKey</key>
+	<string>C</string>
+	<key>SongSignatureDenominator</key>
+	<integer>4</integer>
+	<key>SongSignatureNumerator</key>
+	<integer>4</integer>
+	<key>SurroundFormatIndex</key>
+	<integer>5</integer>
+	<key>UltrabeatFiles</key>
+	<array/>
+	<key>UnusedAudioFiles</key>
+	<array/>
+	<key>Version</key>
+	<integer>3</integer>
+	<key>isTimeCodeBased</key>
+	<false/>
+</dict>
+</plist>

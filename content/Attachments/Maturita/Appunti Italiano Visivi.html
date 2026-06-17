@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Italiano — Appunti Visivi Maturità</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap');
+
+  :root {
+    --bg: #0f1117;
+    --bg2: #161a24;
+    --bg3: #1e2333;
+    --border: #2a3048;
+    --accent: #5b8dee;       /* topografia */
+    --accent2: #e05d84;      /* progettazione */
+    --accent3: #4ecb8d;      /* italiano/levi */
+    --accent4: #f5a623;      /* calvino */
+    --accent5: #b07af5;      /* connessioni */
+    --text: #dce4f5;
+    --text-muted: #7a8ab0;
+    --text-soft: #a0b0d0;
+    --card: #181d2e;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--bg); color:var(--text); font-family:'DM Sans',sans-serif; font-weight:300; line-height:1.75; font-size:15px; }
+
+  header {
+    background: linear-gradient(135deg,#0d1220 0%,#1a2040 50%,#0d1220 100%);
+    border-bottom:1px solid var(--border);
+    padding:48px 40px 40px; position:relative; overflow:hidden;
+  }
+  header::before {
+    content:''; position:absolute; inset:0;
+    background:radial-gradient(ellipse 60% 80% at 80% 50%,rgba(78,203,141,0.07) 0%,transparent 70%);
+  }
+  .header-tag { font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--accent3); letter-spacing:3px; text-transform:uppercase; margin-bottom:12px; }
+  header h1 { font-family:'DM Serif Display',serif; font-size:clamp(28px,5vw,48px); font-weight:400; color:#fff; line-height:1.1; position:relative; }
+  header h1 span { color:var(--accent3); }
+  header h1 span.c { color:var(--accent4); }
+  .subtitle { color:var(--text-muted); font-size:14px; margin-top:10px; position:relative; }
+
+  .nav-map { display:flex; gap:8px; padding:20px 40px; background:var(--bg2); border-bottom:1px solid var(--border); overflow-x:auto; flex-wrap:wrap; }
+  .nav-pill { background:var(--bg3); border:1px solid var(--border); color:var(--text-muted); padding:6px 14px; border-radius:20px; font-size:12px; font-family:'JetBrains Mono',monospace; text-decoration:none; display:inline-block; white-space:nowrap; transition:all .2s; }
+  .nav-pill:hover { border-color:var(--accent3); color:var(--accent3); }
+
+  main { max-width:1100px; margin:0 auto; padding:40px 40px 80px; }
+
+  /* tre materie banner */
+  .triple-banner {
+    background:var(--card); border:1px solid var(--border); border-radius:16px;
+    padding:32px; margin-bottom:48px;
+  }
+  .triple-banner h2 { font-family:'DM Serif Display',serif; font-size:20px; font-weight:400; color:#fff; margin-bottom:20px; }
+  .triple-row { display:flex; align-items:stretch; gap:12px; flex-wrap:wrap; }
+  .triple-cell {
+    flex:1; min-width:180px; border-radius:12px; padding:18px;
+    border:1px solid var(--border);
+  }
+  .triple-cell .tc-label { font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:2px; text-transform:uppercase; margin-bottom:8px; }
+  .triple-cell .tc-title { font-family:'DM Serif Display',serif; font-size:16px; font-weight:400; margin-bottom:8px; }
+  .triple-cell p { font-size:13px; color:var(--text-muted); margin:0; }
+  .triple-arrow { display:flex; align-items:center; color:var(--text-muted); font-size:24px; flex-shrink:0; }
+
+  .section { margin-bottom:56px; scroll-margin-top:24px; }
+  .section-header { display:flex; align-items:baseline; gap:16px; margin-bottom:24px; padding-bottom:12px; border-bottom:1px solid var(--border); }
+  .section-num { font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--accent3); letter-spacing:2px; flex-shrink:0; }
+  .section-num.c { color:var(--accent4); }
+  .section h2 { font-family:'DM Serif Display',serif; font-size:26px; font-weight:400; color:#fff; }
+
+  p { color:var(--text-soft); margin-bottom:14px; }
+  strong { color:var(--text); font-weight:600; }
+  em { color:var(--accent4); font-style:normal; font-weight:500; }
+
+  .info-box { background:var(--bg3); border-left:3px solid var(--accent3); border-radius:0 10px 10px 0; padding:16px 20px; margin:20px 0; font-size:14px; }
+  .info-box.calvino { border-left-color:var(--accent4); }
+  .info-box.warning { border-left-color:var(--accent2); }
+  .info-box.connect{ border-left-color:var(--accent5); background:rgba(181,122,245,0.05); }
+  .info-box .label { font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:2px; text-transform:uppercase; margin-bottom:6px; color:var(--accent3); }
+  .info-box.calvino .label { color:var(--accent4); }
+  .info-box.warning .label { color:var(--accent2); }
+  .info-box.connect .label { color:var(--accent5); }
+
+  .formula { background:#0a0e1a; border:1px solid var(--border); border-radius:10px; padding:16px 22px; font-family:'DM Serif Display',serif; font-size:15px; color:#dce4f5; margin:16px 0; line-height:2; font-style:italic; }
+  .formula .note { color:var(--text-muted); font-size:12px; font-family:'DM Sans',sans-serif; font-style:normal; }
+
+  .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin:20px 0; }
+  .grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin:20px 0; }
+  @media(max-width:700px){ .grid-2,.grid-3{ grid-template-columns:1fr; } .triple-arrow{ display:none; } }
+
+  .card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:20px; }
+  .card h3 { font-family:'DM Serif Display',serif; font-size:16px; font-weight:400; margin-bottom:10px; }
+  .card p { font-size:13.5px; }
+
+  .diagram { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:24px; margin:24px 0; }
+  .diagram-title { font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text-muted); letter-spacing:2px; text-transform:uppercase; margin-bottom:16px; }
+
+  /* timeline */
+  .timeline { position:relative; margin:24px 0; }
+  .timeline::before { content:''; position:absolute; left:18px; top:0; bottom:0; width:2px; background:var(--border); }
+  .tl-item { display:flex; gap:20px; margin-bottom:20px; }
+  .tl-dot { width:36px; height:36px; border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; z-index:1; }
+  .tl-body { padding-top:6px; }
+  .tl-body strong { display:block; font-size:14px; color:var(--text); margin-bottom:2px; }
+  .tl-body span { font-size:13px; color:var(--text-muted); }
+
+  /* ponte materie */
+  .bridge { background:rgba(181,122,245,0.06); border:1px dashed rgba(181,122,245,0.4); border-radius:10px; padding:14px 18px; margin:16px 0; font-size:13.5px; color:var(--text-soft); }
+  .bridge::before { content:'🔗 COLLEGAMENTO → '; font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--accent5); letter-spacing:1px; display:block; margin-bottom:4px; }
+
+  .bridge.topo::before { content:'🔗 → TOPOGRAFIA: '; color:var(--accent); }
+  .bridge.prog::before { content:'🔗 → PROGETTAZIONE: '; color:var(--accent2); }
+  .bridge.both::before { content:'🔗 → TOPOGRAFIA + PROGETTAZIONE: '; color:var(--accent5); }
+
+  table { width:100%; border-collapse:collapse; margin:20px 0; font-size:14px; }
+  th { background:var(--bg3); color:var(--text); padding:10px 14px; text-align:left; font-weight:500; border-bottom:2px solid var(--border); }
+  td { padding:9px 14px; color:var(--text-soft); border-bottom:1px solid var(--border); }
+  tr:hover td { background:rgba(78,203,141,0.03); }
+
+  .exam-tip { background:linear-gradient(135deg,rgba(78,203,141,0.08),rgba(78,203,141,0.03)); border:1px solid rgba(78,203,141,0.3); border-radius:12px; padding:20px 24px; margin:24px 0; }
+  .exam-tip.calvino { background:linear-gradient(135deg,rgba(245,166,35,0.08),rgba(245,166,35,0.03)); border-color:rgba(245,166,35,0.3); }
+  .exam-tip.finale { background:linear-gradient(135deg,rgba(181,122,245,0.08),rgba(181,122,245,0.03)); border-color:rgba(181,122,245,0.3); }
+  .exam-tip .label { font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--accent3); letter-spacing:2px; text-transform:uppercase; margin-bottom:8px; }
+  .exam-tip.calvino .label { color:var(--accent4); }
+  .exam-tip.finale .label { color:var(--accent5); }
+  .exam-tip p { color:var(--text-soft); font-size:14px; margin:0; }
+
+  .opera-tag { display:inline-block; background:rgba(78,203,141,0.12); border:1px solid rgba(78,203,141,0.4); color:var(--accent3); border-radius:6px; padding:2px 10px; font-size:12px; margin-right:6px; margin-bottom:4px; }
+  .opera-tag.c { background:rgba(245,166,35,0.12); border-color:rgba(245,166,35,0.4); color:var(--accent4); }
+
+  .divider { height:1px; background:linear-gradient(90deg,transparent,var(--border),transparent); margin:40px 0; }
+
+  /* quote poetry box */
+  .poetry-box {
+    background: linear-gradient(135deg,#0d1220,#131929);
+    border:1px solid var(--border);
+    border-left:3px solid var(--accent3);
+    border-radius:0 14px 14px 0;
+    padding:28px 32px;
+    margin:24px 0;
+  }
+  .poetry-box .poet-title { font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--accent3); letter-spacing:3px; text-transform:uppercase; margin-bottom:16px; }
+  .poetry-box .verse { font-family:'DM Serif Display',serif; font-size:16px; color:#dce4f5; line-height:2.1; font-style:italic; }
+  .poetry-box .verse em { color:var(--accent3); font-style:italic; }
+  .poetry-box .annotation { font-size:12px; color:var(--text-muted); margin-top:12px; border-top:1px solid var(--border); padding-top:12px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-tag">Italiano — Appunti visivi maturità</div>
+  <h1><span>Primo Levi</span> & <span class="c">Italo Calvino</span></h1>
+  <p class="subtitle">Memoria, territorio e responsabilità — collegati a Topografia e Progettazione</p>
+</header>
+
+<nav class="nav-map">
+  <a class="nav-pill" href="#trinita">🔗 Il filo delle tre materie</a>
+  <a class="nav-pill" href="#levi-vita">01 · Levi — vita</a>
+  <a class="nav-pill" href="#levi-opere">02 · Opere principali</a>
+  <a class="nav-pill" href="#shema">03 · Shemà — analisi</a>
+  <a class="nav-pill" href="#levi-stile">04 · Stile e temi</a>
+  <a class="nav-pill" href="#calvino-vita">05 · Calvino — vita</a>
+  <a class="nav-pill" href="#calvino-opere">06 · Opere</a>
+  <a class="nav-pill" href="#citta">07 · Le Città Invisibili</a>
+  <a class="nav-pill" href="#marcovaldo">08 · Marcovaldo</a>
+  <a class="nav-pill" href="#filo">✓ Discorso d'esame</a>
+</nav>
+
+<main>
+
+  <!-- IL FILO DELLE TRE MATERIE -->
+  <div class="triple-banner" id="trinita">
+    <h2>🧵 Il filo che unisce le tre materie</h2>
+    <p style="color:var(--text-muted);font-size:13.5px;margin-bottom:20px;">
+      Il concetto che le collega tutte e tre è uno solo: la <strong style="color:#fff">responsabilità della precisione</strong>. Il topografo misura con precisione per documentare il territorio. Il progettista disegna con precisione per costruire spazi abitabili e sicuri. Levi scrive con precisione per testimoniare e impedire l'oblio. Calvino osserva con precisione per capire la città moderna. <strong style="color:#fff">La precisione, in tutti e tre i casi, è un atto etico.</strong>
+    </p>
+    <div class="triple-row">
+      <div class="triple-cell" style="background:rgba(91,141,238,0.06);border-color:rgba(91,141,238,0.3);">
+        <div class="tc-label" style="color:var(--accent)">Topografia</div>
+        <div class="tc-title" style="color:var(--accent)">Misurare il territorio</div>
+        <p>Il topografo usa strumenti precisi per rilevare quote, distanze e superfici. Ogni misura deve essere verificabile e trasmissibile. <strong style="color:#fff">Documentare il reale.</strong></p>
+      </div>
+      <div class="triple-arrow">+</div>
+      <div class="triple-cell" style="background:rgba(224,93,132,0.06);border-color:rgba(224,93,132,0.3);">
+        <div class="tc-label" style="color:var(--accent2)">Progettazione</div>
+        <div class="tc-title" style="color:var(--accent2)">Regolare il territorio</div>
+        <p>Il PRG classifica, misura, vincola. Gli indici If e Rc sono regole precise per costruire in modo equo e sostenibile. <strong style="color:#fff">Ordinare il reale.</strong></p>
+      </div>
+      <div class="triple-arrow">+</div>
+      <div class="triple-cell" style="background:rgba(78,203,141,0.06);border-color:rgba(78,203,141,0.3);">
+        <div class="tc-label" style="color:var(--accent3)">Italiano — Levi</div>
+        <div class="tc-title" style="color:var(--accent3)">Testimoniare il reale</div>
+        <p>Levi usa il linguaggio della scienza — asciutto, preciso, verificabile — per raccontare l'orrore. La scrittura è un documento che non si può ignorare. <strong style="color:#fff">Custodire il reale.</strong></p>
+      </div>
+      <div class="triple-arrow">+</div>
+      <div class="triple-cell" style="background:rgba(245,166,35,0.06);border-color:rgba(245,166,35,0.3);">
+        <div class="tc-label" style="color:var(--accent4)">Italiano — Calvino</div>
+        <div class="tc-title" style="color:var(--accent4)">Interpretare il reale</div>
+        <p>Calvino usa la fantasia per osservare la città moderna con distacco critico. Marcovaldo denuncia l'urbanizzazione incontrollata che le leggi urbanistiche cercheranno di correggere. <strong style="color:#fff">Interrogare il reale.</strong></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ 01 LEVI VITA ══════════ -->
+  <section class="section" id="levi-vita">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2>Primo Levi — La vita</h2>
+    </div>
+
+    <p>Primo Levi è una delle figure più importanti della letteratura italiana del Novecento. La sua unicità sta nell'essere contemporaneamente un <strong>chimico di professione</strong> e un <strong>testimone dell'Olocausto</strong>. Questa doppia identità — scienziato e scrittore — permea tutta la sua opera.</p>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot" style="background:rgba(78,203,141,0.15);border:2px solid var(--accent3);color:var(--accent3);">1919</div>
+        <div class="tl-body"><strong>Nasce a Torino</strong> <span>In una famiglia ebrea. Il padre ingegnere gli trasmette la passione per scienza e letteratura.</span></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot" style="background:rgba(78,203,141,0.15);border:2px solid var(--accent3);color:var(--accent3);">1938</div>
+        <div class="tl-body"><strong>Leggi razziali</strong> <span>Riesce a laurearsi in Chimica (con lode) solo perché era già iscritto prima delle leggi.</span></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot" style="background:rgba(245,166,35,0.15);border:2px solid var(--accent4);color:var(--accent4);">1943</div>
+        <div class="tl-body"><strong>Partigiano, catturato, deportato</strong> <span>Si unisce ai partigiani in Val d'Aosta. Catturato, dichiara di essere ebreo. Deportato a Fossoli, poi ad Auschwitz-Monowitz.</span></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot" style="background:rgba(224,93,132,0.15);border:2px solid var(--accent2);color:var(--accent2);">1945</div>
+        <div class="tl-body"><strong>Sopravvive — tre ragioni</strong> <span>① Lavora nel laboratorio chimico (riscaldato). ② Conosce il tedesco. ③ Si ammala di scarlattina: non viene portato nella marcia della morte. Dei 650 ebrei italiani partiti con lui, sopravvivono solo 20.</span></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot" style="background:rgba(78,203,141,0.15);border:2px solid var(--accent3);color:var(--accent3);">1947</div>
+        <div class="tl-body"><strong>Pubblica "Se questo è un uomo"</strong> <span>Einaudi lo rifiuta sei volte. Esce con editore minore. Solo nel 1958 Einaudi lo pubblica → successo mondiale.</span></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot" style="background:rgba(160,176,208,0.15);border:2px solid var(--text-muted);color:var(--text-muted);">1987</div>
+        <div class="tl-body"><strong>Morte a Torino</strong> <span>Trovato ai piedi di una rampa di scale. Suicidio o caduta accidentale — la questione resta aperta. Aveva appena pubblicato "I sommersi e i salvati".</span></div>
+      </div>
+    </div>
+
+    <div class="bridge both">
+      Levi era un chimico — un tecnico con una formazione scientifica rigorosa, vicina a quella del geometra. Quando all'esame parli di rilievo topografico come atto di documentazione precisa del territorio, puoi dire: "Primo Levi mi ha insegnato che la precisione tecnica non è fredda — è la forma più alta di rispetto per la verità."
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ══════════ 02 LEVI OPERE ══════════ -->
+  <section class="section" id="levi-opere">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2>Le opere principali</h2>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3><span class="opera-tag">1947</span> Se questo è un uomo</h3>
+        <p>Opera memorialistica a metà tra romanzo autobiografico e diario. Racconta in prima persona la deportazione, la vita nel lager, l'annientamento sistematico dell'identità umana. Si apre con la poesia <strong>Shemà</strong>. Stile asciutto, essenziale, quasi da relazione scientifica — il chimico che osserva e descrive.</p>
+      </div>
+      <div class="card">
+        <h3><span class="opera-tag">1963</span> La tregua</h3>
+        <p>Il lungo viaggio di ritorno da Auschwitz a Torino: da gennaio a ottobre 1945, attraverso Russia, Ungheria, Austria, Germania. Il "viaggio" è metafora del difficile ritorno alla normalità dopo il trauma. Tono più leggero rispetto al primo libro, quasi picaresco.</p>
+      </div>
+      <div class="card">
+        <h3><span class="opera-tag">1975</span> Il sistema periodico</h3>
+        <p>Ogni racconto è associato a un elemento chimico della tavola periodica. Levi esplora il rapporto tra la chimica come professione e la scrittura come vocazione. È il libro in cui la doppia identità scienziato-scrittore emerge con più forza.</p>
+      </div>
+      <div class="card">
+        <h3><span class="opera-tag">1986</span> I sommersi e i salvati</h3>
+        <p>Il saggio più maturo. Analizza il senso di colpa dei sopravvissuti, la <strong>zona grigia</strong> tra vittime e carnefici, e introduce la distinzione fondamentale: i <em>sommersi</em> (chi rispetta le regole e perisce) e i <em>salvati</em> (chi ricorre a mezzi meschini per sopravvivere).</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ══════════ 03 SHEMÀ ══════════ -->
+  <section class="section" id="shema">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2>Shemà — Testo, analisi e significato</h2>
+    </div>
+
+    <p>La poesia <strong>Shemà</strong> apre "Se questo è un uomo" come un manifesto programmatico. È scritta il 10 gennaio 1946, a quasi un anno esatto dalla liberazione di Auschwitz. Il titolo è la parola ebraica per "Ascolta" — l'inizio della preghiera più importante dell'ebraismo (<em>Shemà Israel</em>).</p>
+
+    <!-- Testo poesia annotato -->
+    <div class="poetry-box">
+      <div class="poet-title">Shemà — Primo Levi, 10 gennaio 1946</div>
+      <div class="verse">
+        Voi che vivete sicuri<br>
+        nelle vostre <em>tiepide</em> case,<br>
+        voi che trovate tornando a sera<br>
+        il cibo caldo e visi amici:<br><br>
+        <em>considerate</em> se questo è un uomo<br>
+        che lavora nel fango<br>
+        che non conosce pace<br>
+        che lotta per mezzo pane<br>
+        che muore per un sì o per un no.<br>
+        <em>Considerate</em> se questa è una donna,<br>
+        senza capelli e senza nome<br>
+        senza più forza di ricordare<br>
+        vuoti gli occhi e freddo il grembo<br>
+        come una rana d'inverno.<br><br>
+        <em>Meditate</em> che questo è stato:<br>
+        vi comando queste parole.<br>
+        <em>Scolpitele</em> nel vostro cuore<br>
+        stando in casa e andando per via,<br>
+        coricandovi alzandovi;<br>
+        <em>ripetetele</em> ai vostri figli.<br><br>
+        O vi si sfaccia la casa,<br>
+        la malattia vi impedisca,<br>
+        i vostri nati torcano il viso da voi.
+      </div>
+      <div class="annotation">
+        Gli imperativi in ordine crescente di intensità: <strong>considerate → meditate → scolpitele → ripetetele</strong>. La struttura richiama la preghiera ebraica: ricordare ogni mattina e ogni sera, trasmettere ai figli.
+      </div>
+    </div>
+
+    <!-- Analisi visiva struttura -->
+    <div class="diagram">
+      <div class="diagram-title">Fig. 1 — Struttura della poesia: tre movimenti</div>
+      <svg viewBox="0 0 700 160" width="100%" style="max-height:160px">
+        <!-- Strofa 1: contrasto -->
+        <rect x="20" y="20" width="195" height="120" rx="8" fill="rgba(91,141,238,0.08)" stroke="rgba(91,141,238,0.3)" stroke-width="1.5"/>
+        <text x="117" y="45" fill="#5b8dee" font-size="12" text-anchor="middle" font-weight="600" font-family="DM Sans,sans-serif">STROFA 1</text>
+        <text x="117" y="62" fill="#7a8ab0" font-size="11" text-anchor="middle" font-family="DM Sans,sans-serif">Contrasto</text>
+        <text x="117" y="82" fill="#a0b0d0" font-size="10" text-anchor="middle" font-family="DM Sans,sans-serif">"Voi che vivete sicuri"</text>
+        <text x="117" y="96" fill="#a0b0d0" font-size="10" text-anchor="middle" font-family="DM Sans,sans-serif">vs vita nel lager</text>
+        <text x="117" y="115" fill="#5b8dee" font-size="10" text-anchor="middle" font-family="JetBrains Mono,monospace">→ considerate (×2)</text>
+
+        <!-- Freccia -->
+        <text x="228" y="88" fill="#2a3048" font-size="22">→</text>
+
+        <!-- Strofa 2: imperativo -->
+        <rect x="253" y="20" width="195" height="120" rx="8" fill="rgba(78,203,141,0.1)" stroke="rgba(78,203,141,0.4)" stroke-width="1.5"/>
+        <text x="350" y="45" fill="#4ecb8d" font-size="12" text-anchor="middle" font-weight="600" font-family="DM Sans,sans-serif">STROFA 2</text>
+        <text x="350" y="62" fill="#7a8ab0" font-size="11" text-anchor="middle" font-family="DM Sans,sans-serif">Imperativo della memoria</text>
+        <text x="350" y="82" fill="#a0b0d0" font-size="10" text-anchor="middle" font-family="DM Sans,sans-serif">"Meditate che questo è stato"</text>
+        <text x="350" y="96" fill="#a0b0d0" font-size="10" text-anchor="middle" font-family="DM Sans,sans-serif">"Scolpitele nel cuore"</text>
+        <text x="350" y="115" fill="#4ecb8d" font-size="10" text-anchor="middle" font-family="JetBrains Mono,monospace">→ meditate, scolpitele, ripetetele</text>
+
+        <!-- Freccia -->
+        <text x="461" y="88" fill="#2a3048" font-size="22">→</text>
+
+        <!-- Strofa 3: maledizione -->
+        <rect x="486" y="20" width="194" height="120" rx="8" fill="rgba(224,93,132,0.1)" stroke="rgba(224,93,132,0.4)" stroke-width="1.5"/>
+        <text x="583" y="45" fill="#e05d84" font-size="12" text-anchor="middle" font-weight="600" font-family="DM Sans,sans-serif">STROFA 3</text>
+        <text x="583" y="62" fill="#7a8ab0" font-size="11" text-anchor="middle" font-family="DM Sans,sans-serif">Maledizione / minaccia</text>
+        <text x="583" y="82" fill="#a0b0d0" font-size="10" text-anchor="middle" font-family="DM Sans,sans-serif">"O vi si sfaccia la casa"</text>
+        <text x="583" y="96" fill="#a0b0d0" font-size="10" text-anchor="middle" font-family="DM Sans,sans-serif">Chi dimentica viene punito</text>
+        <text x="583" y="115" fill="#e05d84" font-size="10" text-anchor="middle" font-family="JetBrains Mono,monospace">→ conseguenza del silenzio</text>
+      </svg>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3 style="color:var(--accent3)">Figure retoriche chiave</h3>
+        <p><strong>Anafora</strong>: ripetizione di "voi che" all'inizio, poi "considerate", poi "senza". Crea un ritmo martellante, come un'accusa che si ripete. <strong>Apostrofe</strong>: Levi si rivolge direttamente al lettore rompendo la quarta parete — non racconta, <em>interpella</em>. <strong>Antitesi</strong>: caldo/freddo, sicuri/in pericolo, casa/lager.</p>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--accent3)">Il titolo: Shemà</h3>
+        <p>Il richiamo alla preghiera ebraica <em>Shemà Israel</em> non è casuale: quella preghiera si recita due volte al giorno (mattina e sera) e si trasmette ai figli. Levi chiede esattamente la stessa cosa — la stessa frequenza, la stessa trasmissione generazionale — ma per la memoria dell'Olocausto.</p>
+      </div>
+    </div>
+
+    <div class="bridge prog">
+      Il verso "O vi si sfaccia la casa" è un collegamento potente: la casa come simbolo di sicurezza e protezione — esattamente ciò che il PRG e il Testo Unico cercano di garantire con le norme costruttive, le distanze, i vincoli di sicurezza. Levi minaccia la distruzione della casa a chi dimentica: la casa è il bene più concreto, quello che il geometra progetta e il topografo misura.
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ══════════ 04 LEVI STILE ══════════ -->
+  <section class="section" id="levi-stile">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2>Stile, temi e concetti fondamentali</h2>
+    </div>
+
+    <div class="grid-3">
+      <div class="card">
+        <h3 style="color:var(--accent3)">Lo stile del chimico</h3>
+        <p>Levi scrive come un chimico: linguaggio <strong>chiaro, asciutto, preciso</strong>. Niente retorica. Niente sentimentalismo. I fatti vengono descritti come campioni in laboratorio — osservati, classificati, documentati. La crudeltà emerge più potente proprio perché non è amplificata.</p>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--accent3)">Sommersi e Salvati</h3>
+        <p>I <strong>sommersi</strong> rispettano le regole, lavorano, mangiano la razione assegnata → muoiono. I <strong>salvati</strong> rubano, collaborano, ricorrono a mezzi meschini → sopravvivono. La zona grigia è lo spazio tra vittime e carnefici dove la morale si fa ambigua.</p>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--accent3)">Il Canto di Ulisse</h3>
+        <p>Levi cerca di ricordare il canto XXVI dell'Inferno di Dante mentre trasporta la zuppa. I versi <em>"Fatti non foste a viver come bruti / ma per seguir virtute e canoscenza"</em> sono un atto di resistenza: recuperare l'umanità attraverso la cultura.</p>
+      </div>
+    </div>
+
+    <div class="diagram">
+      <div class="diagram-title">Fig. 2 — I temi di Levi e i loro collegamenti alle altre materie</div>
+      <svg viewBox="0 0 700 220" width="100%" style="max-height:220px">
+        <!-- Centro: Levi -->
+        <circle cx="350" cy="110" r="55" fill="rgba(78,203,141,0.12)" stroke="rgba(78,203,141,0.5)" stroke-width="2"/>
+        <text x="350" y="105" fill="#4ecb8d" font-size="14" text-anchor="middle" font-weight="600" font-family="DM Serif Display,serif">Primo</text>
+        <text x="350" y="123" fill="#4ecb8d" font-size="14" text-anchor="middle" font-weight="600" font-family="DM Serif Display,serif">Levi</text>
+
+        <!-- Tema 1: Precisione → Topografia -->
+        <circle cx="100" cy="55" r="42" fill="rgba(91,141,238,0.1)" stroke="rgba(91,141,238,0.4)" stroke-width="1.5"/>
+        <text x="100" y="50" fill="#5b8dee" font-size="11" text-anchor="middle" font-family="DM Sans,sans-serif" font-weight="600">Precisione</text>
+        <text x="100" y="65" fill="#7a8ab0" font-size="10" text-anchor="middle" font-family="DM Sans,sans-serif">del linguaggio</text>
+        <line x1="140" y1="70" x2="296" y2="95" stroke="rgba(91,141,238,0.4)" stroke-width="1.5" stroke-dasharray="4 3"/>
+        <text x="200" y="72" fill="#5b8dee" font-size="9" font-family="JetBrains Mono,monospace">→ Topografia</text>
+
+        <!-- Tema 2: Memoria → Documentazione -->
+        <circle cx="100" cy="175" r="42" fill="rgba(245,166,35,0.1)" stroke="rgba(245,166,35,0.4)" stroke-width="1.5"/>
+        <text x="100" y="170" fill="#f5a623" font-size="11" text-anchor="middle" font-family="DM Sans,sans-serif" font-weight="600">Memoria</text>
+        <text x="100" y="185" fill="#7a8ab0" font-size="10" text-anchor="middle" font-family="DM Sans,sans-serif">trasmessa</text>
+        <line x1="140" y1="160" x2="296" y2="125" stroke="rgba(245,166,35,0.4)" stroke-width="1.5" stroke-dasharray="4 3"/>
+        <text x="195" y="155" fill="#f5a623" font-size="9" font-family="JetBrains Mono,monospace">→ Documenti tecnici</text>
+
+        <!-- Tema 3: Casa → Progettazione -->
+        <circle cx="600" cy="55" r="42" fill="rgba(224,93,132,0.1)" stroke="rgba(224,93,132,0.4)" stroke-width="1.5"/>
+        <text x="600" y="50" fill="#e05d84" font-size="11" text-anchor="middle" font-family="DM Sans,sans-serif" font-weight="600">La Casa</text>
+        <text x="600" y="65" fill="#7a8ab0" font-size="10" text-anchor="middle" font-family="DM Sans,sans-serif">come valore</text>
+        <line x1="560" y1="70" x2="404" y2="95" stroke="rgba(224,93,132,0.4)" stroke-width="1.5" stroke-dasharray="4 3"/>
+        <text x="490" y="72" fill="#e05d84" font-size="9" font-family="JetBrains Mono,monospace">→ Progettazione</text>
+
+        <!-- Tema 4: Zona Grigia → Normativa -->
+        <circle cx="600" cy="175" r="42" fill="rgba(181,122,245,0.1)" stroke="rgba(181,122,245,0.4)" stroke-width="1.5"/>
+        <text x="600" y="170" fill="#b07af5" font-size="11" text-anchor="middle" font-family="DM Sans,sans-serif" font-weight="600">Zona Grigia</text>
+        <text x="600" y="185" fill="#7a8ab0" font-size="10" text-anchor="middle" font-family="DM Sans,sans-serif">morale ambigua</text>
+        <line x1="560" y1="160" x2="404" y2="125" stroke="rgba(181,122,245,0.4)" stroke-width="1.5" stroke-dasharray="4 3"/>
+        <text x="490" y="155" fill="#b07af5" font-size="9" font-family="JetBrains Mono,monospace">→ T.U./Sanatorie</text>
+      </svg>
+    </div>
+
+    <div class="exam-tip">
+      <div class="label">🎓 Frase-chiave da usare all'esame</div>
+      <p>"Levi scrive come un chimico: osserva, classifica, documenta. Non amplifica l'orrore — lo misura. È la stessa etica che guida il topografo quando rileva un territorio o il progettista quando calcola un indice urbanistico: la realtà non si può ignorare, si deve documentare con precisione perché la memoria — tecnica o storica — è l'unica difesa contro la ripetizione degli errori."</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ══════════ 05 CALVINO VITA ══════════ -->
+  <section class="section" id="calvino-vita">
+    <div class="section-header">
+      <span class="section-num c">05</span>
+      <h2>Italo Calvino — La vita</h2>
+    </div>
+
+    <p>Calvino nasce nel 1923 a Cuba da genitori italiani (padre agronomo, madre botanica). Cresce a <strong>Sanremo</strong>, riceve un'educazione laica e scientifica. Si iscrive ad Agraria ma lo attira la letteratura. Come Levi, è un uomo di scienze che sceglie le parole — un dettaglio importante da sottolineare all'esame.</p>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3 style="color:var(--accent4)">Formazione e Resistenza</h3>
+        <p>Nel 1943 lascia gli studi e si unisce alle <strong>Brigate Garibaldi</strong> in Liguria. Finita la guerra si laurea in Lettere nel 1947, inizia la collaborazione con Einaudi e conosce Cesare Pavese. Si iscrive al PCI ma lo lascia nel 1956 dopo i fatti d'Ungheria.</p>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--accent4)">Parigi e la tecnica combinatoria</h3>
+        <p>Dal 1967 vive a Parigi, entra nel gruppo <strong>Oulipo</strong> che sperimenta la <em>letteratura combinatoria</em>: gli elementi narrativi vengono mescolati e ricombinati matematicamente per generare storie sempre nuove. È una tecnica che deriva dalla matematica — altro ponte con le scienze.</p>
+      </div>
+    </div>
+
+    <p>Muore a Siena nel 1985, mentre prepara le <strong>Lezioni americane</strong> per Harvard — sei categorie per la letteratura del futuro: <em>leggerezza, rapidità, esattezza, visibilità, molteplicità, coerenza</em>. Quest'ultima categoria non venne scritta. L'<strong>esattezza</strong> in particolare è un concetto che risuona direttamente con la topografia.</p>
+
+    <div class="bridge topo">
+      Calvino individua l'"esattezza" come valore fondamentale della letteratura: un linguaggio preciso, un'immagine chiara, un piano ben definito. È la stessa qualità che in topografia si cerca nella misura e in progettazione nella norma tecnica. Calvino non è distante dal mondo tecnico — ne condivide i valori profondi.
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ══════════ 06 CALVINO OPERE ══════════ -->
+  <section class="section" id="calvino-opere">
+    <div class="section-header">
+      <span class="section-num c">06</span>
+      <h2>Le opere — tre fasi</h2>
+    </div>
+
+    <div class="diagram">
+      <div class="diagram-title">Fig. 3 — Le tre fasi della produzione di Calvino</div>
+      <svg viewBox="0 0 700 130" width="100%" style="max-height:130px">
+        <!-- Fase 1 -->
+        <rect x="20" y="20" width="205" height="90" rx="8" fill="rgba(245,166,35,0.08)" stroke="rgba(245,166,35,0.4)" stroke-width="1.5"/>
+        <text x="122" y="44" fill="#f5a623" font-size="12" text-anchor="middle" font-weight="600" font-family="DM Sans,sans-serif">FASE 1 — anni '40-'50</text>
+        <text x="122" y="62" fill="#a0b0d0" font-size="11" text-anchor="middle" font-family="DM Sans,sans-serif">Neorealismo + fiabesco</text>
+        <text x="122" y="78" fill="#7a8ab0" font-size="10" text-anchor="middle" font-family="DM Sans,sans-serif">Sentiero dei nidi di ragno</text>
+        <text x="122" y="93" fill="#7a8ab0" font-size="10" text-anchor="middle" font-family="DM Sans,sans-serif">I nostri antenati · Marcovaldo</text>
+
+        <!-- Fase 2 -->
+        <rect x="247" y="20" width="205" height="90" rx="8" fill="rgba(78,203,141,0.08)" stroke="rgba(78,203,141,0.4)" stroke-width="1.5"/>
+        <text x="349" y="44" fill="#4ecb8d" font-size="12" text-anchor="middle" font-weight="600" font-family="DM Sans,sans-serif">FASE 2 — anni '60-'70</text>
+        <text x="349" y="62" fill="#a0b0d0" font-size="11" text-anchor="middle" font-family="DM Sans,sans-serif">Fantascienza + combinatoria</text>
+        <text x="349" y="78" fill="#7a8ab0" font-size="10" text-anchor="middle" font-family="DM Sans,sans-serif">Cosmicomiche · Le città invisibili</text>
+        <text x="349" y="93" fill="#7a8ab0" font-size="10" text-anchor="middle" font-family="DM Sans,sans-serif">Se una notte d'inverno...</text>
+
+        <!-- Fase 3 -->
+        <rect x="474" y="20" width="205" height="90" rx="8" fill="rgba(181,122,245,0.08)" stroke="rgba(181,122,245,0.4)" stroke-width="1.5"/>
+        <text x="576" y="44" fill="#b07af5" font-size="12" text-anchor="middle" font-weight="600" font-family="DM Sans,sans-serif">FASE 3 — anni '80</text>
+        <text x="576" y="62" fill="#a0b0d0" font-size="11" text-anchor="middle" font-family="DM Sans,sans-serif">Saggi + riflessione</text>
+        <text x="576" y="78" fill="#7a8ab0" font-size="10" text-anchor="middle" font-family="DM Sans,sans-serif">Palomar</text>
+        <text x="576" y="93" fill="#7a8ab0" font-size="10" text-anchor="middle" font-family="DM Sans,sans-serif">Lezioni americane (postume)</text>
+      </svg>
+    </div>
+
+    <p>La <strong>trilogia I nostri antenati</strong> merita una menzione perché i tre protagonisti (il Visconte dimezzato, il Barone rampante, il Cavaliere inesistente) rappresentano tre tipi di alienazione dall'uomo intero: chi è spezzato a metà, chi vive fuori dal mondo, chi esiste solo come forma vuota. Sono metafore della società contemporanea, non racconti per ragazzi.</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ══════════ 07 CITTÀ INVISIBILI ══════════ -->
+  <section class="section" id="citta">
+    <div class="section-header">
+      <span class="section-num c">07</span>
+      <h2>Le Città Invisibili — il testo più importante per i tuoi collegamenti</h2>
+    </div>
+
+    <p>Pubblicato nel 1972, è l'opera in cui i collegamenti con topografia e progettazione sono più diretti e potenti. Marco Polo descrive a Kublai Kan <strong>55 città immaginarie</strong>, tutte con nomi femminili, organizzate in <strong>11 categorie tematiche</strong> che si ripetono ciclicamente.</p>
+
+    <div class="diagram">
+      <div class="diagram-title">Fig. 4 — Le Città Invisibili e il parallelo con la pianificazione urbanistica</div>
+      <svg viewBox="0 0 700 210" width="100%" style="max-height:210px">
+        <!-- Calvino -->
+        <rect x="20" y="20" width="300" height="170" rx="10" fill="rgba(245,166,35,0.07)" stroke="rgba(245,166,35,0.4)" stroke-width="1.5"/>
+        <text x="170" y="44" fill="#f5a623" font-size="13" text-anchor="middle" font-weight="600" font-family="DM Serif Display,serif">Le Città Invisibili</text>
+        <text x="170" y="62" fill="#7a8ab0" font-size="11" text-anchor="middle" font-family="DM Sans,sans-serif">Marco Polo descrive 55 città a Kublai Kan</text>
+        <!-- Categorie tematiche -->
+        <text x="50" y="82" fill="#f5a623" font-size="10" font-family="JetBrains Mono,monospace">• città e la memoria</text>
+        <text x="50" y="97" fill="#f5a623" font-size="10" font-family="JetBrains Mono,monospace">• città e il desiderio</text>
+        <text x="50" y="112" fill="#f5a623" font-size="10" font-family="JetBrains Mono,monospace">• città e i segni</text>
+        <text x="50" y="127" fill="#f5a623" font-size="10" font-family="JetBrains Mono,monospace">• città e gli scambi</text>
+        <text x="50" y="142" fill="#f5a623" font-size="10" font-family="JetBrains Mono,monospace">• città continue</text>
+        <text x="185" y="82" fill="#f5a623" font-size="10" font-family="JetBrains Mono,monospace">• città nascoste</text>
+        <text x="185" y="97" fill="#f5a623" font-size="10" font-family="JetBrains Mono,monospace">• città e il cielo</text>
+        <text x="185" y="112" fill="#f5a623" font-size="10" font-family="JetBrains Mono,monospace">• città sottili</text>
+        <text x="185" y="127" fill="#f5a623" font-size="10" font-family="JetBrains Mono,monospace">• città e i morti</text>
+        <text x="185" y="142" fill="#f5a623" font-size="10" font-family="JetBrains Mono,monospace">• città e il nome</text>
+        <text x="170" y="178" fill="#a0b0d0" font-size="10" text-anchor="middle" font-family="DM Sans,sans-serif">Metafora della civiltà contemporanea</text>
+
+        <!-- Freccia e parallelo -->
+        <text x="340" y="115" fill="#2a3048" font-size="28" text-anchor="middle">↔</text>
+        <text x="340" y="135" fill="#7a8ab0" font-size="10" text-anchor="middle" font-family="JetBrains Mono,monospace">parallelo</text>
+
+        <!-- PRG -->
+        <rect x="380" y="20" width="300" height="170" rx="10" fill="rgba(224,93,132,0.07)" stroke="rgba(224,93,132,0.4)" stroke-width="1.5"/>
+        <text x="530" y="44" fill="#e05d84" font-size="13" text-anchor="middle" font-weight="600" font-family="DM Serif Display,serif">PRG / Zonizzazione</text>
+        <text x="530" y="62" fill="#7a8ab0" font-size="11" text-anchor="middle" font-family="DM Sans,sans-serif">Il PRG classifica il territorio in zone</text>
+        <text x="410" y="82" fill="#e05d84" font-size="10" font-family="JetBrains Mono,monospace">• Zona A — memoria storica</text>
+        <text x="410" y="97" fill="#e05d84" font-size="10" font-family="JetBrains Mono,monospace">• Zona B — tessuto esistente</text>
+        <text x="410" y="112" fill="#e05d84" font-size="10" font-family="JetBrains Mono,monospace">• Zona C — espansione</text>
+        <text x="410" y="127" fill="#e05d84" font-size="10" font-family="JetBrains Mono,monospace">• Zona D — produzione/scambio</text>
+        <text x="410" y="142" fill="#e05d84" font-size="10" font-family="JetBrains Mono,monospace">• Zona F — servizi, civiltà</text>
+        <text x="530" y="178" fill="#a0b0d0" font-size="10" text-anchor="middle" font-family="DM Sans,sans-serif">Strumento di governo della città reale</text>
+      </svg>
+    </div>
+
+    <p>Il parallelo è questo: Calvino <strong>immagina</strong> le città classificandole per categorie tematiche; il <strong>PRG regola</strong> le città reali classificando il territorio in zone funzionali. Entrambi rispondo alla stessa domanda: <em>come dovrebbe essere organizzata la città?</em> Calvino lo fa con la fantasia, il pianificatore con la norma giuridica.</p>
+
+    <p>La città di <strong>Leonia</strong>, sommersa dai rifiuti perché produce continuamente oggetti nuovi che sostituiscono i vecchi, è una critica al consumismo che risuona con il tema dell'edilizia sostenibile: anche gli edifici non possono essere costruiti e demoliti senza tener conto del ciclo di vita dei materiali.</p>
+
+    <div class="bridge prog">
+      "Le Città Invisibili è il romanzo in cui Calvino fa quello che il PRG cerca di fare nella realtà: dividere lo spazio in categorie, assegnare funzioni diverse a luoghi diversi, immaginare come dovrebbe essere la città ideale. La differenza è che Calvino usa la fantasia, il Piano Regolatore usa la norma — ma entrambi nascono dalla stessa domanda: come si governa una città?"
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ══════════ 08 MARCOVALDO ══════════ -->
+  <section class="section" id="marcovaldo">
+    <div class="section-header">
+      <span class="section-num c">08</span>
+      <h2>Marcovaldo — La critica all'urbanizzazione</h2>
+    </div>
+
+    <p><strong>Marcovaldo</strong> (1963) è una raccolta di 20 novelle con protagonista un uomo semplice di origine contadina che vive in una città industriale anonima (che ricorda Torino). Lavora per una ditta di cui non si sa cosa produce, abita con la famiglia in un piccolo appartamento sovraffollato.</p>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3 style="color:var(--accent4)">Il tema centrale</h3>
+        <p>Marcovaldo cerca frammenti di natura nella città industriale — funghi ai piedi di un lampione, una lepre, la neve. Ma la città li corrompe tutti: i funghi sono velenosi (assorbono l'inquinamento), la neve nasconde i rifiuti, la natura autentica è inaccessibile all'operaio urbano. È una <strong>critica all'urbanizzazione selvaggia degli anni '60</strong>.</p>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--accent4)">Genere e stile</h3>
+        <p>Comico-fiabesco in superficie, <strong>critica sociale</strong> in profondità. Lo stesso meccanismo del Barone rampante: una storia che si può leggere come favola per bambini o come riflessione amara sulla modernità. Calvino usa la leggerezza — una delle sue Lezioni americane — per dire cose pesanti.</p>
+      </div>
+    </div>
+
+    <!-- Timeline storica parallela -->
+    <div class="diagram">
+      <div class="diagram-title">Fig. 5 — Marcovaldo e le leggi urbanistiche: lo stesso problema visto da angolature diverse</div>
+      <svg viewBox="0 0 700 160" width="100%" style="max-height:160px">
+        <!-- Linea del tempo -->
+        <line x1="40" y1="80" x2="660" y2="80" stroke="var(--border)" stroke-width="2"/>
+
+        <!-- 1963 Marcovaldo -->
+        <circle cx="120" cy="80" r="8" fill="var(--accent4)"/>
+        <line x1="120" y1="72" x2="120" y2="25" stroke="var(--accent4)" stroke-width="1.5"/>
+        <rect x="40" y="10" width="160" height="30" rx="6" fill="rgba(245,166,35,0.12)" stroke="rgba(245,166,35,0.4)" stroke-width="1"/>
+        <text x="120" y="30" fill="#f5a623" font-size="11" text-anchor="middle" font-family="DM Sans,sans-serif" font-weight="600">1963 — Marcovaldo</text>
+        <text x="120" y="105" fill="#7a8ab0" font-size="10" text-anchor="middle" font-family="DM Sans,sans-serif">Calvino denuncia</text>
+        <text x="120" y="118" fill="#7a8ab0" font-size="10" text-anchor="middle" font-family="DM Sans,sans-serif">l'urbanizzazione</text>
+
+        <!-- 1967 Legge Ponte -->
+        <circle cx="290" cy="80" r="8" fill="var(--accent2)"/>
+        <line x1="290" y1="88" x2="290" y2="135" stroke="var(--accent2)" stroke-width="1.5"/>
+        <rect x="210" y="120" width="160" height="30" rx="6" fill="rgba(224,93,132,0.12)" stroke="rgba(224,93,132,0.4)" stroke-width="1"/>
+        <text x="290" y="140" fill="#e05d84" font-size="11" text-anchor="middle" font-family="DM Sans,sans-serif" font-weight="600">1967 — Legge Ponte</text>
+        <text x="290" y="55" fill="#7a8ab0" font-size="10" text-anchor="middle" font-family="DM Sans,sans-serif">lo Stato risponde:</text>
+        <text x="290" y="68" fill="#7a8ab0" font-size="10" text-anchor="middle" font-family="DM Sans,sans-serif">PRG obbligatorio</text>
+
+        <!-- 1977 Bucalossi -->
+        <circle cx="460" cy="80" r="8" fill="var(--accent)"/>
+        <line x1="460" y1="72" x2="460" y2="25" stroke="var(--accent)" stroke-width="1.5"/>
+        <rect x="380" y="10" width="160" height="30" rx="6" fill="rgba(91,141,238,0.12)" stroke="rgba(91,141,238,0.4)" stroke-width="1"/>
+        <text x="460" y="30" fill="#5b8dee" font-size="11" text-anchor="middle" font-family="DM Sans,sans-serif" font-weight="600">1977 — Bucalossi</text>
+        <text x="460" y="105" fill="#7a8ab0" font-size="10" text-anchor="middle" font-family="DM Sans,sans-serif">diritto a costruire</text>
+        <text x="460" y="118" fill="#7a8ab0" font-size="10" text-anchor="middle" font-family="DM Sans,sans-serif">≠ proprietà del suolo</text>
+
+        <!-- 2001 TU -->
+        <circle cx="620" cy="80" r="8" fill="var(--accent5)"/>
+        <line x1="620" y1="88" x2="620" y2="135" stroke="var(--accent5)" stroke-width="1.5"/>
+        <rect x="545" y="120" width="130" height="30" rx="6" fill="rgba(181,122,245,0.12)" stroke="rgba(181,122,245,0.4)" stroke-width="1"/>
+        <text x="610" y="140" fill="#b07af5" font-size="11" text-anchor="middle" font-family="DM Sans,sans-serif" font-weight="600">2001 — T.U. 380</text>
+        <text x="620" y="55" fill="#7a8ab0" font-size="10" text-anchor="middle" font-family="DM Sans,sans-serif">codifica tutto</text>
+        <text x="620" y="68" fill="#7a8ab0" font-size="10" text-anchor="middle" font-family="DM Sans,sans-serif">in un testo unico</text>
+      </svg>
+    </div>
+
+    <div class="exam-tip calvino">
+      <div class="label">🎓 Come usare Marcovaldo all'esame</div>
+      <p>"Marcovaldo è pubblicato nel 1963, quattro anni prima della Legge Ponte e quattordici anni prima della Legge Bucalossi. Calvino denuncia in letteratura lo stesso problema che il legislatore cercherà di risolvere con le norme urbanistiche: una città che cresce senza regole, che sacrifica la natura sull'altare della produzione industriale, che allontana l'uomo dalla sua dimensione umana. La letteratura vede il problema prima che la legge trovi il modo di affrontarlo."</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ══════════ FILO CONDUTTORE FINALE ══════════ -->
+  <section class="section" id="filo">
+    <div class="section-header">
+      <span class="section-num">✓</span>
+      <h2>Il Discorso d'Esame — Come unire tutto in 15 minuti</h2>
+    </div>
+
+    <div class="exam-tip finale">
+      <div class="label">🎓 La frase di apertura ideale</div>
+      <p>"Nel mio percorso di studi ho imparato che misurare il territorio con precisione è un atto di responsabilità — verso chi ci vive e verso chi ci costruirà sopra. Primo Levi mi ha insegnato che anche la scrittura può essere un atto di responsabilità della stessa natura: precisa, necessaria, impossibile da omettere. Calvino mi ha insegnato che la città non è solo un insieme di edifici regolati da indici urbanistici — è uno spazio umano che può esaltare o mortificare chi lo abita."</p>
+    </div>
+
+    <table>
+      <tr><th>Argomento</th><th>Tema centrale</th><th>Collegamento con Topografia</th><th>Collegamento con Progettazione</th></tr>
+      <tr>
+        <td><strong style="color:var(--accent3)">Shemà</strong></td>
+        <td>Imperativo della memoria. Documentare per non ripetere.</td>
+        <td>Il rilievo topografico è documentazione precisa del reale — come la testimonianza di Levi.</td>
+        <td>"La casa" è il simbolo della poesia: ciò che Levi rischia di perdere è ciò che il progettista costruisce e il PRG protegge.</td>
+      </tr>
+      <tr>
+        <td><strong style="color:var(--accent3)">Se questo è un uomo</strong></td>
+        <td>Stile asciutto del chimico. Zona grigia. Disumanizzazione.</td>
+        <td>Il chimico-scrittore condivide l'etica del tecnico: precisione come rispetto della verità.</td>
+        <td>Il Testo Unico codifica diritti e doveri edilizi; Levi codifica la memoria — entrambi contro l'oblio e l'arbitrio.</td>
+      </tr>
+      <tr>
+        <td><strong style="color:var(--accent4)">Marcovaldo</strong></td>
+        <td>Critica all'urbanizzazione. Natura vs città industriale.</td>
+        <td>L'Ip (Indice di Permeabilità) garantisce spazi verdi — risposta normativa al problema che Marcovaldo vive.</td>
+        <td>Pubblicato 4 anni prima della Legge Ponte: la letteratura denuncia il problema che le leggi urbanistiche cercheranno di risolvere.</td>
+      </tr>
+      <tr>
+        <td><strong style="color:var(--accent4)">Città Invisibili</strong></td>
+        <td>55 città-metafora organizzate in categorie. La città come sistema.</td>
+        <td>Le 11 categorie tematiche di Calvino ↔ le Zone Territoriali Omogenee del PRG: stessa logica classificatoria.</td>
+        <td>Marco Polo che descrive le città a Kublai Kan ↔ il tecnico urbanista che presenta il PRG al Sindaco.</td>
+      </tr>
+      <tr>
+        <td><strong style="color:var(--accent4)">Lezioni americane</strong></td>
+        <td>Esattezza come valore letterario fondamentale.</td>
+        <td>L'esattezza della misura topografica = l'esattezza della parola letteraria secondo Calvino.</td>
+        <td>Le NTA (Norme Tecniche di Attuazione) cercano la stessa esattezza: ogni parola deve avere un solo significato.</td>
+      </tr>
+    </table>
+
+    <!-- Schema 15 minuti -->
+    <div class="diagram" style="margin-top:32px;">
+      <div class="diagram-title">Schema del discorso in 15 minuti — distribuzione del tempo</div>
+      <svg viewBox="0 0 700 80" width="100%" style="max-height:80px">
+        <!-- Barra totale -->
+        <rect x="20" y="20" width="660" height="40" rx="6" fill="var(--bg3)" stroke="var(--border)" stroke-width="1"/>
+        <!-- Apertura 1 min -->
+        <rect x="20" y="20" width="44" height="40" rx="6" fill="rgba(181,122,245,0.4)" stroke="none"/>
+        <text x="42" y="43" fill="#fff" font-size="9" text-anchor="middle" font-family="JetBrains Mono,monospace">1'</text>
+        <text x="42" y="70" fill="#b07af5" font-size="9" text-anchor="middle" font-family="DM Sans,sans-serif">apertura</text>
+        <!-- Levi 5 min -->
+        <rect x="64" y="20" width="220" height="40" fill="rgba(78,203,141,0.3)" stroke="none"/>
+        <text x="174" y="43" fill="#fff" font-size="11" text-anchor="middle" font-family="DM Sans,sans-serif" font-weight="600">Primo Levi — 5 min</text>
+        <text x="174" y="70" fill="#4ecb8d" font-size="9" text-anchor="middle" font-family="DM Sans,sans-serif">vita · Se questo è un uomo · Shemà · stile</text>
+        <!-- Calvino 5 min -->
+        <rect x="284" y="20" width="220" height="40" fill="rgba(245,166,35,0.3)" stroke="none"/>
+        <text x="394" y="43" fill="#fff" font-size="11" text-anchor="middle" font-family="DM Sans,sans-serif" font-weight="600">Calvino — 5 min</text>
+        <text x="394" y="70" fill="#f5a623" font-size="9" text-anchor="middle" font-family="DM Sans,sans-serif">vita · Marcovaldo · Città invisibili · Lezioni</text>
+        <!-- Collegamenti 3 min -->
+        <rect x="504" y="20" width="132" height="40" fill="rgba(181,122,245,0.3)" stroke="none"/>
+        <text x="570" y="43" fill="#fff" font-size="11" text-anchor="middle" font-family="DM Sans,sans-serif" font-weight="600">Ponti — 3 min</text>
+        <text x="570" y="70" fill="#b07af5" font-size="9" text-anchor="middle" font-family="DM Sans,sans-serif">topo + prog + ital</text>
+        <!-- Chiusura 1 min -->
+        <rect x="636" y="20" width="44" height="40" rx="6" fill="rgba(181,122,245,0.4)" stroke="none"/>
+        <text x="658" y="43" fill="#fff" font-size="9" text-anchor="middle" font-family="JetBrains Mono,monospace">1'</text>
+        <text x="658" y="70" fill="#b07af5" font-size="9" text-anchor="middle" font-family="DM Sans,sans-serif">chiusura</text>
+      </svg>
+    </div>
+
+    <div class="info-box connect" style="margin-top:24px;">
+      <div class="label">🧵 La frase di chiusura perfetta</div>
+      Il topografo misura il territorio per documentarlo. Il progettista lo regola con norme precise. Levi scrive per documentare l'indicibile e impedire che si ripeta. Calvino osserva la città con occhio scientifico per denunciare ciò che va storto. Tre professioni diverse — il tecnico, il giurista, lo scrittore — che condividono la stessa etica: la realtà va guardata con precisione, documentata con onestà, trasmessa con responsabilità.
+    </div>
+  </section>
+
+</main>
+
+<footer style="text-align:center;padding:32px;color:var(--text-muted);font-size:12px;border-top:1px solid var(--border);">
+  Appunti visivi di Italiano — Maturità 2026 &nbsp;·&nbsp; Primo Levi · Italo Calvino &nbsp;·&nbsp; Buono studio! 🎓
+</footer>
+
+</body>
+</html>

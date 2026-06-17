@@ -1,0 +1,28 @@
+{
+  "nodes": [
+    {"id":"hdr","type":"text","text":"# 📖 Italiano & Umanistiche — Maturità CAT 2026\nLetteratura e collegamenti **pluridisciplinari** con il Capolavoro (Progettazione · Topografia · Inglese · Ed. Civica)","x":-720,"y":-380,"width":1340,"height":100,"color":"3"},
+
+    {"id":"gIta","type":"group","label":"📚 LETTERATURA","x":-720,"y":-260,"width":340,"height":600,"color":"3"},
+    {"id":"it1","type":"file","file":"01_Projects/Maturita CAT 2026/Italiano e Umanistiche/Antigone - Sofocle.md","x":-700,"y":-230,"width":300,"height":90},
+    {"id":"it2","type":"file","file":"01_Projects/Maturita CAT 2026/Italiano e Umanistiche/Positivismo Naturalismo e Verismo.md","x":-700,"y":-120,"width":300,"height":90},
+    {"id":"it3","type":"file","file":"01_Projects/Maturita CAT 2026/Italiano e Umanistiche/Primo Levi - Testimonianza Scienza e Umanità.md","x":-700,"y":-10,"width":300,"height":90},
+    {"id":"it4","type":"file","file":"01_Projects/Maturita CAT 2026/Italiano e Umanistiche/Macbeth 2016 - Recensione.md","x":-700,"y":100,"width":300,"height":90},
+    {"id":"it5","type":"file","file":"01_Projects/Maturita CAT 2026/Italiano e Umanistiche/Ex Lanificio Borbonico - Riqualificazione Energetica.md","x":-700,"y":210,"width":300,"height":90},
+
+    {"id":"gColl","type":"group","label":"🔗 COLLEGAMENTI AL CAPOLAVORO","x":260,"y":-260,"width":360,"height":490,"color":"6"},
+    {"id":"x1","type":"file","file":"01_Projects/Maturita CAT 2026/Capolavoro/Albergo - I 5 Punti di Le Corbusier.md","x":280,"y":-230,"width":320,"height":90},
+    {"id":"x2","type":"file","file":"01_Projects/Maturita CAT 2026/Capolavoro/Collegamenti Inglese ed Educazione Civica.md","x":280,"y":-120,"width":320,"height":90},
+    {"id":"x3","type":"file","file":"01_Projects/Maturita CAT 2026/Capolavoro/Quick Reference - Formule e Indici.md","x":280,"y":-10,"width":320,"height":90},
+    {"id":"x4","type":"file","file":"01_Projects/Maturita CAT 2026/Capolavoro/Albergo - Tetto Caldo.md","x":280,"y":100,"width":320,"height":90}
+  ],
+  "edges": [
+    {"id":"e1","fromNode":"hdr","fromSide":"bottom","toNode":"it1","toSide":"top","color":"3"},
+    {"id":"e2","fromNode":"it2","fromSide":"right","toNode":"it3","toSide":"left","label":"scienza & verità","color":"3"},
+    {"id":"e3","fromNode":"it3","fromSide":"right","toNode":"x1","toSide":"left","label":"dignità dello spazio","color":"6"},
+    {"id":"e4","fromNode":"it3","fromSide":"right","toNode":"x2","toSide":"left","label":"Memoria · Art. 3 Cost.","color":"6"},
+    {"id":"e5","fromNode":"it3","fromSide":"right","toNode":"x3","toSide":"left","label":"precisione = testimonianza","color":"6"},
+    {"id":"e6","fromNode":"it1","fromSide":"right","toNode":"x2","toSide":"left","label":"legge vs coscienza","color":"6"},
+    {"id":"e7","fromNode":"it4","fromSide":"right","toNode":"x2","toSide":"left","label":"Shakespeare / English","color":"6"},
+    {"id":"e8","fromNode":"it5","fromSide":"right","toNode":"x4","toSide":"left","label":"efficienza / tetto","color":"6"}
+  ]
+}

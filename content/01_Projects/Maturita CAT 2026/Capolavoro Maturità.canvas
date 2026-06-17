@@ -1,0 +1,53 @@
+{
+  "nodes": [
+    {"id":"thesis","type":"text","text":"# 🎓 Capolavoro Maturità CAT 2026\n**«Una nuova strada e un nuovo albergo a Montecorice (SA)»**\nTopografia *misura* il territorio · Progettazione *decide come costruirci* → **un unico processo**","x":-1240,"y":-420,"width":1690,"height":110,"color":"6"},
+
+    {"id":"gTopo","type":"group","label":"🗺️ TOPOGRAFIA","x":-1260,"y":-280,"width":300,"height":620,"color":"5"},
+    {"id":"topo1","type":"file","file":"01_Projects/Maturita CAT 2026/Capolavoro/Quote e Geoide.md","x":-1245,"y":-250,"width":270,"height":90},
+    {"id":"topo2","type":"file","file":"01_Projects/Maturita CAT 2026/Capolavoro/Dislivelli e Livellazione.md","x":-1245,"y":-140,"width":270,"height":90},
+    {"id":"topo3","type":"file","file":"01_Projects/Maturita CAT 2026/Capolavoro/Pendenze.md","x":-1245,"y":-30,"width":270,"height":90},
+    {"id":"topo4","type":"file","file":"01_Projects/Maturita CAT 2026/Capolavoro/Piano Quotato e Curve di Livello.md","x":-1245,"y":80,"width":270,"height":90},
+    {"id":"topo5","type":"file","file":"01_Projects/Maturita CAT 2026/Capolavoro/Trimensura.md","x":-1245,"y":190,"width":270,"height":90},
+
+    {"id":"gStrada","type":"group","label":"🛣️ CAPOLAVORO STRADA","x":-900,"y":-280,"width":300,"height":620,"color":"4"},
+    {"id":"str1","type":"file","file":"01_Projects/Maturita CAT 2026/Capolavoro/Strada - Inquadramento e Base Cartografica.md","x":-885,"y":-250,"width":270,"height":90},
+    {"id":"str2","type":"file","file":"01_Projects/Maturita CAT 2026/Capolavoro/Strada - Tracciato e Tracciolino.md","x":-885,"y":-140,"width":270,"height":90},
+    {"id":"str3","type":"file","file":"01_Projects/Maturita CAT 2026/Capolavoro/Strada - Profilo Longitudinale e Livellette.md","x":-885,"y":-30,"width":270,"height":90},
+    {"id":"str4","type":"file","file":"01_Projects/Maturita CAT 2026/Capolavoro/Strada - Picchettamento.md","x":-885,"y":80,"width":270,"height":90},
+    {"id":"str5","type":"file","file":"01_Projects/Maturita CAT 2026/Capolavoro/Strada - Sezioni Trasversali e Volumi.md","x":-885,"y":190,"width":270,"height":90},
+
+    {"id":"gUrb","type":"group","label":"🏛️ URBANISTICA","x":-540,"y":-280,"width":300,"height":620,"color":"3"},
+    {"id":"urb1","type":"file","file":"01_Projects/Maturita CAT 2026/Capolavoro/Gerarchia dei Piani Urbanistici.md","x":-525,"y":-250,"width":270,"height":90},
+    {"id":"urb2","type":"file","file":"01_Projects/Maturita CAT 2026/Capolavoro/PRG e PUC.md","x":-525,"y":-140,"width":270,"height":90},
+    {"id":"urb3","type":"file","file":"01_Projects/Maturita CAT 2026/Capolavoro/Zonizzazione e Standard.md","x":-525,"y":-30,"width":270,"height":90},
+    {"id":"urb4","type":"file","file":"01_Projects/Maturita CAT 2026/Capolavoro/Indici Urbanistici e Superfici del Lotto.md","x":-525,"y":80,"width":270,"height":90},
+    {"id":"urb5","type":"file","file":"01_Projects/Maturita CAT 2026/Capolavoro/Testo Unico 380-01 e Titoli Abilitativi.md","x":-525,"y":190,"width":270,"height":90},
+
+    {"id":"gAlb","type":"group","label":"🏨 CAPOLAVORO ALBERGO","x":-180,"y":-280,"width":300,"height":510,"color":"1"},
+    {"id":"alb1","type":"file","file":"01_Projects/Maturita CAT 2026/Capolavoro/Albergo - I 5 Punti di Le Corbusier.md","x":-165,"y":-250,"width":270,"height":90},
+    {"id":"alb2","type":"file","file":"01_Projects/Maturita CAT 2026/Capolavoro/Albergo - Distribuzione e Normativa.md","x":-165,"y":-140,"width":270,"height":90},
+    {"id":"alb3","type":"file","file":"01_Projects/Maturita CAT 2026/Capolavoro/Albergo - Tetto Caldo.md","x":-165,"y":-30,"width":270,"height":90},
+    {"id":"alb4","type":"file","file":"01_Projects/Maturita CAT 2026/Capolavoro/Albergo - Urbanistica PUC e Titolo Abilitativo.md","x":-165,"y":80,"width":270,"height":90},
+
+    {"id":"gColl","type":"group","label":"🔗 COLLEGAMENTI & RIPASSO","x":180,"y":-280,"width":300,"height":730,"color":"6"},
+    {"id":"col1","type":"file","file":"01_Projects/Maturita CAT 2026/Capolavoro/Ponte Topografia-Strada.md","x":195,"y":-250,"width":270,"height":90},
+    {"id":"col2","type":"file","file":"01_Projects/Maturita CAT 2026/Capolavoro/Ponte Topografia-Progettazione-Albergo.md","x":195,"y":-140,"width":270,"height":90},
+    {"id":"col3","type":"file","file":"01_Projects/Maturita CAT 2026/Capolavoro/Ponte Strada-Albergo.md","x":195,"y":-30,"width":270,"height":90},
+    {"id":"col4","type":"file","file":"01_Projects/Maturita CAT 2026/Capolavoro/Collegamenti Inglese ed Educazione Civica.md","x":195,"y":80,"width":270,"height":90},
+    {"id":"col5","type":"file","file":"01_Projects/Maturita CAT 2026/Capolavoro/Quick Reference - Formule e Indici.md","x":195,"y":190,"width":270,"height":90},
+    {"id":"col6","type":"file","file":"01_Projects/Maturita CAT 2026/Capolavoro/Trappole d'Esame.md","x":195,"y":300,"width":270,"height":90}
+  ],
+  "edges": [
+    {"id":"e1","fromNode":"thesis","fromSide":"bottom","toNode":"topo1","toSide":"top","color":"6"},
+    {"id":"e2","fromNode":"topo4","fromSide":"right","toNode":"str2","toSide":"left","label":"base cartografica","color":"4"},
+    {"id":"e3","fromNode":"topo3","fromSide":"right","toNode":"str3","toSide":"left","label":"limite 7-8%","color":"4"},
+    {"id":"e4","fromNode":"topo5","fromSide":"right","toNode":"str4","toSide":"left","label":"rilievo ↔ picchetti","color":"4"},
+    {"id":"e5","fromNode":"str5","fromSide":"right","toNode":"urb4","toSide":"left","label":"sterro/riporto"},
+    {"id":"e6","fromNode":"urb4","fromSide":"right","toNode":"alb1","toSide":"left","label":"pilotis ≠ Rc","color":"1"},
+    {"id":"e7","fromNode":"urb5","fromSide":"right","toNode":"alb4","toSide":"left","label":"Permesso di Costruire","color":"1"},
+    {"id":"e8","fromNode":"alb1","fromSide":"bottom","toNode":"alb3","toSide":"top","label":"5° punto = tetto giardino"},
+    {"id":"e9","fromNode":"str2","fromSide":"right","toNode":"col3","toSide":"left","label":"rettifilo → lotto","color":"6"},
+    {"id":"e10","fromNode":"alb4","fromSide":"right","toNode":"col3","toSide":"left","label":"urbanizz. primaria","color":"6"},
+    {"id":"e11","fromNode":"topo1","fromSide":"right","toNode":"col1","toSide":"left","label":"quota 0 comune","color":"6"}
+  ]
+}
