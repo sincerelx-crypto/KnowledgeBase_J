@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maturità CAT 2026 — KnowledgeBase J</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-deep:    #060c18;
+    --bg-dark:    #0d1627;
+    --bg-card:    #111c2e;
+    --bg-card2:   #162035;
+    --border:     rgba(99,144,255,.13);
+    --border-hi:  rgba(99,144,255,.35);
+
+    --gold:   #f59e0b;
+    --teal:   #14b8a6;
+    --blue:   #6390ff;
+    --violet: #a78bfa;
+    --rose:   #fb7185;
+    --green:  #34d399;
+
+    --text:   #e2e8f0;
+    --muted:  #64748b;
+    --mono:   'Space Mono', monospace;
+    --sans:   'Space Grotesk', sans-serif;
+
+    scroll-behavior: smooth;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg-deep);
+    color: var(--text);
+    font-family: var(--sans);
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+
+  /* ─── SCROLLBAR ─── */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg-dark); }
+  ::-webkit-scrollbar-thumb { background: var(--blue); border-radius: 3px; }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: .75rem 2rem;
+    background: rgba(6,12,24,.82);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    transition: all .3s;
+  }
+  .nav-brand {
+    font-family: var(--mono);
+    font-size: .8rem;
+    color: var(--blue);
+    letter-spacing: .05em;
+    text-decoration: none;
+  }
+  .nav-links {
+    display: flex; gap: .25rem; list-style: none; flex-wrap: wrap;
+  }
+  .nav-links a {
+    font-size: .72rem; font-weight: 500; letter-spacing: .04em;
+    color: var(--muted); text-decoration: none; text-transform: uppercase;
+    padding: .3rem .6rem; border-radius: 4px;
+    transition: color .2s, background .2s;
+  }
+  .nav-links a:hover { color: var(--text); background: rgba(99,144,255,.1); }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 6rem 2rem 4rem;
+    position: relative; overflow: hidden; text-align: center;
+  }
+  .hero-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(99,144,255,.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(99,144,255,.06) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+  }
+  .hero-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+  }
+  .hero-orb-1 {
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(99,144,255,.18) 0%, transparent 70%);
+    top: -100px; left: -100px;
+    animation: drift 8s ease-in-out infinite alternate;
+  }
+  .hero-orb-2 {
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(20,184,166,.14) 0%, transparent 70%);
+    bottom: -50px; right: -50px;
+    animation: drift 10s ease-in-out infinite alternate-reverse;
+  }
+  @keyframes drift {
+    from { transform: translate(0,0) scale(1); }
+    to   { transform: translate(40px, 20px) scale(1.05); }
+  }
+  .hero-tag {
+    font-family: var(--mono); font-size: .72rem; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--blue);
+    border: 1px solid rgba(99,144,255,.35);
+    padding: .3rem .8rem; border-radius: 100px; margin-bottom: 1.5rem;
+    display: inline-block;
+    animation: fadeUp .6s ease both;
+  }
+  .hero h1 {
+    font-size: clamp(2.4rem, 6vw, 5rem);
+    font-weight: 700; line-height: 1.1;
+    letter-spacing: -.02em;
+    background: linear-gradient(135deg, #fff 30%, var(--blue) 70%, var(--teal) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1.2rem;
+    animation: fadeUp .6s .1s ease both;
+  }
+  .hero-sub {
+    max-width: 560px; color: var(--muted);
+    font-size: 1.05rem; margin-bottom: 2.5rem;
+    animation: fadeUp .6s .2s ease both;
+  }
+  .hero-stats {
+    display: flex; gap: 2.5rem; justify-content: center; flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+    animation: fadeUp .6s .3s ease both;
+  }
+  .stat { text-align: center; }
+  .stat-n {
+    font-family: var(--mono); font-size: 2rem; font-weight: 700;
+    color: var(--blue); display: block;
+  }
+  .stat-l { font-size: .78rem; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+  .hero-nav {
+    display: flex; gap: .6rem; flex-wrap: wrap; justify-content: center;
+    animation: fadeUp .6s .4s ease both;
+  }
+  .pill {
+    font-size: .78rem; font-weight: 600; text-transform: uppercase; letter-spacing: .06em;
+    padding: .45rem 1rem; border-radius: 100px; text-decoration: none;
+    border: 1px solid; transition: all .2s;
+    cursor: pointer;
+  }
+  .pill-blue  { color: var(--blue);  border-color: rgba(99,144,255,.4);  background: rgba(99,144,255,.08); }
+  .pill-teal  { color: var(--teal);  border-color: rgba(20,184,166,.4);  background: rgba(20,184,166,.08); }
+  .pill-gold  { color: var(--gold);  border-color: rgba(245,158,11,.4);  background: rgba(245,158,11,.08); }
+  .pill-violet{ color: var(--violet);border-color: rgba(167,139,250,.4); background: rgba(167,139,250,.08);}
+  .pill-rose  { color: var(--rose);  border-color: rgba(251,113,133,.4); background: rgba(251,113,133,.08);}
+  .pill-green { color: var(--green); border-color: rgba(52,211,153,.4);  background: rgba(52,211,153,.08); }
+  .pill:hover { transform: translateY(-2px); filter: brightness(1.15); }
+
+  @keyframes fadeUp {
+    from { opacity:0; transform: translateY(20px); }
+    to   { opacity:1; transform: translateY(0); }
+  }
+
+  /* ─── SECTIONS ─── */
+  section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
+  .section-full { max-width: 100%; padding: 5rem 0; }
+
+  .section-header { margin-bottom: 3rem; }
+  .section-tag {
+    font-family: var(--mono); font-size: .7rem; letter-spacing: .14em;
+    text-transform: uppercase; padding: .25rem .7rem; border-radius: 4px;
+    display: inline-block; margin-bottom: .75rem; font-weight: 700;
+  }
+  .tag-blue   { color: var(--blue);   background: rgba(99,144,255,.1);  }
+  .tag-teal   { color: var(--teal);   background: rgba(20,184,166,.1);  }
+  .tag-gold   { color: var(--gold);   background: rgba(245,158,11,.1);  }
+  .tag-violet { color: var(--violet); background: rgba(167,139,250,.1); }
+  .tag-rose   { color: var(--rose);   background: rgba(251,113,133,.1); }
+  .tag-green  { color: var(--green);  background: rgba(52,211,153,.1);  }
+  .tag-red    { color: #f87171;       background: rgba(248,113,113,.1); }
+
+  .section-header h2 {
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 700; letter-spacing: -.02em; line-height: 1.15;
+    margin-bottom: .5rem;
+  }
+  .section-header p { color: var(--muted); max-width: 640px; font-size: .95rem; }
+
+  /* ─── CARDS ─── */
+  .grid-2 { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px,1fr)); gap: 1.25rem; }
+  .grid-3 { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px,1fr)); gap: 1.25rem; }
+  .grid-4 { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap: 1rem; }
+
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px; padding: 1.5rem;
+    transition: border-color .25s, transform .25s, box-shadow .25s;
+    position: relative; overflow: hidden;
+  }
+  .card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    opacity: 0; transition: opacity .25s;
+  }
+  .card:hover { border-color: var(--border-hi); transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,.4); }
+  .card:hover::before { opacity: 1; }
+
+  .card-blue::before   { background: linear-gradient(90deg, var(--blue), var(--teal)); }
+  .card-teal::before   { background: linear-gradient(90deg, var(--teal), var(--green)); }
+  .card-gold::before   { background: linear-gradient(90deg, var(--gold), #f97316); }
+  .card-violet::before { background: linear-gradient(90deg, var(--violet), var(--blue)); }
+  .card-rose::before   { background: linear-gradient(90deg, var(--rose), var(--violet)); }
+  .card-green::before  { background: linear-gradient(90deg, var(--green), var(--teal)); }
+
+  .card-icon {
+    font-size: 1.8rem; margin-bottom: .75rem; display: block;
+  }
+  .card h3 { font-size: 1rem; font-weight: 600; margin-bottom: .5rem; }
+  .card p  { font-size: .85rem; color: var(--muted); line-height: 1.55; }
+  .card ul { font-size: .82rem; color: var(--muted); padding-left: 1.1rem; margin-top: .5rem; }
+  .card ul li { margin-bottom: .2rem; }
+
+  /* ─── FORMULA BOX ─── */
+  .formula {
+    background: var(--bg-deep);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--blue);
+    border-radius: 8px; padding: .8rem 1rem;
+    font-family: var(--mono); font-size: .82rem;
+    color: var(--blue); margin: .6rem 0;
+    overflow-x: auto;
+  }
+  .formula span { color: var(--muted); font-size: .76rem; font-family: var(--sans); margin-left: .5rem; }
+
+  /* ─── TABLE ─── */
+  .tbl-wrap { overflow-x: auto; border-radius: 10px; border: 1px solid var(--border); }
+  table { width: 100%; border-collapse: collapse; font-size: .83rem; }
+  th {
+    background: var(--bg-card2); color: var(--muted);
+    font-family: var(--mono); font-size: .7rem; letter-spacing: .06em;
+    text-transform: uppercase; padding: .7rem 1rem; text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  td { padding: .65rem 1rem; border-bottom: 1px solid var(--border); color: var(--text); }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: rgba(99,144,255,.04); }
+  .td-hi { color: var(--blue); font-family: var(--mono); font-weight: 700; }
+  .td-gold { color: var(--gold); font-family: var(--mono); font-weight: 700; }
+  .td-teal { color: var(--teal); font-family: var(--mono); font-weight: 700; }
+
+  /* ─── CALLOUT ─── */
+  .callout {
+    border-radius: 10px; padding: 1.2rem 1.5rem;
+    border-left: 3px solid; margin: 1rem 0;
+  }
+  .callout-blue   { background: rgba(99,144,255,.07);  border-color: var(--blue);   }
+  .callout-gold   { background: rgba(245,158,11,.07);  border-color: var(--gold);   }
+  .callout-red    { background: rgba(248,113,113,.07); border-color: #f87171;        }
+  .callout-teal   { background: rgba(20,184,166,.07);  border-color: var(--teal);   }
+  .callout-violet { background: rgba(167,139,250,.07); border-color: var(--violet); }
+  .callout-green  { background: rgba(52,211,153,.07);  border-color: var(--green);  }
+
+  .callout-title {
+    font-family: var(--mono); font-size: .72rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: .08em; margin-bottom: .4rem;
+  }
+  .callout-blue .callout-title   { color: var(--blue);   }
+  .callout-gold .callout-title   { color: var(--gold);   }
+  .callout-red .callout-title    { color: #f87171;        }
+  .callout-teal .callout-title   { color: var(--teal);   }
+  .callout-violet .callout-title { color: var(--violet); }
+  .callout-green .callout-title  { color: var(--green);  }
+
+  .callout p, .callout li { font-size: .87rem; color: var(--text); }
+  .callout ul { padding-left: 1.1rem; margin-top: .3rem; }
+  .callout li { margin-bottom: .2rem; }
+
+  /* ─── DIVIDER ─── */
+  .divider {
+    height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent);
+    max-width: 1200px; margin: 0 auto;
+  }
+
+  /* ─── BADGE ─── */
+  .badge {
+    display: inline-block; font-size: .68rem; font-weight: 700;
+    font-family: var(--mono); letter-spacing: .06em; text-transform: uppercase;
+    padding: .15rem .55rem; border-radius: 4px; margin-right: .3rem;
+  }
+  .badge-blue   { background: rgba(99,144,255,.15);  color: var(--blue);   }
+  .badge-teal   { background: rgba(20,184,166,.15);  color: var(--teal);   }
+  .badge-gold   { background: rgba(245,158,11,.15);  color: var(--gold);   }
+  .badge-violet { background: rgba(167,139,250,.15); color: var(--violet); }
+  .badge-rose   { background: rgba(251,113,133,.15); color: var(--rose);   }
+
+  /* ─── TIMELINE ─── */
+  .timeline { position: relative; padding-left: 2rem; }
+  .timeline::before {
+    content: ''; position: absolute; left: .5rem; top: 0; bottom: 0;
+    width: 1px; background: var(--border);
+  }
+  .tl-item { position: relative; margin-bottom: 1.5rem; }
+  .tl-dot {
+    position: absolute; left: -1.875rem; top: .3rem;
+    width: 10px; height: 10px; border-radius: 50%;
+    border: 2px solid; background: var(--bg-deep);
+  }
+  .tl-dot-blue   { border-color: var(--blue); }
+  .tl-dot-gold   { border-color: var(--gold); }
+  .tl-dot-teal   { border-color: var(--teal); }
+  .tl-dot-violet { border-color: var(--violet); }
+  .tl-label { font-size: .78rem; font-weight: 600; font-family: var(--mono); }
+  .tl-label-blue   { color: var(--blue); }
+  .tl-label-gold   { color: var(--gold); }
+  .tl-label-teal   { color: var(--teal); }
+  .tl-label-violet { color: var(--violet); }
+  .tl-desc { font-size: .85rem; color: var(--muted); margin-top: .1rem; }
+
+  /* ─── FIVE POINTS ─── */
+  .five-grid {
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem;
+  }
+  .fp-card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 1.2rem; text-align: center;
+    transition: all .25s;
+  }
+  .fp-card:hover { border-color: rgba(167,139,250,.4); transform: translateY(-3px); }
+  .fp-n {
+    font-family: var(--mono); font-size: 2.2rem; font-weight: 700;
+    color: var(--violet); opacity: .3; display: block; line-height: 1;
+  }
+  .fp-icon { font-size: 1.6rem; display: block; margin: .3rem 0; }
+  .fp-title { font-size: .82rem; font-weight: 600; margin-bottom: .3rem; }
+  .fp-norm { font-size: .7rem; color: var(--muted); font-family: var(--mono); }
+
+  /* ─── STRATO (tetto caldo) ─── */
+  .strato-wrap { max-width: 480px; }
+  .strato {
+    display: flex; align-items: center; gap: 1rem;
+    padding: .65rem 1rem; margin-bottom: 4px; border-radius: 6px;
+  }
+  .strato-n {
+    font-family: var(--mono); font-size: .7rem; font-weight: 700;
+    color: var(--muted); min-width: 1.2rem; text-align: right;
+  }
+  .strato-name { font-size: .85rem; font-weight: 500; flex: 1; }
+  .strato-desc { font-size: .75rem; color: var(--muted); }
+  .s1 { background: rgba(148,163,184,.06); }
+  .s2 { background: rgba(245,158,11,.06);  }
+  .s3 { background: rgba(251,113,133,.08); }
+  .s4 { background: rgba(99,144,255,.07);  }
+  .s5 { background: rgba(20,184,166,.07);  }
+  .s6 { background: rgba(52,211,153,.06);  }
+  .s7 { background: rgba(167,139,250,.07); }
+
+  /* ─── BRIDGE CARDS ─── */
+  .bridge {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 14px; padding: 1.5rem; margin-bottom: 1rem;
+  }
+  .bridge-title {
+    display: flex; align-items: center; gap: .75rem;
+    font-weight: 600; font-size: 1rem; margin-bottom: .8rem;
+  }
+  .bridge-arrow { color: var(--muted); font-size: .8rem; }
+
+  /* ─── TRAPPOLE ─── */
+  .trappola {
+    background: rgba(248,113,113,.06);
+    border: 1px solid rgba(248,113,113,.2);
+    border-left: 3px solid #f87171;
+    border-radius: 8px; padding: 1rem 1.2rem; margin-bottom: .75rem;
+  }
+  .trappola-label {
+    font-family: var(--mono); font-size: .68rem; font-weight: 700;
+    color: #f87171; text-transform: uppercase; letter-spacing: .08em;
+    margin-bottom: .25rem;
+  }
+  .trappola p { font-size: .85rem; color: var(--text); }
+  .trappola .vs { color: #f87171; font-weight: 700; }
+  .trappola .ok { color: var(--green); font-weight: 700; }
+
+  /* ─── QUICK REF ─── */
+  .qr-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px,1fr)); gap: .75rem; }
+  .qr-item {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 10px; padding: 1rem;
+  }
+  .qr-key { font-family: var(--mono); font-size: .75rem; color: var(--muted); margin-bottom: .25rem; }
+  .qr-val { font-family: var(--mono); font-size: 1rem; font-weight: 700; color: var(--blue); }
+
+  /* ─── ACCORDIONS ─── */
+  details {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 10px; margin-bottom: .6rem; overflow: hidden;
+  }
+  summary {
+    padding: 1rem 1.2rem; cursor: pointer; font-weight: 600; font-size: .92rem;
+    display: flex; align-items: center; gap: .6rem;
+    list-style: none; user-select: none;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after {
+    content: '↓'; margin-left: auto; color: var(--muted); font-size: .8rem;
+    transition: transform .2s;
+  }
+  details[open] summary::after { transform: rotate(180deg); }
+  details[open] { border-color: var(--border-hi); }
+  .details-body { padding: 0 1.2rem 1.2rem; }
+
+  /* ─── AUTHOR ROW ─── */
+  .author-row {
+    display: flex; align-items: center; gap: .5rem;
+    font-size: .78rem; color: var(--muted); margin-bottom: .6rem;
+  }
+  .author-dot { width: 6px; height: 6px; border-radius: 50%; }
+
+  /* ─── PYRAMID ─── */
+  .pyramid { display: flex; flex-direction: column; align-items: center; gap: .4rem; margin: 1.5rem 0; }
+  .py-row {
+    border-radius: 6px; display: flex; align-items: center; justify-content: center;
+    font-size: .82rem; font-weight: 600; color: #fff; padding: .6rem 1rem; text-align: center;
+    transition: transform .2s;
+  }
+  .py-row:hover { transform: scaleX(1.02); }
+  .py-1 { background: rgba(99,144,255,.35);  width: 40%; }
+  .py-2 { background: rgba(99,144,255,.28);  width: 55%; }
+  .py-3 { background: rgba(99,144,255,.22);  width: 68%; }
+  .py-4 { background: rgba(99,144,255,.16);  width: 82%; }
+  .py-5 { background: rgba(99,144,255,.10);  width: 100%; font-size: .78rem; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    padding: 2.5rem 2rem; text-align: center;
+    border-top: 1px solid var(--border);
+    color: var(--muted); font-size: .8rem;
+    font-family: var(--mono);
+  }
+  footer span { color: var(--blue); }
+
+  /* ─── SCROLL REVEAL ─── */
+  .reveal {
+    opacity: 0; transform: translateY(28px);
+    transition: opacity .55s ease, transform .55s ease;
+  }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    nav { padding: .6rem 1rem; }
+    .nav-links { display: none; }
+    section { padding: 3.5rem 1.25rem; }
+    .five-grid { grid-template-columns: repeat(2, 1fr); }
+    .hero-stats { gap: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════ NAV ═══════════════════════ -->
+<nav>
+  <a class="nav-brand" href="#home">KnowledgeBase J</a>
+  <ul class="nav-links">
+    <li><a href="#topografia">Topografia</a></li>
+    <li><a href="#urbanistica">Urbanistica</a></li>
+    <li><a href="#strada">Strada</a></li>
+    <li><a href="#albergo">Albergo</a></li>
+    <li><a href="#ponti">Ponti</a></li>
+    <li><a href="#italiano">Italiano</a></li>
+    <li><a href="#ripasso">Ripasso</a></li>
+  </ul>
+</nav>
+
+<!-- ═══════════════════════ HERO ═══════════════════════ -->
+<div class="hero" id="home">
+  <div class="hero-grid"></div>
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+
+  <div class="hero-tag">CAT · Classe 5° · Giugno 2026</div>
+  <h1>Maturità CAT 2026</h1>
+  <p class="hero-sub">
+    Tutto il materiale per l'esame orale — topografia, urbanistica, capolavoro stradale e alberghiero, italiano, e i ponti tra le materie.
+  </p>
+
+  <div class="hero-stats">
+    <div class="stat"><span class="stat-n">32</span><span class="stat-l">Note</span></div>
+    <div class="stat"><span class="stat-n">8</span><span class="stat-l">Aree</span></div>
+    <div class="stat"><span class="stat-n">40</span><span class="stat-l">Picchetti</span></div>
+    <div class="stat"><span class="stat-n">3</span><span class="stat-l">Livellette</span></div>
+  </div>
+
+  <div class="hero-nav">
+    <a class="pill pill-blue"   href="#topografia">Topografia</a>
+    <a class="pill pill-teal"   href="#urbanistica">Urbanistica</a>
+    <a class="pill pill-gold"   href="#strada">Capolavoro Strada</a>
+    <a class="pill pill-violet" href="#albergo">Capolavoro Albergo</a>
+    <a class="pill pill-rose"   href="#italiano">Italiano</a>
+    <a class="pill pill-green"  href="#ripasso">Ripasso Veloce</a>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════ TOPOGRAFIA ═══════════════════════ -->
+<section id="topografia">
+  <div class="section-header reveal">
+    <div class="section-tag tag-blue">01 — Topografia</div>
+    <h2>Misurare il territorio</h2>
+    <p>Dal geoide alle curve di livello: i concetti fondamentali che stanno alla base del capolavoro e del rilievo catastale.</p>
+  </div>
+
+  <div class="grid-3 reveal">
+    <div class="card card-blue">
+      <span class="card-icon">🌐</span>
+      <h3>Quote e Geoide</h3>
+      <p>La quota è la distanza verticale dal livello medio del mare. Il geoide è la superficie equipotenziale del campo gravitazionale — riferimento delle quote in Italia, misurato al mareografo di <strong>Genova</strong>.</p>
+      <div class="formula">Q = distanza verticale dal geoide</div>
+      <div class="callout callout-red" style="margin-top:.8rem">
+        <div class="callout-title">⚠ Trappola</div>
+        <p><strong>Geoide ≠ Ellissoide.</strong> Il GPS usa l'ellissoide (matematico); le quote catastali usano il geoide (fisico).</p>
+      </div>
+    </div>
+
+    <div class="card card-blue">
+      <span class="card-icon">📐</span>
+      <h3>Dislivelli e Livellazione</h3>
+      <p>Il dislivello è la differenza di quota tra due punti. Esistono due tecniche principali:</p>
+      <div class="formula">Δ<sub>AB</sub> = Q<sub>B</sub> − Q<sub>A</sub></div>
+      <div class="formula">Geometrica: L = L<sub>ind</sub> − L<sub>av</sub></div>
+      <div class="formula">Trigonometrica: Δh = d·tan α + i − s</div>
+      <p style="margin-top:.5rem; font-size:.8rem; color: var(--muted)">
+        i = altezza strumentale · s = altezza segnale
+      </p>
+    </div>
+
+    <div class="card card-blue">
+      <span class="card-icon">📉</span>
+      <h3>Pendenze</h3>
+      <p>La pendenza esprime il rapporto tra dislivello e distanza orizzontale.</p>
+      <div class="formula">P% = (Δ/d) × 100</div>
+      <div class="formula">tan α = Δ / d</div>
+      <div class="tbl-wrap" style="margin-top:.8rem">
+        <table>
+          <tr><th>Livelletta</th><th>Lungh.</th><th>Pendenza</th></tr>
+          <tr><td>1ª</td><td>246 m</td><td class="td-hi">6,32%</td></tr>
+          <tr><td>2ª</td><td>407 m</td><td class="td-hi">6,40%</td></tr>
+          <tr><td>3ª</td><td>279 m</td><td class="td-hi">3,53%</td></tr>
+        </table>
+      </div>
+      <p style="font-size:.76rem; color:var(--green); margin-top:.5rem">✓ Tutte &lt; 7–8% (limite normativo)</p>
+    </div>
+
+    <div class="card card-blue">
+      <span class="card-icon">🗺</span>
+      <h3>Piano Quotato e Curve di Livello</h3>
+      <p>Il piano quotato è la rappresentazione del territorio con quote sui punti rilevati. Le curve di livello si ricavano per interpolazione.</p>
+      <div class="callout callout-blue" style="margin-top:.8rem">
+        <div class="callout-title">Capolavoro</div>
+        <p>Base: CTR Campania sez. <strong>502161 Montecorice</strong>, scala 1:5000, usata sia per strada che per albergo.</p>
+      </div>
+    </div>
+
+    <div class="card card-blue">
+      <span class="card-icon">📏</span>
+      <h3>Trimensura e Picchettamento</h3>
+      <p>La <strong>trimensura</strong> produce dati cartografici a partire dal rilievo. Il <strong>picchettamento</strong> è l'operazione inversa: trasferisce l'asse di progetto dalla carta al terreno.</p>
+      <div class="callout callout-teal" style="margin-top:.8rem">
+        <div class="callout-title">Concetto chiave</div>
+        <p>Gli stessi strumenti del rilievo topografico verificano in cantiere Dc e Hp dell'albergo.</p>
+      </div>
+    </div>
+
+    <div class="card card-blue">
+      <span class="card-icon">🔗</span>
+      <h3>Raccordi Verticali</h3>
+      <p>Le curve paraboliche raccordano due livellette consecutive per garantire comfort e sicurezza.</p>
+      <div class="formula">L = (i₁ − i₂) · R</div>
+      <p style="font-size:.8rem; color:var(--muted); margin-top:.4rem">L = lunghezza raccordo · i₁,i₂ = pendenze · R = raggio verticale</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════ URBANISTICA ═══════════════════════ -->
+<section id="urbanistica">
+  <div class="section-header reveal">
+    <div class="section-tag tag-teal">02 — Urbanistica</div>
+    <h2>Pianificare lo spazio</h2>
+    <p>Dalla Legge Urbanistica 1150/42 al Permesso di Costruire: la gerarchia normativa che governa il capolavoro.</p>
+  </div>
+
+  <div class="grid-2 reveal" style="margin-bottom:2rem">
+    <div>
+      <h3 style="margin-bottom:1rem; font-size:.95rem; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; font-family:var(--mono)">Gerarchia dei Piani</h3>
+      <div class="pyramid">
+        <div class="py-row py-1">PTR — Regione Campania</div>
+        <div class="py-row py-2">PTCP — Provincia di Salerno</div>
+        <div class="py-row py-3">PUC/PRG — Comune di Montecorice</div>
+        <div class="py-row py-4">PUA — Piano Attuativo</div>
+        <div class="py-row py-5">Permesso di Costruire · SCIA · CILA</div>
+      </div>
+      <p style="font-size:.78rem; color:var(--muted); text-align:center">Ogni piano inferiore deve essere coerente con il superiore (D.Lgs. 1150/42)</p>
+    </div>
+    <div>
+      <h3 style="margin-bottom:1rem; font-size:.95rem; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; font-family:var(--mono)">Indici Zona C — Espansione</h3>
+      <div class="tbl-wrap">
+        <table>
+          <tr><th>Indice</th><th>Nome</th><th>Valore</th></tr>
+          <tr><td>If</td><td>Fabbricabilità fondiaria</td><td class="td-teal">1,5÷3 mc/mq</td></tr>
+          <tr><td>Rc</td><td>Rapporto di copertura</td><td class="td-teal">30÷40%</td></tr>
+          <tr><td>Ip</td><td>Permeabilità</td><td class="td-teal">≥ 25÷30%</td></tr>
+          <tr><td>Hp</td><td>Altezza massima</td><td class="td-teal">10÷15 m</td></tr>
+          <tr><td>Dc</td><td>Distanza dai confini</td><td class="td-teal">≥ 5 m</td></tr>
+        </table>
+      </div>
+      <div class="formula" style="margin-top:.8rem">V = If × SF <span>volume edificabile</span></div>
+      <div class="callout callout-red" style="margin-top:.75rem">
+        <div class="callout-title">⚠ Trappola</div>
+        <p>I <strong>pilotis aperti</strong> del piano terra NON contano nel Rc (D.M. 1444/68). Standard = 18 mq per <strong>abitante</strong>, non per lotto.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-3 reveal">
+    <div class="card card-teal">
+      <span class="card-icon">📋</span>
+      <h3>PRG / PUC</h3>
+      <p>Il Piano Urbanistico Comunale è lo strumento principale del Comune. Emesso dal <strong>Sindaco</strong>, redatto da urbanista, durata <strong>10 anni</strong>.</p>
+      <div class="timeline" style="margin-top:1rem">
+        <div class="tl-item"><div class="tl-dot tl-dot-teal"></div><div class="tl-label tl-label-teal">Adozione</div><div class="tl-desc">Consiglio Comunale</div></div>
+        <div class="tl-item"><div class="tl-dot tl-dot-teal"></div><div class="tl-label tl-label-teal">Pubblicazione</div><div class="tl-desc">30 giorni · Osservazioni</div></div>
+        <div class="tl-item"><div class="tl-dot tl-dot-teal"></div><div class="tl-label tl-label-teal">Approvazione</div><div class="tl-desc">Regione → BUR → Entrata in vigore</div></div>
+      </div>
+    </div>
+
+    <div class="card card-teal">
+      <span class="card-icon">🗂</span>
+      <h3>Zone Omogenee e Standard</h3>
+      <ul>
+        <li><strong>Zona A:</strong> Centro storico</li>
+        <li><strong>Zona B:</strong> Completamento</li>
+        <li><strong>Zona C:</strong> Espansione ← <em>il nostro albergo</em></li>
+        <li><strong>Zona D:</strong> Produttiva</li>
+      </ul>
+      <div class="formula" style="margin-top:.8rem">Standard D.M. 1444/68 = 18 mq/abitante</div>
+      <p style="font-size:.78rem; color:var(--muted); margin-top:.4rem">4,5 istruzione · 2,0 att. comuni · 9,0 verde · 2,5 parcheggi</p>
+    </div>
+
+    <div class="card card-teal">
+      <span class="card-icon">🏛</span>
+      <h3>Titoli Abilitativi (T.U. 380/01)</h3>
+      <div class="tbl-wrap">
+        <table>
+          <tr><th>Titolo</th><th>Quando</th></tr>
+          <tr><td class="td-hi">P.d.C.</td><td>Nuova costruzione, ristr. pesante</td></tr>
+          <tr><td class="td-teal">S.C.I.A.</td><td>Ristrutturazione leggera</td></tr>
+          <tr><td>C.I.L.A.</td><td>Manut. straord. leggera</td></tr>
+          <tr><td>C.I.L.</td><td>Manut. ordinaria</td></tr>
+        </table>
+      </div>
+      <div class="callout callout-red" style="margin-top:.75rem">
+        <div class="callout-title">⚠ Trappola</div>
+        <p>Nuova costruzione → <strong>solo P.d.C.</strong>, mai SCIA + Contributo Bucalossi (L. 10/77).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════ STRADA ═══════════════════════ -->
+<section id="strada">
+  <div class="section-header reveal">
+    <div class="section-tag tag-gold">03 — Capolavoro Strada</div>
+    <h2>Progetto stradale Montecorice</h2>
+    <p>Viabilità principale ex-novo a servizio dell'albergo nel Parco Nazionale del Cilento. Base cartografica CTR 502161, scala 1:5000.</p>
+  </div>
+
+  <div class="grid-2 reveal" style="margin-bottom:2rem">
+    <div>
+      <h3 style="margin-bottom:1rem; font-size:.95rem; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; font-family:var(--mono)">Tracciato planimetrico</h3>
+      <div class="tbl-wrap">
+        <table>
+          <tr><th>#</th><th>Elemento</th><th>Parametri</th></tr>
+          <tr><td class="td-gold">1</td><td>Rettifilo</td><td>L = 34,07 m</td></tr>
+          <tr><td class="td-gold">2</td><td>Curva</td><td>R = 130 m · α = 94 gon</td></tr>
+          <tr><td class="td-gold">3</td><td>Rettifilo</td><td>L = 76,29 m</td></tr>
+          <tr><td class="td-gold">4</td><td>Curva</td><td>R = 130 m · α = 20 gon</td></tr>
+          <tr><td class="td-gold">5</td><td>Controcurva</td><td>R = 87,12 m · α = 40 gon</td></tr>
+          <tr><td class="td-gold">6</td><td>Tornante</td><td>R = 87,12 m · α = 40 gon</td></tr>
+          <tr><td class="td-gold">7</td><td>Controcurva</td><td>R = 87,12 m · α = 40 gon</td></tr>
+          <tr><td class="td-gold">8</td><td>Curva finale</td><td>R = 200 m · α = 18 gon</td></tr>
+          <tr><td class="td-gold">9</td><td>Rettifilo finale</td><td>L = 135,08 m → lotto albergo</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div>
+      <h3 style="margin-bottom:1rem; font-size:.95rem; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; font-family:var(--mono)">Dati chiave</h3>
+      <div class="qr-grid" style="grid-template-columns: 1fr 1fr">
+        <div class="qr-item"><div class="qr-key">Picchetti totali</div><div class="qr-val" style="color:var(--gold)">40</div></div>
+        <div class="qr-item"><div class="qr-key">Piattaforma</div><div class="qr-val" style="color:var(--gold)">7,00 m</div></div>
+        <div class="qr-item"><div class="qr-key">Corsie</div><div class="qr-val" style="color:var(--gold)">2 × 3,5 m</div></div>
+        <div class="qr-item"><div class="qr-key">Sterro netto</div><div class="qr-val" style="color:var(--gold)">4.530 mq</div></div>
+      </div>
+
+      <div class="callout callout-gold" style="margin-top:1rem">
+        <div class="callout-title">Bilancio movimento terra</div>
+        <p>Sterro 6.758 mq − Riporto 2.228 mq = <strong>4.530 mq netti</strong> di materiale di risulta da gestire.</p>
+      </div>
+
+      <div class="callout callout-red" style="margin-top:.75rem">
+        <div class="callout-title">⚠ Trappola</div>
+        <p>Sezioni ragguagliate = <strong>MEDIA</strong> delle aree, non somma: V<sub>AB</sub> = (S<sub>A</sub>+S<sub>B</sub>)/2 · L</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-3 reveal">
+    <div class="card card-gold">
+      <span class="card-icon">📍</span>
+      <h3>Picchettamento</h3>
+      <p>40 picchetti totali, con interasse ridotto in curva. Per ogni picchetto: progressiva, quota di progetto e quota terreno.</p>
+      <div class="formula">Q.prog. &lt; Q.terra → STERRO (scavo)</div>
+      <div class="formula">Q.prog. &gt; Q.terra → RIPORTO (rilevato)</div>
+    </div>
+    <div class="card card-gold">
+      <span class="card-icon">📊</span>
+      <h3>Profilo Longitudinale</h3>
+      <p>Sezione verticale lungo l'asse stradale. Scala L 1:2000 / H 1:200. La traccia nera è il terreno reale, la traccia rossa è la livelletta di progetto.</p>
+    </div>
+    <div class="card card-gold">
+      <span class="card-icon">✂</span>
+      <h3>Sezioni Trasversali</h3>
+      <p>Piani perpendicolari all'asse, scala 1:200. La piattaforma è di 7,00 m = 2 corsie da 3,50 m + cunette.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════ ALBERGO ═══════════════════════ -->
+<section id="albergo">
+  <div class="section-header reveal">
+    <div class="section-tag tag-violet">04 — Capolavoro Albergo</div>
+    <h2>Progetto alberghiero Montecorice</h2>
+    <p>Nuova costruzione in Zona C · Permesso di Costruire + Contributo Bucalossi (L. 10/77). Radicato nel Movimento Moderno di Le Corbusier.</p>
+  </div>
+
+  <!-- 5 PUNTI -->
+  <div class="section-header reveal" style="margin-bottom:1rem">
+    <h3 style="font-size:1.1rem">I 5 Punti di Le Corbusier (1926)</h3>
+    <p style="font-size:.85rem; color:var(--muted)">Villa Savoye, Poissy 1929–31 · Unité d'Habitation, Marsiglia 1947–52</p>
+  </div>
+  <div class="five-grid reveal" style="margin-bottom:2rem">
+    <div class="fp-card">
+      <span class="fp-n">1</span>
+      <span class="fp-icon">🏛</span>
+      <div class="fp-title">Pilotis</div>
+      <div class="fp-norm">D.M. 1444/68</div>
+      <p style="font-size:.75rem; color:var(--muted); margin-top:.4rem">Piano terra libero · parcheggio sotto · non conta nel Rc</p>
+    </div>
+    <div class="fp-card">
+      <span class="fp-n">2</span>
+      <span class="fp-icon">🔓</span>
+      <div class="fp-title">Pianta libera</div>
+      <div class="fp-norm">T.U. 380/01 art.3</div>
+      <p style="font-size:.75rem; color:var(--muted); margin-top:.4rem">Nessuna parete portante interna · open floor plan</p>
+    </div>
+    <div class="fp-card">
+      <span class="fp-n">3</span>
+      <span class="fp-icon">🪟</span>
+      <div class="fp-title">Facciata libera</div>
+      <div class="fp-norm">L. 13/89</div>
+      <p style="font-size:.75rem; color:var(--muted); margin-top:.4rem">Tamponamenti + cappotto isolante</p>
+    </div>
+    <div class="fp-card">
+      <span class="fp-n">4</span>
+      <span class="fp-icon">➡</span>
+      <div class="fp-title">Finestre a nastro</div>
+      <div class="fp-norm">Art. 24 T.U. 380/01</div>
+      <p style="font-size:.75rem; color:var(--muted); margin-top:.4rem">Rapporto aeroilluminante 1/8</p>
+    </div>
+    <div class="fp-card">
+      <span class="fp-n">5</span>
+      <span class="fp-icon">🌿</span>
+      <div class="fp-title">Tetto giardino</div>
+      <div class="fp-norm">Prot. ITACA</div>
+      <p style="font-size:.75rem; color:var(--muted); margin-top:.4rem">Terrazza panoramica · solarium</p>
+    </div>
+  </div>
+  <div class="callout callout-red reveal" style="max-width:600px; margin-bottom:2rem">
+    <div class="callout-title">⚠ Trappola</div>
+    <p>I 5 punti sono del <strong>1926</strong>. Villa Savoye è del <strong>1929–31</strong>. Non invertire le date all'orale.</p>
+  </div>
+
+  <!-- TETTO CALDO + DISTRIBUZIONE -->
+  <div class="grid-2 reveal">
+    <div>
+      <h3 style="margin-bottom:1rem; font-size:.95rem; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; font-family:var(--mono)">Stratigrafia Tetto Caldo (↑ dal basso)</h3>
+      <div class="strato-wrap">
+        <div class="strato s1"><span class="strato-n">1</span><div><div class="strato-name">Solaio in c.a.</div><div class="strato-desc">struttura portante</div></div></div>
+        <div class="strato s2"><span class="strato-n">2</span><div><div class="strato-name">Caldana con pendenza</div><div class="strato-desc">1–2% per deflusso acque</div></div></div>
+        <div class="strato s3"><span class="strato-n">3</span><div><div class="strato-name">Barriera al vapore</div><div class="strato-desc">lamine bituminose</div></div></div>
+        <div class="strato s4"><span class="strato-n">4</span><div><div class="strato-name" style="color:var(--blue)">Isolamento termico ★</div><div class="strato-desc">schiuma poliuretanica</div></div></div>
+        <div class="strato s5"><span class="strato-n">5</span><div><div class="strato-name">Impermeabilizzazione</div><div class="strato-desc">manto bituminoso doppio</div></div></div>
+        <div class="strato s6"><span class="strato-n">6</span><div><div class="strato-name">Strato separazione</div><div class="strato-desc">tessuto non tessuto</div></div></div>
+        <div class="strato s7"><span class="strato-n">7</span><div><div class="strato-name">Finitura</div><div class="strato-desc">piastrelle antiscivolo · substrato vegetale</div></div></div>
+      </div>
+      <div class="callout callout-red" style="margin-top:.75rem">
+        <div class="callout-title">⚠ Trappola</div>
+        <p>Tetto "caldo" = isolante <strong>SOPRA</strong> il solaio, all'esterno della barriera al vapore. Evita condensa e ponti termici.</p>
+      </div>
+    </div>
+
+    <div>
+      <h3 style="margin-bottom:1rem; font-size:.95rem; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; font-family:var(--mono)">Distribuzione e Normativa</h3>
+      <div class="card card-violet">
+        <h3 style="color:var(--violet)">Piano Terra</h3>
+        <ul style="margin-top:.4rem">
+          <li>Hall · reception</li>
+          <li>Sala ristorazione + cucina</li>
+          <li>Servizi · locali tecnici</li>
+          <li>Vano scala + ascensore (L. 13/89)</li>
+        </ul>
+      </div>
+      <div class="card card-violet" style="margin-top:1rem">
+        <h3 style="color:var(--violet)">Piano Tipo</h3>
+        <p>Corridoio centrale + camere laterali (doppia stecca), ogni camera con bagno.</p>
+      </div>
+      <div class="tbl-wrap" style="margin-top:1rem">
+        <table>
+          <tr><th>Requisito</th><th>Valore (D.M. 5/7/1975)</th></tr>
+          <tr><td>Altezza minima</td><td class="td-violet">≥ 2,70 m</td></tr>
+          <tr><td>Aeroilluminante</td><td class="td-violet">≥ 1/8</td></tr>
+          <tr><td>Camera singola</td><td class="td-violet">≥ 9 mq</td></tr>
+          <tr><td>Camera doppia</td><td class="td-violet">≥ 14 mq</td></tr>
+          <tr><td>Bagno</td><td class="td-violet">≥ 4 mq</td></tr>
+          <tr><td>Corridoi</td><td class="td-violet">≥ 1,50 m (L. 13/89)</td></tr>
+          <tr><td>Rampa ingresso</td><td class="td-violet">≤ 8%</td></tr>
+          <tr><td>Parcheggi ricettivo</td><td class="td-violet">1 posto / 2 camere</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════ PONTI ═══════════════════════ -->
+<section id="ponti">
+  <div class="section-header reveal">
+    <div class="section-tag tag-green">05 — Ponti tra Materie</div>
+    <h2>La tesi unificante</h2>
+    <p><em>"Topografia e progettazione sono un unico processo continuo."</em> Ogni elaborato del capolavoro nasce dalla misurazione topografica e converge nel titolo abilitativo.</p>
+  </div>
+
+  <div class="reveal">
+    <div class="bridge">
+      <div class="bridge-title">
+        <span class="badge badge-blue">Topografia</span>
+        <span class="bridge-arrow">──────→</span>
+        <span class="badge badge-gold">Strada</span>
+      </div>
+      <div class="grid-2" style="gap:.75rem">
+        <div class="callout callout-blue"><div class="callout-title">Quote e Geoide</div><p>Fornisce la quota "0" di riferimento al mareografo di Genova per tutte le livellette.</p></div>
+        <div class="callout callout-blue"><div class="callout-title">Piano Quotato</div><p>Base del tracciato stradale: senza curve di livello non si individua l'asse né si calcola lo sterro.</p></div>
+        <div class="callout callout-blue"><div class="callout-title">Pendenze</div><p>Le 3 livellette (6,32% / 6,40% / 3,53%) rispettano tutte il limite normativo 7–8%.</p></div>
+        <div class="callout callout-blue"><div class="callout-title">Trimensura / Picchettamento</div><p>Il rilievo e il picchettamento sono la stessa operazione eseguita in direzioni opposte.</p></div>
+      </div>
+    </div>
+
+    <div class="bridge" style="margin-top:1rem">
+      <div class="bridge-title">
+        <span class="badge badge-blue">Topografia</span>
+        <span class="bridge-arrow">──────→</span>
+        <span class="badge badge-violet">Albergo</span>
+      </div>
+      <div class="grid-2" style="gap:.75rem">
+        <div class="callout callout-violet"><div class="callout-title">Piano Quotato → PUC</div><p>La quota di campagna è la base del PUC e determina lo zero di progetto dell'albergo.</p></div>
+        <div class="callout callout-violet"><div class="callout-title">Trimensura in cantiere</div><p>Stazione totale e livello verificano Dc (distanza confini ≥ 5 m) e Hp (altezza ≤ 10–15 m) durante la costruzione.</p></div>
+      </div>
+    </div>
+
+    <div class="bridge" style="margin-top:1rem">
+      <div class="bridge-title">
+        <span class="badge badge-gold">Strada</span>
+        <span class="bridge-arrow">──────→</span>
+        <span class="badge badge-violet">Albergo</span>
+      </div>
+      <div class="grid-2" style="gap:.75rem">
+        <div class="callout callout-gold"><div class="callout-title">Il rettifilo finale</div><p>L = 135,08 m porta direttamente al lotto dell'albergo in Zona C. La strada è viabilità di accesso.</p></div>
+        <div class="callout callout-gold"><div class="callout-title">Perequazione urbana</div><p>La strada è opera di urbanizzazione primaria ceduta al Comune: rientra nel contributo Bucalossi del P.d.C.</p></div>
+      </div>
+    </div>
+
+    <div class="bridge" style="margin-top:1rem">
+      <div class="bridge-title">
+        <span class="badge badge-violet">Progettazione</span>
+        <span class="bridge-arrow">──────→</span>
+        <span class="badge badge-rose">Inglese · Ed. Civica</span>
+      </div>
+      <div class="grid-2" style="gap:.75rem">
+        <div class="callout callout-rose"><div class="callout-title">Modern Architecture (Inglese)</div><p>International Style · Mies van der Rohe · Bauhaus · Villa Savoye · Urban models (concentric, sector, multiple nuclei).</p></div>
+        <div class="callout callout-rose"><div class="callout-title">Educazione Civica</div><p>Sustainable urban vs rural lifestyles · Sicurezza sul lavoro in cantiere (workplace safety).</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════ ITALIANO ═══════════════════════ -->
+<section id="italiano">
+  <div class="section-header reveal">
+    <div class="section-tag tag-rose">06 — Italiano e Umanistiche</div>
+    <h2>Le voci del Novecento</h2>
+    <p>Letteratura, teatro, cinema e architettura industriale: la dimensione umanistica del capolavoro.</p>
+  </div>
+
+  <div class="grid-2 reveal">
+    <div class="card card-rose">
+      <div class="author-row"><div class="author-dot" style="background:var(--rose)"></div><span>Italiano · Teatro</span></div>
+      <h3>Antigone — Sofocle</h3>
+      <p style="margin-bottom:.6rem">Il dramma della coscienza individuale contro la ragion di Stato: Antigone sfida il decreto di Creonte per seppellire il fratello Polinice, invocando le <em>àgrapta nòmima</em> (leggi non scritte degli dèi).</p>
+      <details>
+        <summary>Conflitto centrale</summary>
+        <div class="details-body">
+          <div class="callout callout-rose" style="margin-bottom:.5rem">
+            <div class="callout-title">Creonte</div>
+            <p>Giustizia = obbedienza alla legge dello Stato, necessaria per ricostruire la città dopo la guerra.</p>
+          </div>
+          <div class="callout callout-violet">
+            <div class="callout-title">Antigone</div>
+            <p>Legge divina e naturale sopra quella umana. Dietro la corazza totalizzante: paura della morte e lutto per la giovinezza perduta.</p>
+          </div>
+          <p style="font-size:.83rem; color:var(--muted); margin-top:.6rem"><strong>Messaggio:</strong> quando la politica perde empatia diventa macchina cieca. Errore di Creonte: arroganza + incapacità di ascoltare + confondere lo Stato con sé stesso.</p>
+          <p style="font-size:.8rem; color:var(--muted); margin-top:.4rem"><strong>Ed. Civica:</strong> legge dello Stato vs coscienza individuale → legittimità, obbedienza, diritto naturale.</p>
+        </div>
+      </details>
+    </div>
+
+    <div class="card card-rose">
+      <div class="author-row"><div class="author-dot" style="background:var(--rose)"></div><span>Italiano · Letteratura</span></div>
+      <h3>Positivismo · Naturalismo · Verismo</h3>
+      <details>
+        <summary>Positivismo (Comte · Taine · Darwin)</summary>
+        <div class="details-body">
+          <p style="font-size:.84rem">Fiducia assoluta in scienza e progresso. Legge dei Tre Stadi di Comte. Determinismo di Taine: razza + milieu + momento storico. Darwinismo sociale di Spencer.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Naturalismo francese — Zola</summary>
+        <div class="details-body">
+          <p style="font-size:.84rem">Autore = scienziato · opera = "documento umano". Obiettività ed eclissi dell'autore. Destino determinato da ereditarietà e ambiente. Funzione sociale: denunciare le ingiustizie.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Verismo italiano — Verga</summary>
+        <div class="details-body">
+          <p style="font-size:.84rem">Nasce con <em>"L'amante di Gramigna"</em> (1880) e Prefazione ai Malavoglia (1881). Focus sul Sud arretrato. Impersonalità radicale: il narratore si cala nel livello linguistico dei personaggi (regressività). Altri autori: De Roberto, D'Annunzio.</p>
+        </div>
+      </details>
+    </div>
+
+    <div class="card card-rose">
+      <div class="author-row"><div class="author-dot" style="background:var(--violet)"></div><span>Italiano · Interdisciplinare</span></div>
+      <h3>Primo Levi — Chimico, Scrittore, Testimone</h3>
+      <p style="margin-bottom:.6rem">Tre identità inseparabili: la precisione scientifica al servizio della memoria collettiva.</p>
+      <details>
+        <summary>Biografia essenziale</summary>
+        <div class="details-body">
+          <div class="timeline">
+            <div class="tl-item"><div class="tl-dot tl-dot-violet"></div><div class="tl-label tl-label-violet">1919</div><div class="tl-desc">Nasce a Torino, famiglia ebrea</div></div>
+            <div class="tl-item"><div class="tl-dot tl-dot-violet"></div><div class="tl-label tl-label-violet">1941</div><div class="tl-desc">Laurea in Chimica con lode (leggi razziali 1938)</div></div>
+            <div class="tl-item"><div class="tl-dot tl-dot-violet"></div><div class="tl-label tl-label-violet">1943</div><div class="tl-desc">Partigiano → catturato → Monowitz (Auschwitz), n° 174517</div></div>
+            <div class="tl-item"><div class="tl-dot tl-dot-violet"></div><div class="tl-label tl-label-violet">27/01/1945</div><div class="tl-desc">Liberazione (scarlattina lo salva dalla marcia della morte)</div></div>
+            <div class="tl-item"><div class="tl-dot tl-dot-violet"></div><div class="tl-label tl-label-violet">1947</div><div class="tl-desc">"Se questo è un uomo" (rifiutato 6 volte da Einaudi)</div></div>
+          </div>
+        </div>
+      </details>
+      <details>
+        <summary>Opere e temi</summary>
+        <div class="details-body">
+          <ul style="font-size:.83rem; color:var(--text); padding-left:1.1rem">
+            <li><strong>Se questo è un uomo</strong> (1947) — 17 capitoli, riferimenti danteschi, Canto di Ulisse cap. XI</li>
+            <li><strong>La tregua</strong> (1963) — viaggio di ritorno</li>
+            <li><strong>Il sistema periodico</strong> (1975) — capitoli = elementi chimici</li>
+            <li><strong>I sommersi e i salvati</strong> (1986) — zona grigia</li>
+          </ul>
+          <div class="callout callout-violet" style="margin-top:.6rem">
+            <div class="callout-title">Collegamento al Capolavoro</div>
+            <p>Il lager toglie spazio e dignità. L'architettura moderna (pilotis, pianta libera) li restituisce. Precisione del rilievo = precisione della testimonianza.</p>
+          </div>
+        </div>
+      </details>
+    </div>
+
+    <div class="card card-rose">
+      <div class="author-row"><div class="author-dot" style="background:var(--gold)"></div><span>Progettazione · Estimo</span></div>
+      <h3>Ex Lanificio Borbonico — Napoli</h3>
+      <p style="margin-bottom:.6rem">1824: cav. Raffaele Sava trasforma parte del monastero di Santa Caterina a Formiello (Porta Capuana) in fabbrica di divise militari del Regno delle Due Sicilie. Oggi: Lanificio Digitale, hub di innovazione.</p>
+      <details>
+        <summary>Intervento di efficientamento energetico</summary>
+        <div class="details-body">
+          <ul style="font-size:.83rem; color:var(--text); padding-left:1.1rem; margin-bottom:.6rem">
+            <li>Tegole fotovoltaiche (mantengono estetica storica)</li>
+            <li>Impianto geotermico</li>
+            <li>Riscaldamento a pavimento radiante (bassa temperatura)</li>
+            <li>Recupero acque piovane per usi non potabili</li>
+          </ul>
+          <div class="callout callout-gold">
+            <div class="callout-title">Risparmio economico</div>
+            <p>Con pompa di calore: costo energetico scende da <strong>66.000 €</strong> a ~<strong>18.000 € / anno</strong>.</p>
+          </div>
+          <p style="font-size:.78rem; color:var(--muted); margin-top:.5rem">Trasmittanza infissi: vetro singolo 5,0 / alluminio 3,0 / legno+vetrocamera 2,0 W/m²K</p>
+        </div>
+      </details>
+    </div>
+
+    <div class="card card-rose" style="grid-column: 1 / -1">
+      <div class="author-row"><div class="author-dot" style="background:var(--gold)"></div><span>Italiano · Cinema</span></div>
+      <h3>Macbeth (2016) — Recensione critica</h3>
+      <p>Regia di <strong>Justin Kurzel</strong>, fotografia di Adam Arkapaw. Immagini crude e spettacolari, cieli grigi, fango e sangue, atmosfera ipnotica. La scena finale — dal rosso fuoco di Marte — è violenta e indimenticabile. <em>"Visivamente stupefacente, ma sacrifica le sfumature più profonde del testo shakespeariano: come il protagonista, gloria effimera ma indimenticabile. Bellezza e violenza tolgono il fiato, ma manca respiro."</em></p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════ RIPASSO ═══════════════════════ -->
+<section id="ripasso">
+  <div class="section-header reveal">
+    <div class="section-tag tag-green">07 — Ripasso Veloce</div>
+    <h2>Formulario e Trappole d'Esame</h2>
+    <p>Il cheatsheet da consultare nell'ultima ora. Formule, indici, e gli errori più comuni da non commettere davanti alla commissione.</p>
+  </div>
+
+  <div class="grid-2 reveal">
+    <div>
+      <h3 style="margin-bottom:1rem; font-size:.95rem; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; font-family:var(--mono)">Formulario rapido</h3>
+
+      <div class="tbl-wrap">
+        <table>
+          <tr><th>Materia</th><th>Formula / Dato</th><th>Note</th></tr>
+          <tr><td>Dislivello</td><td class="td-hi">Δ<sub>AB</sub> = Q<sub>B</sub> − Q<sub>A</sub></td><td>+ si sale, − si scende</td></tr>
+          <tr><td>Livel. geometrica</td><td class="td-hi">L = L<sub>ind</sub> − L<sub>av</sub></td><td>livello + stadie</td></tr>
+          <tr><td>Livel. trigonometrica</td><td class="td-hi">Δh = d·tanα + i − s</td><td>theodolite</td></tr>
+          <tr><td>Pendenza</td><td class="td-hi">P% = (Δ/d)×100</td><td>tanα = Δ/d</td></tr>
+          <tr><td>Raccordo verticale</td><td class="td-hi">L = (i₁−i₂)·R</td><td>curva parabolica</td></tr>
+          <tr><td>Volume sezioni</td><td class="td-hi">V = (S<sub>A</sub>+S<sub>B</sub>)/2 · L</td><td>media aree</td></tr>
+          <tr><td>Volume edificabile</td><td class="td-teal">V = If × SF</td><td>SF = superficie fondiaria</td></tr>
+          <tr><td>Standard D.M. 1444</td><td class="td-teal">18 mq/abitante</td><td>non per lotto</td></tr>
+        </table>
+      </div>
+
+      <h3 style="margin-top:2rem; margin-bottom:1rem; font-size:.95rem; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; font-family:var(--mono)">Dati chiave capolavoro</h3>
+      <div class="qr-grid">
+        <div class="qr-item"><div class="qr-key">Livelletta 1</div><div class="qr-val">6,32%</div></div>
+        <div class="qr-item"><div class="qr-key">Livelletta 2</div><div class="qr-val">6,40%</div></div>
+        <div class="qr-item"><div class="qr-key">Livelletta 3</div><div class="qr-val">3,53%</div></div>
+        <div class="qr-item"><div class="qr-key">Limite normativo</div><div class="qr-val" style="color:var(--green)">7–8%</div></div>
+        <div class="qr-item"><div class="qr-key">Picchetti</div><div class="qr-val">40</div></div>
+        <div class="qr-item"><div class="qr-key">Piattaforma</div><div class="qr-val">7,00 m</div></div>
+        <div class="qr-item"><div class="qr-key">Sterro netto</div><div class="qr-val">4.530 mq</div></div>
+        <div class="qr-item"><div class="qr-key">CTR</div><div class="qr-val" style="font-size:.72rem">502161 1:5000</div></div>
+        <div class="qr-item"><div class="qr-key">Zona PUC</div><div class="qr-val">C</div></div>
+        <div class="qr-item"><div class="qr-key">Titolo abilitativo</div><div class="qr-val" style="font-size:.72rem">P.d.C.</div></div>
+        <div class="qr-item"><div class="qr-key">5 Punti anno</div><div class="qr-val">1926</div></div>
+        <div class="qr-item"><div class="qr-key">Villa Savoye</div><div class="qr-val">1929–31</div></div>
+      </div>
+    </div>
+
+    <div>
+      <h3 style="margin-bottom:1rem; font-size:.95rem; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; font-family:var(--mono)">⚠ Trappole d'Esame</h3>
+
+      <div class="trappola">
+        <div class="trappola-label">Topografia · Geoide</div>
+        <p><span class="vs">✗</span> Geoide = ellissoide &nbsp;|&nbsp; <span class="ok">✓</span> Geoide (fisico, mareografo Genova) ≠ ellissoide (matematico, usato dal GPS)</p>
+      </div>
+
+      <div class="trappola">
+        <div class="trappola-label">Topografia · Sterro/Riporto</div>
+        <p><span class="vs">✗</span> Q.prog. &gt; Q.terra = sterro &nbsp;|&nbsp; <span class="ok">✓</span> Q.prog. &lt; Q.terra = STERRO · Q.prog. &gt; Q.terra = RIPORTO</p>
+      </div>
+
+      <div class="trappola">
+        <div class="trappola-label">Topografia · Sezioni ragguagliate</div>
+        <p><span class="vs">✗</span> V = (S<sub>A</sub>+S<sub>B</sub>) · L &nbsp;|&nbsp; <span class="ok">✓</span> V = (S<sub>A</sub>+S<sub>B</sub>)/2 · L &nbsp;&nbsp;→ usa la MEDIA delle aree</p>
+      </div>
+
+      <div class="trappola">
+        <div class="trappola-label">Urbanistica · PRG/PUC</div>
+        <p><span class="vs">✗</span> PUC dura 5 anni, emesso dalla Regione &nbsp;|&nbsp; <span class="ok">✓</span> PUC dura <strong>10 anni</strong>, emesso dal <strong>Sindaco</strong>, approvato dalla Regione</p>
+      </div>
+
+      <div class="trappola">
+        <div class="trappola-label">Urbanistica · Pilotis</div>
+        <p><span class="vs">✗</span> I pilotis contano nel Rapporto di copertura &nbsp;|&nbsp; <span class="ok">✓</span> I pilotis aperti NON contano nel Rc (D.M. 1444/68)</p>
+      </div>
+
+      <div class="trappola">
+        <div class="trappola-label">Urbanistica · Standard D.M. 1444/68</div>
+        <p><span class="vs">✗</span> 18 mq per lotto &nbsp;|&nbsp; <span class="ok">✓</span> 18 mq per <strong>ABITANTE</strong></p>
+      </div>
+
+      <div class="trappola">
+        <div class="trappola-label">Edilizia · Titolo abilitativo</div>
+        <p><span class="vs">✗</span> Nuova costruzione → SCIA &nbsp;|&nbsp; <span class="ok">✓</span> Nuova costruzione → solo <strong>Permesso di Costruire</strong> + contributo Bucalossi</p>
+      </div>
+
+      <div class="trappola">
+        <div class="trappola-label">Costruzioni · Tetto caldo</div>
+        <p><span class="vs">✗</span> Isolante sotto il solaio &nbsp;|&nbsp; <span class="ok">✓</span> Tetto "caldo" = isolante <strong>SOPRA</strong> il solaio (evita condensa e ponti termici)</p>
+      </div>
+
+      <div class="trappola">
+        <div class="trappola-label">Le Corbusier · Date</div>
+        <p><span class="vs">✗</span> Villa Savoye 1926, 5 punti 1929 &nbsp;|&nbsp; <span class="ok">✓</span> 5 punti = <strong>1926</strong> · Villa Savoye = <strong>1929–31</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+<footer>
+  <p>KnowledgeBase J · <span>Maturità CAT 2026</span> · Montecorice, Parco Nazionale del Cilento</p>
+  <p style="margin-top:.3rem; color: rgba(100,116,139,.5)">topografia · urbanistica · progettazione · italiano · inglese · educazione civica</p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
