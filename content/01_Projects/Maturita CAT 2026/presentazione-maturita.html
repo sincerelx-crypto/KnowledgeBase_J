@@ -3,1530 +3,1245 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Maturità CAT 2026 — Strada + Albergo a Montecorice</title>
+<title>Maturità CAT 2026 — Jean Christian Tiagouri</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&family=Oswald:wght@300;400;500;600;700&family=Exo+2:ital,wght@0,200;0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&family=Oswald:wght@200;300;400;500;600;700&family=Exo+2:ital,wght@0,200;0,300;0,400;0,600;0,700;1,300&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg:        #06080f;
-    --bg2:       #0a0e1a;
-    --grid:      rgba(30,100,200,0.10);
-    --grid2:     rgba(30,100,200,0.05);
-    --blue:      #1e6dc8;
-    --cyan:      #00d4ff;
-    --cyan2:     #00a8cc;
-    --amber:     #ffb300;
-    --green:     #00e676;
-    --red:       #ff5252;
-    --white:     #e8edf5;
-    --muted:     #7a8fab;
-    --panel:     rgba(12,22,45,0.85);
-    --panelb:    rgba(8,16,36,0.95);
-    --border:    rgba(0,212,255,0.18);
-    --section-w: 1100px;
-  }
+/* ═══════════════════════════════════════════
+   TOKENS
+═══════════════════════════════════════════ */
+:root {
+  --bg:        #050c07;
+  --bg2:       #081009;
+  --surface:   #0c1a0e;
+  --surface2:  #0f2012;
+  --g400:      #4ade80;
+  --g500:      #22c55e;
+  --g600:      #16a34a;
+  --g700:      #15803d;
+  --g100:      #dcfce7;
+  --white:     #f0faf2;
+  --muted:     #6b8f72;
+  --muted2:    #4a6b50;
+  --border:    rgba(34,197,94,.18);
+  --border2:   rgba(34,197,94,.08);
+  --amber:     #fbbf24;
+  --red:       #f87171;
+  --panel-bg:  rgba(12,26,14,.92);
+  --card-bg:   rgba(15,32,18,.85);
+  --radius:    6px;
+  --radius-lg: 12px;
+}
 
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
-  html, body {
-    width: 100%; height: 100%;
-    background: var(--bg);
-    color: var(--white);
-    font-family: 'Rajdhani', sans-serif;
-    overflow: hidden;
-  }
+html{scroll-behavior:smooth;font-size:16px}
 
-  /* ── BLUEPRINT GRID ── */
-  body::before {
-    content: '';
-    position: fixed; inset: 0;
-    background-image:
-      linear-gradient(var(--grid) 1px, transparent 1px),
-      linear-gradient(90deg, var(--grid) 1px, transparent 1px),
-      linear-gradient(var(--grid2) 1px, transparent 1px),
-      linear-gradient(90deg, var(--grid2) 1px, transparent 1px);
-    background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
-    pointer-events: none; z-index: 0;
-  }
+body{
+  background:var(--bg);
+  color:var(--white);
+  font-family:'Exo 2',sans-serif;
+  font-weight:300;
+  line-height:1.7;
+  overflow-x:hidden;
+}
 
-  /* corner decorations */
-  body::after {
-    content: '';
-    position: fixed; inset: 0;
-    background:
-      radial-gradient(ellipse at 0% 0%, rgba(0,100,255,0.08) 0%, transparent 50%),
-      radial-gradient(ellipse at 100% 100%, rgba(0,200,255,0.06) 0%, transparent 50%);
-    pointer-events: none; z-index: 0;
-  }
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--g700);border-radius:3px}
 
-  /* ── PROGRESS BAR ── */
-  #progress-bar {
-    position: fixed; top: 0; left: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--blue), var(--cyan));
-    transition: width 0.4s cubic-bezier(.4,0,.2,1);
-    z-index: 100;
-    box-shadow: 0 0 8px var(--cyan);
-  }
+/* ── GRID BG ── */
+body::before{
+  content:'';
+  position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:
+    linear-gradient(rgba(34,197,94,.05) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(34,197,94,.05) 1px,transparent 1px);
+  background-size:60px 60px;
+}
 
-  /* ── HEADER ── */
-  #header {
-    position: fixed; top: 0; left: 0; right: 0;
-    height: 52px;
-    background: var(--panelb);
-    border-bottom: 1px solid var(--border);
-    display: flex; align-items: center;
-    padding: 0 32px;
-    z-index: 90;
-    gap: 24px;
-  }
-  #header-logo {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 11px;
-    color: var(--cyan);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    white-space: nowrap;
-  }
-  #header-title {
-    font-family: 'Oswald', sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    color: var(--muted);
-    flex: 1;
-    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
-  }
-  #slide-counter {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 12px;
-    color: var(--muted);
-  }
+/* ═══════════════════════════════════════════
+   STICKY NAV
+═══════════════════════════════════════════ */
+#topnav{
+  position:sticky;top:0;z-index:999;
+  background:rgba(5,12,7,.96);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;
+  height:54px;padding:0 32px;gap:0;
+  overflow-x:auto;scrollbar-width:none;
+}
+#topnav::-webkit-scrollbar{display:none}
+.nav-brand{
+  font-family:'Share Tech Mono',monospace;
+  font-size:11px;letter-spacing:3px;color:var(--g500);
+  white-space:nowrap;margin-right:28px;text-transform:uppercase;
+  flex-shrink:0;
+}
+.nav-link{
+  font-family:'Share Tech Mono',monospace;font-size:10px;
+  letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--muted);padding:0 14px;height:54px;
+  display:flex;align-items:center;white-space:nowrap;
+  text-decoration:none;border-right:1px solid var(--border2);
+  transition:color .2s,background .2s;
+}
+.nav-link:hover,
+.nav-link.active{color:var(--g400);background:rgba(34,197,94,.06)}
 
-  /* ── SECTION TABS ── */
-  #section-nav {
-    position: fixed; top: 52px; left: 0; right: 0;
-    height: 36px;
-    background: rgba(6,8,15,0.95);
-    border-bottom: 1px solid var(--border);
-    display: flex; align-items: stretch;
-    overflow-x: auto; overflow-y: hidden;
-    z-index: 89;
-    scrollbar-width: none;
-  }
-  #section-nav::-webkit-scrollbar { display: none; }
-  .sec-tab {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--muted);
-    padding: 0 16px;
-    display: flex; align-items: center;
-    white-space: nowrap;
-    cursor: pointer;
-    border-right: 1px solid var(--border);
-    transition: color .2s, background .2s;
-    user-select: none;
-  }
-  .sec-tab:hover { color: var(--white); background: rgba(0,212,255,0.05); }
-  .sec-tab.active { color: var(--cyan); background: rgba(0,212,255,0.08); }
-  .sec-tab span { margin-right: 6px; font-size: 11px; }
+/* ── PROGRESS LINE ── */
+#prog{
+  position:fixed;top:0;left:0;height:2px;
+  background:linear-gradient(90deg,var(--g600),var(--g400));
+  z-index:9999;width:0;transition:width .1s linear;
+  box-shadow:0 0 6px var(--g500);
+}
 
-  /* ── SLIDES CONTAINER ── */
-  #slides {
-    position: fixed;
-    top: 88px; bottom: 56px; left: 0; right: 0;
-    z-index: 1;
-  }
+/* ═══════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════ */
+#hero{
+  position:relative;min-height:100vh;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  text-align:center;padding:80px 40px;
+  overflow:hidden;
+}
+#hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 40%,rgba(34,197,94,.12) 0%,transparent 70%),
+    radial-gradient(ellipse 40% 40% at 20% 80%,rgba(22,163,74,.08) 0%,transparent 60%);
+  pointer-events:none;
+}
 
-  .slide {
-    position: absolute; inset: 0;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    padding: 32px 48px;
-    opacity: 0;
-    transform: translateX(60px);
-    transition: opacity .45s cubic-bezier(.4,0,.2,1), transform .45s cubic-bezier(.4,0,.2,1);
-    pointer-events: none;
-    overflow-y: auto;
-  }
-  .slide.active {
-    opacity: 1; transform: translateX(0);
-    pointer-events: auto;
-  }
-  .slide.prev {
-    opacity: 0; transform: translateX(-60px);
-  }
+/* animated grid lines on hero */
+#hero-grid{
+  position:absolute;inset:0;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(34,197,94,.12) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(34,197,94,.12) 1px,transparent 1px),
+    linear-gradient(rgba(34,197,94,.05) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(34,197,94,.05) 1px,transparent 1px);
+  background-size:120px 120px,120px 120px,24px 24px,24px 24px;
+}
 
-  /* ── LAYOUT HELPERS ── */
-  .slide-inner {
-    width: 100%; max-width: var(--section-w);
-    display: flex; flex-direction: column;
-    gap: 20px;
-  }
+.hero-eyebrow{
+  font-family:'Share Tech Mono',monospace;
+  font-size:11px;letter-spacing:5px;color:var(--g500);
+  text-transform:uppercase;margin-bottom:20px;
+  position:relative;z-index:1;
+}
+.hero-title{
+  font-family:'Oswald',sans-serif;
+  font-size:clamp(44px,8vw,96px);
+  font-weight:700;letter-spacing:4px;
+  text-transform:uppercase;line-height:1;
+  color:var(--white);position:relative;z-index:1;
+  margin-bottom:10px;
+}
+.hero-title .green{color:var(--g400)}
+.hero-sub{
+  font-family:'Oswald',sans-serif;
+  font-size:clamp(20px,3vw,32px);
+  font-weight:300;color:var(--muted);
+  letter-spacing:2px;margin-bottom:36px;
+  position:relative;z-index:1;
+}
+.hero-chips{
+  display:flex;gap:10px;flex-wrap:wrap;justify-content:center;
+  margin-bottom:50px;position:relative;z-index:1;
+}
+.chip{
+  background:rgba(34,197,94,.10);
+  border:1px solid rgba(34,197,94,.3);
+  color:var(--g400);
+  font-family:'Share Tech Mono',monospace;
+  font-size:10px;letter-spacing:2px;text-transform:uppercase;
+  padding:6px 14px;border-radius:2px;
+}
+.chip.amber{background:rgba(251,191,36,.08);border-color:rgba(251,191,36,.3);color:var(--amber)}
+.hero-meta{
+  display:flex;gap:48px;flex-wrap:wrap;justify-content:center;
+  font-family:'Share Tech Mono',monospace;font-size:12px;
+  color:var(--muted);letter-spacing:1px;
+  position:relative;z-index:1;
+}
+.hero-meta strong{display:block;color:var(--white);font-size:14px;margin-bottom:2px}
 
-  .slide-title {
-    font-family: 'Oswald', sans-serif;
-    font-size: clamp(26px, 3.5vw, 42px);
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--white);
-    line-height: 1.1;
-  }
-  .slide-title .label {
-    display: block;
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 3px;
-    color: var(--cyan);
-    margin-bottom: 6px;
-  }
-  .slide-title .accent { color: var(--cyan); }
+/* SVG hero illustration */
+#hero-svg{
+  position:absolute;bottom:0;left:0;right:0;
+  height:180px;pointer-events:none;z-index:1;
+}
 
-  .slide-subtitle {
-    font-family: 'Exo 2', sans-serif;
-    font-size: 16px;
-    font-weight: 300;
-    color: var(--muted);
-    font-style: italic;
-  }
+/* ═══════════════════════════════════════════
+   SECTIONS
+═══════════════════════════════════════════ */
+section{position:relative;z-index:1;padding:100px 0}
+section:nth-child(even){background:rgba(12,26,14,.5)}
 
-  /* ── GRID LAYOUTS ── */
-  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
-  .grid-2-1 { display: grid; grid-template-columns: 2fr 1fr; gap: 20px; }
-  .grid-1-2 { display: grid; grid-template-columns: 1fr 2fr; gap: 20px; }
+.container{max-width:1160px;margin:0 auto;padding:0 40px}
 
-  /* ── PANEL ── */
-  .panel {
-    background: var(--panel);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 20px 24px;
-    position: relative;
-    overflow: hidden;
-  }
-  .panel::before {
-    content: '';
-    position: absolute; top: 0; left: 0;
-    width: 3px; height: 100%;
-    background: var(--cyan);
-  }
-  .panel.amber::before { background: var(--amber); }
-  .panel.green::before { background: var(--green); }
-  .panel.red::before { background: var(--red); }
-  .panel.blue-full {
-    border-color: rgba(0,212,255,0.35);
-    background: rgba(0,80,160,0.15);
-  }
+.sec-label{
+  font-family:'Share Tech Mono',monospace;
+  font-size:10px;letter-spacing:4px;color:var(--g500);
+  text-transform:uppercase;margin-bottom:12px;
+  display:flex;align-items:center;gap:12px;
+}
+.sec-label::after{
+  content:'';flex:0 0 60px;height:1px;
+  background:linear-gradient(90deg,var(--g600),transparent);
+}
+.sec-title{
+  font-family:'Oswald',sans-serif;
+  font-size:clamp(30px,4vw,52px);
+  font-weight:600;letter-spacing:2px;
+  text-transform:uppercase;line-height:1.1;
+  color:var(--white);margin-bottom:16px;
+}
+.sec-title .green{color:var(--g400)}
+.sec-intro{
+  font-size:17px;font-weight:300;color:var(--muted);
+  max-width:680px;line-height:1.8;margin-bottom:56px;
+}
 
-  .panel-title {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--cyan);
-    margin-bottom: 12px;
-  }
-  .panel.amber .panel-title { color: var(--amber); }
-  .panel.green .panel-title { color: var(--green); }
-  .panel.red .panel-title { color: var(--red); }
+/* ── GRID ── */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.g21{display:grid;grid-template-columns:2fr 1fr;gap:24px;align-items:start}
+.g12{display:grid;grid-template-columns:1fr 2fr;gap:24px;align-items:start}
 
-  .panel p, .panel li {
-    font-family: 'Exo 2', sans-serif;
-    font-size: 15px;
-    font-weight: 300;
-    color: var(--white);
-    line-height: 1.65;
-  }
-  .panel ul { padding-left: 16px; }
-  .panel ul li { margin-bottom: 4px; }
+/* ── CARD ── */
+.card{
+  background:var(--card-bg);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:28px 30px;
+  position:relative;overflow:hidden;
+  transition:border-color .3s,transform .3s,box-shadow .3s;
+}
+.card:hover{
+  border-color:rgba(34,197,94,.4);
+  transform:translateY(-3px);
+  box-shadow:0 16px 48px rgba(0,0,0,.4),0 0 30px rgba(34,197,94,.06);
+}
+.card::before{
+  content:'';position:absolute;top:0;left:0;
+  width:2px;height:100%;
+  background:linear-gradient(180deg,var(--g500),var(--g700));
+}
+.card.amber::before{background:linear-gradient(180deg,var(--amber),#d97706)}
+.card.red::before{background:linear-gradient(180deg,var(--red),#dc2626)}
 
-  /* ── TABLES ── */
-  .tbl-wrap { overflow-x: auto; }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 13px;
-  }
-  th {
-    background: rgba(0,212,255,0.10);
-    border: 1px solid var(--border);
-    padding: 8px 12px;
-    text-align: left;
-    color: var(--cyan);
-    letter-spacing: 1px;
-    font-size: 11px;
-    text-transform: uppercase;
-  }
-  td {
-    border: 1px solid rgba(0,212,255,0.08);
-    padding: 8px 12px;
-    color: var(--white);
-    font-family: 'Exo 2', sans-serif;
-    font-size: 14px;
-  }
-  tr:nth-child(even) td { background: rgba(0,212,255,0.03); }
-  tr:hover td { background: rgba(0,212,255,0.07); }
-  td.mono { font-family: 'Share Tech Mono', monospace; font-size: 13px; }
-  td.cyan { color: var(--cyan); }
-  td.amber { color: var(--amber); }
-  td.green { color: var(--green); }
+.card-label{
+  font-family:'Share Tech Mono',monospace;
+  font-size:10px;letter-spacing:2px;color:var(--g500);
+  text-transform:uppercase;margin-bottom:12px;
+}
+.card.amber .card-label{color:var(--amber)}
+.card.red .card-label{color:var(--red)}
+.card h3{
+  font-family:'Oswald',sans-serif;font-weight:500;
+  font-size:20px;color:var(--white);margin-bottom:12px;
+}
+.card p,.card li{
+  font-size:15px;color:rgba(240,250,242,.8);line-height:1.7;
+}
+.card ul{padding-left:16px}
+.card li{margin-bottom:5px}
 
-  /* ── FORMULA BOX ── */
-  .formula {
-    background: rgba(0,0,0,0.5);
-    border: 1px solid rgba(0,212,255,0.25);
-    border-radius: 4px;
-    padding: 14px 20px;
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 16px;
-    color: var(--cyan);
-    text-align: center;
-    letter-spacing: 1px;
-  }
-  .formula .label {
-    display: block;
-    font-size: 10px;
-    color: var(--muted);
-    margin-bottom: 6px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-  }
+/* ── STAT CARDS ── */
+.stat{
+  background:var(--card-bg);
+  border:1px solid var(--border);border-radius:var(--radius);
+  padding:24px 20px;text-align:center;
+}
+.stat-val{
+  font-family:'Share Tech Mono',monospace;
+  font-size:clamp(22px,3vw,38px);
+  color:var(--g400);line-height:1;margin-bottom:8px;
+}
+.stat-lbl{
+  font-family:'Exo 2',sans-serif;font-size:12px;
+  color:var(--muted);letter-spacing:1px;text-transform:uppercase;
+}
 
-  /* ── CALLOUT BOXES ── */
-  .callout {
-    border-radius: 4px;
-    padding: 14px 18px;
-    display: flex; gap: 12px; align-items: flex-start;
-    font-family: 'Exo 2', sans-serif;
-    font-size: 14px;
-    line-height: 1.6;
-  }
-  .callout.warn {
-    background: rgba(255,179,0,0.08);
-    border: 1px solid rgba(255,179,0,0.3);
-    color: var(--amber);
-  }
-  .callout.info {
-    background: rgba(0,212,255,0.06);
-    border: 1px solid rgba(0,212,255,0.2);
-    color: var(--cyan2);
-  }
-  .callout.success {
-    background: rgba(0,230,118,0.06);
-    border: 1px solid rgba(0,230,118,0.25);
-    color: var(--green);
-  }
-  .callout.danger {
-    background: rgba(255,82,82,0.07);
-    border: 1px solid rgba(255,82,82,0.3);
-    color: var(--red);
-  }
-  .callout-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
-  .callout-body { flex: 1; }
-  .callout-body strong { display: block; margin-bottom: 4px; font-weight: 600; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; }
+/* ── TABLE ── */
+.tbl-wrap{overflow-x:auto;border-radius:var(--radius)}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{
+  background:rgba(34,197,94,.10);
+  border:1px solid var(--border);
+  padding:10px 16px;text-align:left;
+  font-family:'Share Tech Mono',monospace;
+  font-size:10px;letter-spacing:1.5px;color:var(--g400);
+  text-transform:uppercase;
+}
+td{
+  border:1px solid rgba(34,197,94,.07);
+  padding:10px 16px;
+  font-family:'Exo 2',sans-serif;color:var(--white);font-size:14px;
+}
+tr:nth-child(even) td{background:rgba(34,197,94,.03)}
+tr:hover td{background:rgba(34,197,94,.07)}
+td.mono{font-family:'Share Tech Mono',monospace;font-size:13px}
+td.green{color:var(--g400)}
+td.amber{color:var(--amber)}
+td.red{color:var(--red)}
 
-  /* ── STAT CARDS ── */
-  .stat-card {
-    background: var(--panel);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 18px 20px;
-    text-align: center;
-  }
-  .stat-card .val {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: clamp(22px, 3vw, 36px);
-    color: var(--cyan);
-    line-height: 1;
-    margin-bottom: 4px;
-  }
-  .stat-card .lbl {
-    font-family: 'Exo 2', sans-serif;
-    font-size: 12px;
-    color: var(--muted);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
+/* ── FORMULA ── */
+.formula{
+  background:rgba(0,0,0,.5);
+  border:1px solid rgba(34,197,94,.3);
+  border-radius:var(--radius);
+  padding:18px 24px;text-align:center;
+  font-family:'Share Tech Mono',monospace;
+  font-size:clamp(14px,2vw,20px);
+  color:var(--g400);letter-spacing:1px;
+}
+.formula .f-label{
+  display:block;font-size:10px;color:var(--muted);
+  letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;
+}
 
-  /* ── TAG ── */
-  .tag {
-    display: inline-block;
-    background: rgba(0,212,255,0.12);
-    border: 1px solid rgba(0,212,255,0.25);
-    color: var(--cyan);
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 10px;
-    padding: 3px 8px;
-    border-radius: 2px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-  }
-  .tag.amber {
-    background: rgba(255,179,0,0.12);
-    border-color: rgba(255,179,0,0.25);
-    color: var(--amber);
-  }
-  .tag.green {
-    background: rgba(0,230,118,0.12);
-    border-color: rgba(0,230,118,0.25);
-    color: var(--green);
-  }
+/* ── CALLOUT ── */
+.callout{
+  border-radius:var(--radius);padding:16px 20px;
+  display:flex;gap:14px;align-items:flex-start;
+  font-size:14px;line-height:1.65;
+}
+.callout.warn{background:rgba(251,191,36,.07);border:1px solid rgba(251,191,36,.25);color:#fde68a}
+.callout.info{background:rgba(34,197,94,.07);border:1px solid rgba(34,197,94,.2);color:var(--g100)}
+.callout.danger{background:rgba(248,113,113,.07);border:1px solid rgba(248,113,113,.25);color:#fca5a5}
+.callout.success{background:rgba(34,197,94,.09);border:1px solid rgba(34,197,94,.3);color:var(--g400)}
+.ci{font-size:22px;flex-shrink:0;margin-top:1px}
+.cb strong{display:block;font-size:11px;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px}
 
-  /* ── DIVIDER ── */
-  .divider {
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--border), transparent);
-    margin: 4px 0;
-  }
+/* ── FLOW ── */
+.flow{display:flex;align-items:center;flex-wrap:wrap;gap:0}
+.fn{
+  background:rgba(34,197,94,.10);border:1px solid rgba(34,197,94,.3);
+  border-radius:3px;padding:8px 16px;
+  font-family:'Share Tech Mono',monospace;font-size:12px;
+  color:var(--white);white-space:nowrap;
+}
+.fa{color:var(--g500);font-size:18px;padding:0 8px;flex-shrink:0}
 
-  /* ── FLOW DIAGRAM ── */
-  .flow {
-    display: flex; align-items: center; gap: 0;
-    flex-wrap: wrap;
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 12px;
-  }
-  .flow-node {
-    background: rgba(0,212,255,0.10);
-    border: 1px solid rgba(0,212,255,0.3);
-    border-radius: 3px;
-    padding: 7px 14px;
-    color: var(--white);
-    white-space: nowrap;
-  }
-  .flow-arrow {
-    color: var(--cyan);
-    font-size: 16px;
-    padding: 0 6px;
-    flex-shrink: 0;
-  }
+/* ── STRAT (stratigrafia) ── */
+.strat-layer{
+  display:flex;align-items:center;gap:16px;
+  padding:12px 18px;margin-bottom:4px;
+  border-left:3px solid var(--g600);
+  background:rgba(34,197,94,.04);
+  border-radius:0 var(--radius) var(--radius) 0;
+}
+.sl-num{
+  font-family:'Share Tech Mono',monospace;
+  font-size:13px;color:var(--g400);width:28px;flex-shrink:0;
+}
+.sl-text{font-size:14px;color:var(--white)}
+.sl-note{font-size:12px;color:var(--muted);font-style:italic}
 
-  /* ── BOTTOM NAV ── */
-  #footer {
-    position: fixed; bottom: 0; left: 0; right: 0;
-    height: 56px;
-    background: var(--panelb);
-    border-top: 1px solid var(--border);
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 32px;
-    z-index: 90;
-  }
-  #footer-info {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 11px;
-    color: var(--muted);
-    letter-spacing: 1px;
-  }
-  .nav-btns { display: flex; gap: 12px; }
-  .nav-btn {
-    background: rgba(0,212,255,0.08);
-    border: 1px solid var(--border);
-    color: var(--cyan);
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 14px;
-    padding: 8px 18px;
-    cursor: pointer;
-    border-radius: 3px;
-    transition: background .2s, box-shadow .2s;
-    user-select: none;
-  }
-  .nav-btn:hover { background: rgba(0,212,255,0.18); box-shadow: 0 0 10px rgba(0,212,255,0.2); }
-  .nav-btn:active { transform: scale(0.97); }
-  .nav-btn:disabled { opacity: 0.3; cursor: default; }
+/* ── TIER (hierarchy) ── */
+.tier{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+.t-lbl{font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--muted);width:56px;text-align:right}
+.t-bar{
+  flex:1;padding:10px 18px;border-radius:3px;
+  font-family:'Exo 2',sans-serif;font-size:14px;font-weight:500;
+}
+.t1{background:rgba(34,197,94,.22);color:var(--g400);border-left:3px solid var(--g400)}
+.t2{background:rgba(34,197,94,.15);color:var(--white);border-left:3px solid rgba(34,197,94,.6)}
+.t3{background:rgba(34,197,94,.09);color:var(--white);border-left:3px solid rgba(34,197,94,.35)}
+.t4{background:rgba(34,197,94,.05);color:var(--muted);border-left:3px solid rgba(34,197,94,.2)}
 
-  /* ── SPECIAL SLIDES ── */
+/* ── DIVIDER ── */
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);margin:8px 0}
 
-  /* cover */
-  #slide-0 {
-    background: radial-gradient(ellipse at center, rgba(0,40,100,0.4) 0%, transparent 70%);
-    justify-content: center;
-    text-align: center;
-  }
-  .cover-cat {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 5px;
-    color: var(--cyan);
-    text-transform: uppercase;
-    margin-bottom: 16px;
-  }
-  .cover-main {
-    font-family: 'Oswald', sans-serif;
-    font-size: clamp(36px, 6vw, 72px);
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    line-height: 1.05;
-    color: var(--white);
-    margin-bottom: 12px;
-  }
-  .cover-main .highlight {
-    color: var(--cyan);
-    display: block;
-    font-size: clamp(28px, 4.5vw, 54px);
-  }
-  .cover-sub {
-    font-family: 'Exo 2', sans-serif;
-    font-size: 18px;
-    font-weight: 300;
-    font-style: italic;
-    color: var(--muted);
-    margin-bottom: 32px;
-  }
-  .cover-meta {
-    display: flex; gap: 32px; justify-content: center; flex-wrap: wrap;
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 12px;
-    color: var(--muted);
-    letter-spacing: 1px;
-  }
-  .cover-meta span { color: var(--white); }
+/* ── BIG QUOTE ── */
+.bq{
+  font-family:'Oswald',sans-serif;
+  font-size:clamp(20px,3vw,32px);font-weight:300;font-style:italic;
+  color:var(--g400);text-align:center;padding:32px 20px;line-height:1.4;
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  margin:32px 0;
+}
 
-  /* SVG blueprint element */
-  .blueprint-corner {
-    position: absolute;
-    opacity: 0.15;
-    pointer-events: none;
-  }
+/* ── POINT CARD (Le Corbusier) ── */
+.lc-card{
+  background:var(--card-bg);border:1px solid var(--border);
+  border-radius:var(--radius);padding:24px;
+  display:flex;gap:20px;align-items:flex-start;
+  transition:border-color .3s,transform .3s;
+}
+.lc-card:hover{border-color:rgba(34,197,94,.4);transform:translateY(-2px)}
+.lc-num{
+  font-family:'Share Tech Mono',monospace;font-size:28px;
+  color:var(--g500);line-height:1;flex-shrink:0;width:36px;
+}
+.lc-content h4{
+  font-family:'Oswald',sans-serif;font-size:17px;font-weight:500;
+  color:var(--white);margin-bottom:6px;
+}
+.lc-content p{font-size:13px;color:rgba(240,250,242,.7);line-height:1.6}
+.lc-norm{
+  margin-top:8px;font-family:'Share Tech Mono',monospace;
+  font-size:10px;color:var(--g600);letter-spacing:1px;
+}
 
-  /* scrollable slide content */
-  .scroll-content {
-    max-height: calc(100vh - 200px);
-    overflow-y: auto;
-    padding-right: 4px;
-    scrollbar-width: thin;
-    scrollbar-color: var(--border) transparent;
-  }
+/* ── TRAP CARD ── */
+.trap{
+  background:rgba(248,113,113,.06);
+  border:1px solid rgba(248,113,113,.2);
+  border-radius:var(--radius);padding:20px;
+  transition:border-color .3s;
+}
+.trap:hover{border-color:rgba(248,113,113,.4)}
+.trap-icon{font-size:24px;margin-bottom:10px}
+.trap h4{
+  font-family:'Oswald',sans-serif;font-size:16px;font-weight:500;
+  color:#fca5a5;margin-bottom:8px;
+}
+.trap p{font-size:13px;color:rgba(240,250,242,.75);line-height:1.6}
 
-  /* ── RESPONSIVE ── */
-  @media (max-width: 800px) {
-    .grid-2, .grid-3, .grid-2-1, .grid-1-2 { grid-template-columns: 1fr; }
-    .slide { padding: 24px 20px; }
-    #header { padding: 0 16px; }
-    #footer { padding: 0 16px; }
-  }
+/* ── BRIDGE TABLE ── */
+.bridge-row{display:grid;grid-template-columns:1fr 40px 1fr;margin-bottom:6px;gap:0}
+.bc{padding:10px 14px;font-size:13px;border:1px solid var(--border)}
+.bc.left{background:rgba(34,197,94,.07);color:var(--g400);font-family:'Exo 2',sans-serif}
+.bc.mid{
+  display:flex;align-items:center;justify-content:center;
+  color:var(--amber);font-size:18px;
+  background:rgba(251,191,36,.05);border-color:rgba(251,191,36,.15);
+}
+.bc.right{background:rgba(34,197,94,.04);color:var(--white);font-family:'Exo 2',sans-serif}
 
-  /* ── ANIMATIONS ── */
-  @keyframes pulse-cyan {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(0,212,255,0); }
-    50% { box-shadow: 0 0 20px 4px rgba(0,212,255,0.15); }
-  }
-  .pulse { animation: pulse-cyan 3s infinite; }
+/* ── FOOTER ── */
+#footer{
+  background:var(--surface);
+  border-top:1px solid var(--border);
+  padding:48px 0 36px;text-align:center;
+}
+.footer-brand{
+  font-family:'Oswald',sans-serif;font-size:28px;
+  font-weight:700;letter-spacing:4px;color:var(--g500);
+  text-transform:uppercase;margin-bottom:8px;
+}
+.footer-sub{font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:2px}
 
-  @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.3; }
-  }
+/* ── SVG ILLUSTRATIONS ── */
+.svg-wrapper{
+  background:var(--card-bg);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:24px;overflow:hidden;
+}
+.svg-wrapper figcaption{
+  font-family:'Share Tech Mono',monospace;
+  font-size:10px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--muted);text-align:center;margin-top:14px;
+}
 
-  /* stratigrafia */
-  .strat-layer {
-    display: flex; align-items: center; gap: 14px;
-    padding: 9px 16px;
-    border-left: 3px solid var(--cyan);
-    margin-bottom: 4px;
-    background: rgba(0,212,255,0.04);
-    font-family: 'Exo 2', sans-serif;
-    font-size: 14px;
-  }
-  .strat-num {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 12px;
-    color: var(--cyan);
-    width: 24px; flex-shrink: 0;
-  }
-
-  /* ponti */
-  .bridge-row {
-    display: flex; gap: 0;
-    align-items: stretch;
-    margin-bottom: 8px;
-  }
-  .bridge-cell {
-    flex: 1;
-    padding: 12px 16px;
-    border: 1px solid var(--border);
-    font-family: 'Exo 2', sans-serif;
-    font-size: 14px;
-    line-height: 1.5;
-  }
-  .bridge-cell.left { background: rgba(0,100,200,0.10); color: var(--cyan); }
-  .bridge-cell.center {
-    flex: 0 0 60px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 20px; color: var(--amber);
-    background: rgba(255,179,0,0.05);
-  }
-  .bridge-cell.right { background: rgba(0,200,100,0.06); color: var(--green); }
-
-  /* highlight big text */
-  .big-quote {
-    font-family: 'Oswald', sans-serif;
-    font-size: clamp(18px, 2.5vw, 28px);
-    font-weight: 400;
-    font-style: italic;
-    color: var(--cyan);
-    text-align: center;
-    line-height: 1.4;
-    padding: 20px 0;
-  }
-  .big-quote::before { content: '"'; }
-  .big-quote::after  { content: '"'; }
-
-  /* tier list for piani urbanistici */
-  .tier { display: flex; align-items: center; gap: 12px; margin-bottom: 6px; }
-  .tier-label {
-    font-family: 'Share Tech Mono', monospace; font-size: 10px; color: var(--muted);
-    width: 60px; text-align: right; letter-spacing: 1px;
-  }
-  .tier-bar {
-    flex: 1; height: 36px;
-    display: flex; align-items: center; padding: 0 14px;
-    border-radius: 2px;
-    font-family: 'Exo 2', sans-serif; font-size: 14px; font-weight: 500;
-  }
-  .tier-1 { background: rgba(0,212,255,0.20); color: var(--cyan); border-left: 3px solid var(--cyan); }
-  .tier-2 { background: rgba(0,212,255,0.14); color: var(--white); border-left: 3px solid rgba(0,212,255,0.5); }
-  .tier-3 { background: rgba(0,212,255,0.09); color: var(--white); border-left: 3px solid rgba(0,212,255,0.35); }
-  .tier-4 { background: rgba(0,212,255,0.05); color: var(--muted); border-left: 3px solid rgba(0,212,255,0.20); }
-
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .g2,.g3,.g4,.g21,.g12{grid-template-columns:1fr}
+  .container{padding:0 20px}
+  section{padding:64px 0}
+  #hero{padding:60px 20px}
+}
 </style>
 </head>
 <body>
 
 <!-- Progress bar -->
-<div id="progress-bar"></div>
+<div id="prog"></div>
 
-<!-- Header -->
-<div id="header">
-  <div id="header-logo">CAT · 2026 · J.C.T.</div>
-  <div id="header-title" id="current-title">Maturità CAT 2026 — Strada + Albergo a Montecorice</div>
-  <div id="slide-counter">01 / 20</div>
-</div>
+<!-- ══ STICKY NAV ══ -->
+<nav id="topnav">
+  <div class="nav-brand">CAT · 2026</div>
+  <a class="nav-link" href="#hero">Home</a>
+  <a class="nav-link" href="#tesi">Tesi</a>
+  <a class="nav-link" href="#topografia">Topografia</a>
+  <a class="nav-link" href="#strada">Strada</a>
+  <a class="nav-link" href="#urbanistica">Urbanistica</a>
+  <a class="nav-link" href="#albergo">Albergo</a>
+  <a class="nav-link" href="#lecorbusier">Le Corbusier</a>
+  <a class="nav-link" href="#ponti">Ponti</a>
+  <a class="nav-link" href="#inglese">English</a>
+  <a class="nav-link" href="#formule">Formule</a>
+  <a class="nav-link" href="#trappole">Trappole</a>
+</nav>
 
-<!-- Section Tabs -->
-<div id="section-nav">
-  <div class="sec-tab" data-slide="0"><span>🏠</span>Cover</div>
-  <div class="sec-tab" data-slide="1"><span>🎯</span>Tesi</div>
-  <div class="sec-tab" data-slide="2"><span>📐</span>Quote &amp; Geoide</div>
-  <div class="sec-tab" data-slide="3"><span>📏</span>Livellaz. &amp; Pendenze</div>
-  <div class="sec-tab" data-slide="4"><span>🗺️</span>Piano Quotato</div>
-  <div class="sec-tab" data-slide="5"><span>🛣️</span>Strada — Inquadr.</div>
-  <div class="sec-tab" data-slide="6"><span>↩️</span>Tracciato</div>
-  <div class="sec-tab" data-slide="7"><span>📈</span>Profilo Long.</div>
-  <div class="sec-tab" data-slide="8"><span>📍</span>Picchettamento</div>
-  <div class="sec-tab" data-slide="9"><span>📦</span>Sezioni &amp; Volumi</div>
-  <div class="sec-tab" data-slide="10"><span>🏛️</span>Gerarchia Piani</div>
-  <div class="sec-tab" data-slide="11"><span>📋</span>PUC &amp; Zona C</div>
-  <div class="sec-tab" data-slide="12"><span>📄</span>Titoli Abilitativi</div>
-  <div class="sec-tab" data-slide="13"><span>🏗️</span>Le Corbusier</div>
-  <div class="sec-tab" data-slide="14"><span>🏨</span>Albergo — Distrib.</div>
-  <div class="sec-tab" data-slide="15"><span>🔳</span>Tetto Caldo</div>
-  <div class="sec-tab" data-slide="16"><span>🔗</span>Ponti Materie</div>
-  <div class="sec-tab" data-slide="17"><span>🌍</span>Inglese &amp; Ed.Civ.</div>
-  <div class="sec-tab" data-slide="18"><span>⚡</span>Formule</div>
-  <div class="sec-tab" data-slide="19"><span>⚠️</span>Trappole</div>
-</div>
+<!-- ══════════════════════════════════
+     HERO
+══════════════════════════════════ -->
+<section id="hero">
+  <div id="hero-grid"></div>
 
-<!-- Slides -->
-<div id="slides">
+  <div class="hero-eyebrow">Esame di Stato — Costruzioni Ambiente e Territorio &nbsp;·&nbsp; A.S. 2025/2026</div>
 
-  <!-- ══ SLIDE 0 — COVER ══ -->
-  <div class="slide active" id="slide-0">
-    <!-- Blueprint SVG decorations -->
-    <svg class="blueprint-corner" style="top:0;left:0;width:200px;height:200px" viewBox="0 0 200 200">
-      <line x1="0" y1="30" x2="30" y2="30" stroke="#00d4ff" stroke-width="1"/>
-      <line x1="30" y1="0" x2="30" y2="30" stroke="#00d4ff" stroke-width="1"/>
-      <circle cx="30" cy="30" r="3" fill="none" stroke="#00d4ff" stroke-width="1"/>
-      <line x1="0" y1="60" x2="15" y2="60" stroke="#00d4ff" stroke-width="0.5" opacity="0.5"/>
-      <line x1="60" y1="0" x2="60" y2="15" stroke="#00d4ff" stroke-width="0.5" opacity="0.5"/>
-    </svg>
-    <svg class="blueprint-corner" style="bottom:0;right:0;width:200px;height:200px;transform:rotate(180deg)" viewBox="0 0 200 200">
-      <line x1="0" y1="30" x2="30" y2="30" stroke="#00d4ff" stroke-width="1"/>
-      <line x1="30" y1="0" x2="30" y2="30" stroke="#00d4ff" stroke-width="1"/>
-      <circle cx="30" cy="30" r="3" fill="none" stroke="#00d4ff" stroke-width="1"/>
-    </svg>
-    <div class="slide-inner" style="align-items:center;text-align:center;max-width:900px">
-      <div class="cover-cat">Esame di Stato — Costruzioni Ambiente e Territorio &nbsp;·&nbsp; A.S. 2025/2026</div>
-      <div class="cover-main">
-        Strada + Albergo
-        <span class="highlight">a Montecorice</span>
-      </div>
-      <div class="cover-sub">Parco Nazionale del Cilento, Vallo di Diano e Alburni (SA)</div>
-      <div class="divider" style="width:300px;margin:8px auto"></div>
-      <div class="cover-meta">
-        <div>Candidato <span>Jean Christian Tiagouri</span></div>
-        <div>Classe <span>V CAT</span></div>
-        <div>Anno <span>2026</span></div>
-        <div>Materie <span>Topografia · Progettazione · Urbanistica</span></div>
-      </div>
-      <div style="margin-top:28px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-        <span class="tag">Topografia</span>
-        <span class="tag">Progettazione</span>
-        <span class="tag">Urbanistica</span>
-        <span class="tag amber">Le Corbusier</span>
-        <span class="tag green">PUC Montecorice</span>
-      </div>
-    </div>
+  <h1 class="hero-title">
+    Strada +<br><span class="green">Albergo</span>
+  </h1>
+  <p class="hero-sub">a Montecorice · Parco Nazionale del Cilento (SA)</p>
+
+  <div class="hero-chips">
+    <span class="chip">Topografia</span>
+    <span class="chip">Progettazione</span>
+    <span class="chip">Urbanistica</span>
+    <span class="chip amber">Le Corbusier</span>
+    <span class="chip">PUC Montecorice</span>
+    <span class="chip">T.U. 380/01</span>
   </div>
 
-  <!-- ══ SLIDE 1 — TESI CENTRALE ══ -->
-  <div class="slide" id="slide-1">
-    <div class="slide-inner">
-      <div class="slide-title">
-        <span class="label">Tesi Centrale</span>
-        Un unico processo
-      </div>
-      <div class="big-quote">
-        La topografia misura il territorio; la progettazione decide come costruirci sopra
-      </div>
-      <div class="grid-2">
-        <div class="panel">
-          <div class="panel-title">📐 Topografia</div>
-          <p>Rileva il territorio, produce il <strong>piano quotato</strong> e le <strong>curve di livello</strong>. Definisce la quota "0" comune a tutto il progetto.</p>
-        </div>
-        <div class="panel">
-          <div class="panel-title">🏗️ Progettazione / PCI</div>
-          <p>Usa quelle misure per progettare la <strong>strada</strong> (parametri altimetrici) e l'<strong>albergo</strong> (indici urbanistici, normative).</p>
-        </div>
-      </div>
-      <div class="panel blue-full">
-        <div class="panel-title">🔗 Il filo conduttore</div>
-        <div class="flow" style="justify-content:center;gap:0;flex-wrap:wrap">
-          <div class="flow-node">Rilievo terreno</div>
-          <div class="flow-arrow">→</div>
-          <div class="flow-node">Piano quotato</div>
-          <div class="flow-arrow">→</div>
-          <div class="flow-node">PUC / Zona C</div>
-          <div class="flow-arrow">→</div>
-          <div class="flow-node">Progetto stradale</div>
-          <div class="flow-arrow">→</div>
-          <div class="flow-node">Albergo</div>
-          <div class="flow-arrow">→</div>
-          <div class="flow-node">Permesso di Costruire</div>
-        </div>
-      </div>
-      <div class="grid-3">
-        <div class="stat-card">
-          <div class="val">Montecorice</div>
-          <div class="lbl">Comune (SA) — Parco Cilento</div>
-        </div>
-        <div class="stat-card">
-          <div class="val">Zona C</div>
-          <div class="lbl">Espansione — PUC vigente</div>
-        </div>
-        <div class="stat-card">
-          <div class="val">932 m</div>
-          <div class="lbl">Sviluppo totale strada</div>
-        </div>
-      </div>
-    </div>
+  <div class="hero-meta">
+    <div><strong>Jean Christian Tiagouri</strong>Candidato</div>
+    <div><strong>Classe V CAT</strong>Indirizzo</div>
+    <div><strong>Giugno 2026</strong>Anno scolastico</div>
+    <div><strong>Montecorice (SA)</strong>Luogo progetto</div>
   </div>
 
-  <!-- ══ SLIDE 2 — QUOTE E GEOIDE ══ -->
-  <div class="slide" id="slide-2">
-    <div class="slide-inner">
-      <div class="slide-title">
-        <span class="label">Topografia — Fondamenti</span>
-        Quote e <span class="accent">Geoide</span>
-      </div>
-      <div class="grid-2">
-        <div class="panel">
-          <div class="panel-title">📍 Definizione di Quota</div>
-          <p>La <strong>quota</strong> di un punto è la sua distanza verticale dal <strong>livello medio del mare</strong>. In Italia il riferimento è il <strong>Geoide</strong>, misurato al <strong>Mareografo di Genova</strong>.</p>
-          <br>
-          <ul>
-            <li>Quote positive → sopra il livello del mare</li>
-            <li>Quote negative → sotto il livello del mare</li>
-            <li>Unità di misura: <strong>metri</strong></li>
-          </ul>
-        </div>
-        <div>
-          <div class="panel" style="margin-bottom:16px">
-            <div class="panel-title">🌍 Geoide</div>
-            <p>Superficie equipotenziale del campo gravitazionale terrestre. Approssima il livello medio del mare. È <em>irregolare</em> — segue la gravità, non una forma matematica.</p>
-          </div>
-          <div class="panel">
-            <div class="panel-title">📡 Ellissoide (GPS)</div>
-            <p>Superficie matematica liscia usata dal GPS per le quote ellissoidiche. Differisce dal geoide per l'<em>ondulazione N</em>.</p>
-          </div>
-        </div>
-      </div>
-      <div class="callout warn">
-        <div class="callout-icon">⚠️</div>
-        <div class="callout-body">
-          <strong>Trappola d'Esame</strong>
-          Geoide ≠ Ellissoide. Il <em>geoide</em> è il riferimento delle quote ortometriche (altimetria). L'<em>ellissoide</em> è del GPS (quote ellissoidiche). Non confondere.
-        </div>
-      </div>
-      <div class="callout info">
-        <div class="callout-icon">🔗</div>
-        <div class="callout-body">
-          <strong>Aggancio al Capolavoro</strong>
-          Tutte le quote di progetto — sia della strada che dell'albergo — sono riferite al Mareografo di Genova. La quota "0" è comune a entrambi.
-        </div>
-      </div>
+  <!-- SVG hero: topographic profile decoration -->
+  <svg id="hero-svg" viewBox="0 0 1400 180" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- terrain fill -->
+    <path d="M0,180 L0,140 Q50,135 100,125 Q180,110 260,100 Q340,90 400,95 Q460,100 520,85 Q580,70 640,75 Q700,80 760,65 Q820,50 900,60 Q960,70 1020,55 Q1100,38 1180,50 Q1260,62 1320,48 Q1360,40 1400,45 L1400,180 Z" fill="rgba(34,197,94,.07)"/>
+    <!-- terrain line (black profile) -->
+    <path d="M0,140 Q50,135 100,125 Q180,110 260,100 Q340,90 400,95 Q460,100 520,85 Q580,70 640,75 Q700,80 760,65 Q820,50 900,60 Q960,70 1020,55 Q1100,38 1180,50 Q1260,62 1320,48 Q1360,40 1400,45" fill="none" stroke="rgba(34,197,94,.5)" stroke-width="1.5"/>
+    <!-- project line (livelletta - smoother) -->
+    <path d="M0,148 L246,148 L246,100 L653,68 L1046,46 L1400,46" fill="none" stroke="rgba(74,222,128,.9)" stroke-width="2" stroke-dasharray="6,3"/>
+    <!-- picchetti -->
+    <line x1="246" y1="100" x2="246" y2="148" stroke="rgba(34,197,94,.6)" stroke-width="1"/>
+    <line x1="653" y1="68" x2="653" y2="148" stroke="rgba(34,197,94,.4)" stroke-width="1"/>
+    <line x1="1046" y1="46" x2="1046" y2="148" stroke="rgba(34,197,94,.4)" stroke-width="1"/>
+    <!-- labels -->
+    <text x="30" y="172" fill="rgba(34,197,94,.6)" font-family="monospace" font-size="10">PROFILO LONGITUDINALE — SCALA H 1:200 / L 1:2000</text>
+    <text x="220" y="95" fill="rgba(74,222,128,.8)" font-family="monospace" font-size="9">6.32%</text>
+    <text x="630" y="63" fill="rgba(74,222,128,.8)" font-family="monospace" font-size="9">6.40%</text>
+    <text x="1060" y="41" fill="rgba(74,222,128,.8)" font-family="monospace" font-size="9">3.53%</text>
+    <!-- legend -->
+    <line x1="1100" y1="170" x2="1130" y2="170" stroke="rgba(34,197,94,.5)" stroke-width="1.5"/>
+    <text x="1134" y="173" fill="rgba(34,197,94,.6)" font-family="monospace" font-size="9">Terreno</text>
+    <line x1="1200" y1="170" x2="1230" y2="170" stroke="rgba(74,222,128,.9)" stroke-width="2" stroke-dasharray="4,2"/>
+    <text x="1234" y="173" fill="rgba(74,222,128,.8)" font-family="monospace" font-size="9">Progetto</text>
+  </svg>
+</section>
+
+<!-- ══════════════════════════════════
+     TESI
+══════════════════════════════════ -->
+<section id="tesi">
+  <div class="container">
+    <div class="sec-label">Filo Conduttore</div>
+    <h2 class="sec-title">Un unico <span class="green">processo</span></h2>
+    <p class="sec-intro">Topografia e progettazione non sono materie separate: la topografia misura il territorio, la progettazione decide come costruirci sopra. Il capolavoro dimostra questo legame.</p>
+
+    <div class="bq">"La topografia misura il territorio; la progettazione decide come costruirci sopra"</div>
+
+    <div class="flow" style="justify-content:center;margin-bottom:48px;gap:0;flex-wrap:wrap">
+      <div class="fn">Rilievo terreno</div><div class="fa">→</div>
+      <div class="fn">Piano quotato</div><div class="fa">→</div>
+      <div class="fn">PUC / Zona C</div><div class="fa">→</div>
+      <div class="fn">Progetto stradale</div><div class="fa">→</div>
+      <div class="fn">Albergo</div><div class="fa">→</div>
+      <div class="fn">Permesso di Costruire</div>
+    </div>
+
+    <div class="g4">
+      <div class="stat"><div class="stat-val">Montecorice</div><div class="stat-lbl">Comune (SA) — Parco Cilento</div></div>
+      <div class="stat"><div class="stat-val">Zona C</div><div class="stat-lbl">Espansione — PUC vigente</div></div>
+      <div class="stat"><div class="stat-val">932 m</div><div class="stat-lbl">Sviluppo totale strada</div></div>
+      <div class="stat"><div class="stat-val">40</div><div class="stat-lbl">Picchetti totali</div></div>
     </div>
   </div>
+</section>
 
-  <!-- ══ SLIDE 3 — DISLIVELLI E PENDENZE ══ -->
-  <div class="slide" id="slide-3">
-    <div class="slide-inner">
-      <div class="slide-title">
-        <span class="label">Topografia</span>
-        Dislivelli e <span class="accent">Pendenze</span>
-      </div>
-      <div class="grid-2">
-        <div>
-          <div class="panel" style="margin-bottom:16px">
-            <div class="panel-title">📐 Dislivello</div>
-            <div class="formula" style="margin-bottom:12px">
-              <span class="label">Dislivello tra A e B</span>
-              Δ<sub>AB</sub> = Q<sub>B</sub> − Q<sub>A</sub>
-            </div>
-            <p>Positivo → si sale &nbsp;|&nbsp; Negativo → si scende</p>
-          </div>
-          <div class="panel">
-            <div class="panel-title">🔭 Tecniche di Livellazione</div>
-            <div class="tbl-wrap">
-              <table>
-                <thead><tr><th>Tecnica</th><th>Strumenti</th><th>Formula</th></tr></thead>
-                <tbody>
-                  <tr><td>Geometrica</td><td class="mono">Livello + stadie</td><td class="mono">Δ = L_ind − L_av</td></tr>
-                  <tr><td>Trigonometrica</td><td class="mono">Teodolite / St. Totale</td><td class="mono">Δh = d·tanα + i − s</td></tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-        <div>
-          <div class="panel" style="margin-bottom:16px">
-            <div class="panel-title">📈 Pendenza</div>
-            <div class="formula" style="margin-bottom:12px">
-              <span class="label">Pendenza percentuale</span>
-              P% = (Δ / d) × 100
-            </div>
-            <div class="tbl-wrap"><table>
-              <thead><tr><th>Tipo</th><th>Formula</th><th>Uso</th></tr></thead>
-              <tbody>
-                <tr><td>Percentuale (%)</td><td class="mono">(Δ/d)×100</td><td>Strade, ferrovie</td></tr>
-                <tr><td>Per mille (‰)</td><td class="mono">(Δ/d)×1000</td><td>Ferrovie, canali</td></tr>
-                <tr><td>Angolare</td><td class="mono">arctan(Δ/d)</td><td>Calcoli trig.</td></tr>
-              </tbody>
-            </table></div>
-          </div>
-          <div class="callout success">
-            <div class="callout-icon">✅</div>
-            <div class="callout-body">
-              <strong>Dati del Capolavoro</strong>
-              Le 3 livellette della strada: <strong>6,32% / 6,40% / 3,53%</strong> — tutte sotto il limite normativo 7–8%.
-              La rampa d'ingresso albergo: ≤ 8% (L. 13/89).
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<!-- ══════════════════════════════════
+     TOPOGRAFIA
+══════════════════════════════════ -->
+<section id="topografia">
+  <div class="container">
+    <div class="sec-label">📐 Topografia</div>
+    <h2 class="sec-title">Quote, Livellazione e <span class="green">Pendenze</span></h2>
+    <p class="sec-intro">I fondamenti topografici che rendono possibile il progetto: dal geoide alle formule di campo, fino al piano quotato di Montecorice.</p>
 
-  <!-- ══ SLIDE 4 — PIANO QUOTATO ══ -->
-  <div class="slide" id="slide-4">
-    <div class="slide-inner">
-      <div class="slide-title">
-        <span class="label">Topografia</span>
-        Piano Quotato e <span class="accent">Trimensura</span>
-      </div>
-      <div class="grid-2">
-        <div class="panel">
-          <div class="panel-title">🗺️ Piano Quotato</div>
-          <p>Rappresenta il territorio con le quote scritte sui punti rilevati. Da esso si ricavano le <strong>curve di livello</strong> per interpolazione.</p>
-          <br>
-          <p>È la <strong>base cartografica indispensabile</strong> sia per il tracciato stradale sia per impostare l'edificio sull'area di progetto.</p>
-        </div>
-        <div class="panel">
-          <div class="panel-title">📏 Trimensura</div>
-          <p>Insieme delle operazioni di <strong>rilievo e misura del terreno</strong> che trasformano il territorio reale in dati cartografici.</p>
-          <br>
-          <p>Il <strong>picchettamento</strong> è l'operazione inversa: trasferisce l'asse di progetto dalla carta al terreno.</p>
-        </div>
-      </div>
-      <div class="panel blue-full" style="margin-top:4px">
-        <div class="panel-title">📌 Aggancio al Capolavoro — Base Cartografica</div>
-        <div class="grid-3">
-          <div>
-            <div style="color:var(--cyan);font-family:'Share Tech Mono',monospace;font-size:11px;margin-bottom:6px">CARTA DI RIFERIMENTO</div>
-            <p style="font-family:'Exo 2',sans-serif;font-size:14px">CTR Campania, sez. <strong>502161 Montecorice</strong> — scala 1:5000</p>
-          </div>
-          <div>
-            <div style="color:var(--cyan);font-family:'Share Tech Mono',monospace;font-size:11px;margin-bottom:6px">QUADRO DI UNIONE</div>
-            <p style="font-family:'Exo 2',sans-serif;font-size:14px">Più sezioni unite per coprire l'intero tracciato stradale</p>
-          </div>
-          <div>
-            <div style="color:var(--cyan);font-family:'Share Tech Mono',monospace;font-size:11px;margin-bottom:6px">QUOTA COMUNE</div>
-            <p style="font-family:'Exo 2',sans-serif;font-size:14px">Strada e albergo usano lo <strong>stesso piano quotato</strong> e la stessa quota "0"</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+    <!-- SVG: geoide vs ellissoide -->
+    <figure class="svg-wrapper" style="margin-bottom:40px">
+      <svg viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+        <!-- ocean fill -->
+        <rect x="0" y="90" width="800" height="110" fill="rgba(34,197,94,.05)" rx="2"/>
+        <!-- ellissoide (smooth) -->
+        <path d="M0,85 Q200,75 400,78 Q600,81 800,75" fill="none" stroke="rgba(74,222,128,.4)" stroke-width="2" stroke-dasharray="8,4"/>
+        <!-- geoide (irregular) -->
+        <path d="M0,90 Q80,82 160,92 Q240,102 320,88 Q400,74 480,85 Q560,96 640,80 Q720,64 800,75" fill="rgba(34,197,94,.12)" stroke="rgba(34,197,94,.8)" stroke-width="2"/>
+        <!-- mareografo di Genova -->
+        <line x1="200" y1="30" x2="200" y2="100" stroke="rgba(251,191,36,.8)" stroke-width="1.5"/>
+        <rect x="184" y="20" width="32" height="14" fill="rgba(251,191,36,.15)" stroke="rgba(251,191,36,.6)" stroke-width="1"/>
+        <text x="200" y="30" fill="var(--amber)" font-family="monospace" font-size="9" text-anchor="middle">GENOVA</text>
+        <text x="200" y="18" fill="var(--amber)" font-family="monospace" font-size="8" text-anchor="middle">MAREOGRAFO</text>
+        <!-- quota "0" marker -->
+        <line x1="0" y1="90" x2="800" y2="90" stroke="rgba(34,197,94,.25)" stroke-width="1" stroke-dasharray="4,4"/>
+        <text x="10" y="87" fill="rgba(34,197,94,.7)" font-family="monospace" font-size="10">QUOTA 0</text>
+        <!-- punto A con quota -->
+        <line x1="500" y1="30" x2="500" y2="82" stroke="rgba(74,222,128,.6)" stroke-width="1.5"/>
+        <circle cx="500" cy="28" r="3" fill="var(--g500)"/>
+        <text x="510" y="25" fill="var(--g400)" font-family="monospace" font-size="10">Q = +346,01 m</text>
+        <!-- labels -->
+        <text x="720" y="68" fill="rgba(74,222,128,.6)" font-family="monospace" font-size="9">ELLISSOIDE (GPS)</text>
+        <text x="620" y="94" fill="rgba(34,197,94,.8)" font-family="monospace" font-size="9">GEOIDE</text>
+        <text x="300" y="160" fill="rgba(34,197,94,.4)" font-family="monospace" font-size="9" text-anchor="middle">Δ ondulazione N</text>
+        <line x1="300" y1="78" x2="300" y2="90" stroke="rgba(34,197,94,.4)" stroke-width="1"/>
+        <line x1="295" y1="163" x2="305" y2="163" stroke="rgba(34,197,94,.3)" stroke-width="1"/>
+      </svg>
+      <figcaption>Fig. 1 — Geoide vs. Ellissoide · Quota riferita al Mareografo di Genova</figcaption>
+    </figure>
 
-  <!-- ══ SLIDE 5 — STRADA INQUADRAMENTO ══ -->
-  <div class="slide" id="slide-5">
-    <div class="slide-inner">
-      <div class="slide-title">
-        <span class="label">Progetto Stradale</span>
-        Inquadramento e <span class="accent">Base Cartografica</span>
-      </div>
-      <div class="grid-3" style="margin-bottom:8px">
-        <div class="stat-card">
-          <div class="val">Montecorice</div>
-          <div class="lbl">Comune di SA — Parco Cilento</div>
-        </div>
-        <div class="stat-card">
-          <div class="val">1:5000</div>
-          <div class="lbl">Scala CTR base cartografica</div>
-        </div>
-        <div class="stat-card">
-          <div class="val">ex-novo</div>
-          <div class="lbl">Viabilità principale nuova</div>
-        </div>
-      </div>
-      <div class="panel">
-        <div class="panel-title">📋 Finalità dell'opera</div>
-        <p>Viabilità principale <strong>ex-novo</strong> che serve l'albergo. Montecorice si trova nel Parco Nazionale del Cilento: area a forte <em>vocazione turistica</em>, dove l'accessibilità è strategica per lo sviluppo.</p>
+    <div class="g2" style="margin-bottom:32px">
+      <div class="card">
+        <div class="card-label">Quote e Geoide</div>
+        <h3>Riferimento Altimetrico</h3>
+        <p>La quota di un punto è la distanza verticale dal <strong>livello medio del mare</strong>. In Italia il riferimento è il <strong>Geoide</strong>, misurato al <strong>Mareografo di Genova</strong>.</p>
         <br>
-        <p>La strada è un'<strong>opera di urbanizzazione primaria</strong> (D.M. 1444/68): rientra negli oneri di urbanizzazione del Permesso di Costruire e parte del lotto è ceduta in <em>perequazione</em> al Comune.</p>
+        <ul>
+          <li>Geoide → superficie equipotenziale della gravità terrestre, irregolare</li>
+          <li>Ellissoide → superficie matematica liscia usata dal GPS</li>
+          <li>Differenza: ondulazione N</li>
+        </ul>
       </div>
-      <div class="grid-2">
+      <div class="card">
+        <div class="card-label">Tecniche di Livellazione</div>
+        <h3>Misura del Dislivello</h3>
+        <div class="tbl-wrap" style="margin-top:8px">
+          <table>
+            <thead><tr><th>Tecnica</th><th>Strumenti</th><th>Formula</th></tr></thead>
+            <tbody>
+              <tr><td>Geometrica</td><td class="mono">Livello + stadie</td><td class="mono">Δ = L_ind − L_av</td></tr>
+              <tr><td>Trigonometrica</td><td class="mono">Teodolite / St. Totale</td><td class="mono">Δh = d·tanα + i − s</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="formula" style="margin-top:16px">
+          <span class="f-label">Dislivello tra A e B</span>
+          Δ<sub>AB</sub> = Q<sub>B</sub> − Q<sub>A</sub>
+        </div>
+      </div>
+    </div>
+
+    <div class="g2">
+      <div class="card">
+        <div class="card-label">Pendenze</div>
+        <h3>Formula e Applicazione</h3>
+        <div class="formula" style="margin-bottom:16px">
+          <span class="f-label">Pendenza percentuale</span>
+          P% = (Δ / d) × 100
+        </div>
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>Tipo</th><th>Formula</th><th>Uso</th></tr></thead>
+            <tbody>
+              <tr><td>%</td><td class="mono">(Δ/d)×100</td><td>Strade</td></tr>
+              <tr><td>‰</td><td class="mono">(Δ/d)×1000</td><td>Ferrovie</td></tr>
+              <tr><td>Angolo</td><td class="mono">arctan(Δ/d)</td><td>Calcoli trig.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-label">Piano Quotato e Trimensura</div>
+        <h3>Base Cartografica</h3>
+        <p>Il <strong>piano quotato</strong> rappresenta il territorio con quote sui punti rilevati. Le <strong>curve di livello</strong> si ricavano per interpolazione. È la base indispensabile per strada e albergo.</p>
+        <br>
         <div class="callout info">
-          <div class="callout-icon">🗺️</div>
-          <div class="callout-body">
-            <strong>Base Cartografica</strong>
-            CTR Campania, sez. 502161 Montecorice (1:5000) con quadro di unione. Riferimento altimetrico: mareografo di Genova.
-          </div>
-        </div>
-        <div class="callout success">
-          <div class="callout-icon">🔗</div>
-          <div class="callout-body">
-            <strong>Collegamento Tesi</strong>
-            Topografia e PCI convergono in un unico processo: la stessa base cartografica serve sia il progetto stradale che l'albergo.
-          </div>
+          <div class="ci">📌</div>
+          <div class="cb"><strong>Aggancio al Capolavoro</strong>CTR Campania sez. 502161 Montecorice 1:5000. Stessa base cartografica per strada e albergo, stessa quota "0".</div>
         </div>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- ══ SLIDE 6 — TRACCIATO ══ -->
-  <div class="slide" id="slide-6">
-    <div class="slide-inner">
-      <div class="slide-title">
-        <span class="label">Progetto Stradale</span>
-        Tracciato e <span class="accent">Tracciolino</span>
-      </div>
-      <p class="slide-subtitle">Il tracciolino materializza l'asse sul terreno, trasferito dalla planimetria alla realtà (1:2000)</p>
-      <div class="tbl-wrap">
-        <table>
-          <thead>
-            <tr><th>#</th><th>Elemento</th><th>Parametri</th><th>Note</th></tr>
-          </thead>
-          <tbody>
-            <tr><td class="mono cyan">R1</td><td>Rettifilo 1</td><td class="mono">L = 34,07 m</td><td>Punto di partenza</td></tr>
-            <tr><td class="mono cyan">C1</td><td>Curva 1</td><td class="mono">R = 130 m, α = 94 gon</td><td>Prima svolta</td></tr>
-            <tr><td class="mono cyan">R2</td><td>Rettifilo 2</td><td class="mono">L = 76,29 m</td><td></td></tr>
-            <tr><td class="mono cyan">C2</td><td>Curva 2</td><td class="mono">R = 130 m, α = 20 gon</td><td></td></tr>
-            <tr><td class="mono cyan">CC1</td><td>Controcurva 1</td><td class="mono">R = 87,12 m, α = 40 gon</td><td></td></tr>
-            <tr><td class="mono amber">T1</td><td>Tornante 1</td><td class="mono">R = 87,12 m, α = 40 gon</td><td>⚡ Elemento chiave</td></tr>
-            <tr><td class="mono cyan">CC2</td><td>Controcurva 2</td><td class="mono">R = 87,12 m, α = 40 gon</td><td></td></tr>
-            <tr><td class="mono cyan">CF</td><td>Curva finale</td><td class="mono">R = 200 m, α = 18 gon</td><td></td></tr>
-            <tr><td class="mono green">RF</td><td>Rettifilo finale</td><td class="mono">L = 135,08 m</td><td class="green">→ lotto albergo (Zona C)</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="callout info">
-        <div class="callout-icon">🏨</div>
-        <div class="callout-body">
-          <strong>Collegamento Albergo</strong>
-          Il rettifilo finale (L = 135,08 m) arriva direttamente al <strong>lotto edificabile dell'albergo in Zona C</strong>. La strada non è isolata — è la viabilità di accesso.
+<!-- ══════════════════════════════════
+     STRADA
+══════════════════════════════════ -->
+<section id="strada">
+  <div class="container">
+    <div class="sec-label">🛣️ Progetto Stradale</div>
+    <h2 class="sec-title">Tracciato, Profilo e <span class="green">Volumi</span></h2>
+    <p class="sec-intro">Viabilità ex-novo a Montecorice che serve l'albergo. Sviluppo totale ~932 m con 3 livellette, piattaforma 7 m e bilancio terreni di 4.530 mq di sterro netto.</p>
+
+    <!-- SVG sezione trasversale -->
+    <figure class="svg-wrapper" style="margin-bottom:40px">
+      <svg viewBox="0 0 800 260" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+        <!-- sky -->
+        <rect x="0" y="0" width="800" height="260" fill="rgba(5,12,7,.4)" rx="4"/>
+        <!-- terrain (sterro) -->
+        <path d="M50,80 Q150,50 250,60 L250,170 L550,170 L550,60 Q650,50 750,80 L750,260 L50,260 Z" fill="rgba(34,197,94,.08)" stroke="rgba(34,197,94,.3)" stroke-width="1.5"/>
+        <!-- piattaforma stradale -->
+        <rect x="250" y="160" width="300" height="14" fill="rgba(34,197,94,.25)" stroke="rgba(34,197,94,.5)" stroke-width="1"/>
+        <!-- corsia sx -->
+        <rect x="250" y="160" width="150" height="14" fill="rgba(34,197,94,.12)"/>
+        <!-- corsia dx -->
+        <rect x="400" y="160" width="150" height="14" fill="rgba(34,197,94,.08)"/>
+        <!-- linea mezzeria -->
+        <line x1="400" y1="160" x2="400" y2="174" stroke="white" stroke-width="2" stroke-dasharray="5,3" opacity=".6"/>
+        <!-- cunette sx -->
+        <path d="M220,174 Q235,185 250,174" fill="none" stroke="rgba(34,197,94,.6)" stroke-width="1.5"/>
+        <!-- cunette dx -->
+        <path d="M550,174 Q565,185 580,174" fill="none" stroke="rgba(34,197,94,.6)" stroke-width="1.5"/>
+        <!-- terreno naturale linea -->
+        <path d="M50,80 Q150,50 250,60" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="1.5"/>
+        <path d="M550,60 Q650,50 750,80" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="1.5"/>
+        <!-- quote sterro sx -->
+        <line x1="250" y1="60" x2="250" y2="160" stroke="rgba(251,191,36,.6)" stroke-width="1" stroke-dasharray="3,3"/>
+        <text x="215" y="115" fill="var(--amber)" font-family="monospace" font-size="11" text-anchor="middle">STERRO</text>
+        <!-- quote sterro dx -->
+        <line x1="550" y1="60" x2="550" y2="160" stroke="rgba(251,191,36,.6)" stroke-width="1" stroke-dasharray="3,3"/>
+        <text x="585" y="115" fill="var(--amber)" font-family="monospace" font-size="11">STERRO</text>
+        <!-- dimensione piattaforma -->
+        <line x1="250" y1="200" x2="550" y2="200" stroke="rgba(74,222,128,.5)" stroke-width="1"/>
+        <line x1="250" y1="194" x2="250" y2="206" stroke="rgba(74,222,128,.5)" stroke-width="1"/>
+        <line x1="550" y1="194" x2="550" y2="206" stroke="rgba(74,222,128,.5)" stroke-width="1"/>
+        <text x="400" y="218" fill="var(--g400)" font-family="monospace" font-size="12" text-anchor="middle">7,00 m</text>
+        <!-- corsie labels -->
+        <text x="325" y="155" fill="rgba(255,255,255,.6)" font-family="monospace" font-size="9" text-anchor="middle">CORSIA 3,50m</text>
+        <text x="475" y="155" fill="rgba(255,255,255,.6)" font-family="monospace" font-size="9" text-anchor="middle">CORSIA 3,50m</text>
+        <!-- cunetta labels -->
+        <text x="170" y="190" fill="rgba(34,197,94,.7)" font-family="monospace" font-size="9" text-anchor="middle">CUNETTA</text>
+        <text x="630" y="190" fill="rgba(34,197,94,.7)" font-family="monospace" font-size="9" text-anchor="middle">CUNETTA</text>
+        <!-- title -->
+        <text x="400" y="245" fill="rgba(34,197,94,.5)" font-family="monospace" font-size="9" text-anchor="middle">SEZIONE TRASVERSALE TIPO — PIATTAFORMA 7,00 m — SCALA 1:200</text>
+        <!-- slope indicators -->
+        <text x="120" y="48" fill="rgba(255,255,255,.4)" font-family="monospace" font-size="9">1</text>
+        <text x="135" y="48" fill="rgba(255,255,255,.3)" font-family="monospace" font-size="9">—</text>
+        <text x="148" y="48" fill="rgba(255,255,255,.4)" font-family="monospace" font-size="9">0.5</text>
+        <text x="640" y="48" fill="rgba(255,255,255,.4)" font-family="monospace" font-size="9">0.5</text>
+        <text x="655" y="48" fill="rgba(255,255,255,.3)" font-family="monospace" font-size="9">—</text>
+        <text x="668" y="48" fill="rgba(255,255,255,.4)" font-family="monospace" font-size="9">1</text>
+      </svg>
+      <figcaption>Fig. 2 — Sezione Trasversale Tipo · Piattaforma 7,00 m (2 corsie × 3,50 m + cunette)</figcaption>
+    </figure>
+
+    <div class="g2" style="margin-bottom:32px">
+      <div>
+        <div class="card-label" style="margin-bottom:12px;font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--g500);text-transform:uppercase">Tracciato Planimetrico</div>
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>#</th><th>Elemento</th><th>Parametri</th></tr></thead>
+            <tbody>
+              <tr><td class="mono green">R1</td><td>Rettifilo 1</td><td class="mono">L = 34,07 m</td></tr>
+              <tr><td class="mono green">C1</td><td>Curva 1</td><td class="mono">R = 130 m, α = 94 gon</td></tr>
+              <tr><td class="mono green">R2</td><td>Rettifilo 2</td><td class="mono">L = 76,29 m</td></tr>
+              <tr><td class="mono green">C2</td><td>Curva 2</td><td class="mono">R = 130 m, α = 20 gon</td></tr>
+              <tr><td class="mono amber">T1</td><td><strong>Tornante</strong></td><td class="mono">R = 87,12 m, α = 40 gon</td></tr>
+              <tr><td class="mono green">CC</td><td>Controcurva</td><td class="mono">R = 87,12 m, α = 40 gon</td></tr>
+              <tr><td class="mono green">CF</td><td>Curva finale</td><td class="mono">R = 200 m, α = 18 gon</td></tr>
+              <tr><td class="mono green" style="color:var(--g400)"><strong>RF</strong></td><td><strong>Rettifilo finale</strong></td><td class="mono green"><strong>135,08 m → Albergo</strong></td></tr>
+            </tbody>
+          </table>
         </div>
       </div>
-    </div>
-  </div>
-
-  <!-- ══ SLIDE 7 — PROFILO LONGITUDINALE ══ -->
-  <div class="slide" id="slide-7">
-    <div class="slide-inner">
-      <div class="slide-title">
-        <span class="label">Progetto Stradale</span>
-        Profilo Longitudinale e <span class="accent">Livellette</span>
-      </div>
-      <div class="panel" style="margin-bottom:16px">
-        <div class="panel-title">📈 Cos'è il Profilo Longitudinale</div>
-        <p>Sezione verticale lungo l'asse stradale. Scale: <strong>L 1:2000 / H 1:200</strong> (scala verticale esagerata per leggere i dislivelli). Il profilo <em>nero</em> = terreno naturale; il profilo <em>rosso</em> = livelletta di progetto.</p>
-      </div>
-      <div class="tbl-wrap">
-        <table>
-          <thead><tr><th>Livelletta</th><th>Sviluppo (L)</th><th>Pendenza (%)</th><th>Dislivello (Δh)</th><th>Stato</th></tr></thead>
-          <tbody>
-            <tr><td class="mono">1ª</td><td class="mono">246,30 m</td><td class="mono cyan">6,32%</td><td class="mono">15,59 m</td><td class="green">✓ &lt; 7–8%</td></tr>
-            <tr><td class="mono">2ª</td><td class="mono">407,38 m</td><td class="mono cyan">6,40%</td><td class="mono">26,09 m</td><td class="green">✓ &lt; 7–8%</td></tr>
-            <tr><td class="mono">3ª</td><td class="mono">279,19 m</td><td class="mono cyan">3,53%</td><td class="mono">9,87 m</td><td class="green">✓ &lt; 7–8%</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="grid-2">
-        <div class="formula">
-          <span class="label">Raccordo verticale (curva parabolica)</span>
+      <div>
+        <div class="card-label" style="margin-bottom:12px;font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--g500);text-transform:uppercase">Profilo Longitudinale — Livellette</div>
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>Livelletta</th><th>L (m)</th><th>Pendenza</th><th>Δh (m)</th><th>Norma</th></tr></thead>
+            <tbody>
+              <tr><td class="mono">1ª</td><td class="mono">246,30</td><td class="mono green">6,32%</td><td class="mono">15,59</td><td class="green">✓ &lt;7-8%</td></tr>
+              <tr><td class="mono">2ª</td><td class="mono">407,38</td><td class="mono green">6,40%</td><td class="mono">26,09</td><td class="green">✓ &lt;7-8%</td></tr>
+              <tr><td class="mono">3ª</td><td class="mono">279,19</td><td class="mono green">3,53%</td><td class="mono">9,87</td><td class="green">✓ &lt;7-8%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="formula" style="margin-top:16px;margin-bottom:16px">
+          <span class="f-label">Raccordo verticale (curva parabolica)</span>
           L = (i₁ − i₂) · R
         </div>
         <div class="callout warn">
-          <div class="callout-icon">⚠️</div>
-          <div class="callout-body">
-            <strong>Limite Normativo</strong>
-            Tutte le pendenze devono essere <strong>&lt; 7–8%</strong> (strade di montagna). Nel progetto tutte e tre le livellette rispettano il limite.
-          </div>
+          <div class="ci">⚠️</div>
+          <div class="cb"><strong>Limite Normativo</strong>Tutte le livellette devono essere &lt; 7–8%. Nel progetto tutte e tre rispettano il limite.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="g2">
+      <div class="card">
+        <div class="card-label">Picchettamento</div>
+        <h3>40 Picchetti sul Terreno</h3>
+        <p>Il picchettamento trasferisce l'asse dal progetto al terreno. Per ogni picchetto: progressiva, quota di progetto (dalla livelletta), quota terreno (interpolazione piano quotato).</p>
+        <br>
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>Picch.</th><th>Prog.</th><th>Q.Prog</th><th>Q.Terr</th><th>Stato</th></tr></thead>
+            <tbody>
+              <tr><td class="mono">1</td><td class="mono">0,00</td><td class="mono">346,01</td><td class="mono">346,01</td><td>Pari</td></tr>
+              <tr><td class="mono">2</td><td class="mono">34,07</td><td class="mono">343,99</td><td class="mono">345,27</td><td class="amber">Sterro</td></tr>
+              <tr><td class="mono">3</td><td class="mono">46,49</td><td class="mono">343,25</td><td class="mono">345,00</td><td class="amber">Sterro</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout warn" style="margin-top:12px">
+          <div class="ci">⚠️</div>
+          <div class="cb"><strong>Regola Sterro/Riporto</strong>Q.prog &lt; Q.terr → STERRO · Q.prog &gt; Q.terr → RIPORTO. Non invertire!</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-label">Sezioni Trasversali e Bilancio</div>
+        <h3>Movimento Terra</h3>
+        <div class="formula" style="margin-bottom:16px">
+          <span class="f-label">Metodo sezioni ragguagliate (media delle aree)</span>
+          V<sub>AB</sub> = (S<sub>A</sub> + S<sub>B</sub>) / 2 · L<sub>AB</sub>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px">
+          <div class="stat"><div class="stat-val" style="font-size:22px">6.758</div><div class="stat-lbl">mq sterro totale</div></div>
+          <div class="stat"><div class="stat-val" style="font-size:22px">2.228</div><div class="stat-lbl">mq riporto totale</div></div>
+        </div>
+        <div style="background:rgba(34,197,94,.10);border:1px solid rgba(34,197,94,.3);border-radius:var(--radius);padding:16px;text-align:center">
+          <div style="font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:2px;margin-bottom:6px">STERRO NETTO (materiale da gestire)</div>
+          <div style="font-family:'Share Tech Mono',monospace;font-size:32px;color:var(--g400)">~4.530 mq</div>
         </div>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- ══ SLIDE 8 — PICCHETTAMENTO ══ -->
-  <div class="slide" id="slide-8">
-    <div class="slide-inner">
-      <div class="slide-title">
-        <span class="label">Progetto Stradale</span>
-        <span class="accent">Picchettamento</span>
+<!-- ══════════════════════════════════
+     URBANISTICA
+══════════════════════════════════ -->
+<section id="urbanistica">
+  <div class="container">
+    <div class="sec-label">🏛️ Urbanistica</div>
+    <h2 class="sec-title">PUC, Indici e <span class="green">Titoli Abilitativi</span></h2>
+    <p class="sec-intro">Il quadro urbanistico di Montecorice: dalla gerarchia dei piani agli indici di Zona C, fino al Permesso di Costruire per il nuovo albergo.</p>
+
+    <!-- Gerarchia piani -->
+    <div class="card" style="margin-bottom:32px">
+      <div class="card-label">Gerarchia dei Piani — D.Lgs. 1150/42</div>
+      <h3 style="margin-bottom:20px">Ogni piano inferiore deve essere coerente con quello superiore</h3>
+      <div class="tier"><div class="t-lbl">REGIONE</div><div class="t-bar t1">PTR — Piano Territoriale Regionale (Campania)</div></div>
+      <div class="tier"><div class="t-lbl">PROV.</div><div class="t-bar t2">PTCP — Piano Territoriale di Coord. Provinciale (Salerno)</div></div>
+      <div class="tier"><div class="t-lbl">COMUNE</div><div class="t-bar t3">PUC / PRG — Piano Urbanistico Comunale (Montecorice · 10 anni)</div></div>
+      <div class="tier"><div class="t-lbl">LOTTO</div><div class="t-bar t4">PUA — Piano Urbanistico Attuativo (esecutivo)</div></div>
+      <div class="callout info" style="margin-top:20px">
+        <div class="ci">⚖️</div>
+        <div class="cb"><strong>Perequazione Urbana</strong>La strada è opera di urbanizzazione primaria (D.M. 1444/68). Parte del lotto è ceduta al Comune. Il diritto a costruire è distribuito equamente.</div>
       </div>
-      <div class="grid-2-1" style="align-items:start">
-        <div>
-          <div class="panel" style="margin-bottom:16px">
-            <div class="panel-title">📍 Definizione</div>
-            <p>Il picchettamento trasferisce l'asse progettuale sul terreno tramite <strong>40 picchetti</strong> numerati. L'interasse è ridotto in curva per maggiore precisione.</p>
-            <br>
-            <p>Per ogni picchetto si rilevano:</p>
-            <ul style="margin-top:6px">
-              <li>Progressiva (distanza dall'origine)</li>
-              <li>Quota di progetto (dalla livelletta)</li>
-              <li>Quota terreno (da piano quotato per interpolazione)</li>
-            </ul>
-          </div>
-          <div class="tbl-wrap">
-            <table>
-              <thead><tr><th>Picch.</th><th>Prog. (m)</th><th>Q. Prog.</th><th>Q. Terr.</th><th>Stato</th></tr></thead>
-              <tbody>
-                <tr><td class="mono">1</td><td class="mono">0,00</td><td class="mono">346,01</td><td class="mono">346,01</td><td>Trincea min.</td></tr>
-                <tr><td class="mono">2</td><td class="mono">34,07</td><td class="mono">343,99</td><td class="mono">345,27</td><td class="amber">Sterro −1,28 m</td></tr>
-                <tr><td class="mono">3</td><td class="mono">46,49</td><td class="mono">343,25</td><td class="mono">345,00</td><td class="amber">Sterro −1,75 m</td></tr>
-              </tbody>
-            </table>
-          </div>
+    </div>
+
+    <div class="g2" style="margin-bottom:32px">
+      <div class="card">
+        <div class="card-label">Indici Urbanistici — Zona C (Espansione)</div>
+        <h3>PUC di Montecorice</h3>
+        <div class="tbl-wrap" style="margin-top:12px">
+          <table>
+            <thead><tr><th>Sigla</th><th>Indice</th><th>Valore</th></tr></thead>
+            <tbody>
+              <tr><td class="mono green">If</td><td>Fabbricabilità fondiaria</td><td class="mono">1,5 ÷ 3 mc/mq</td></tr>
+              <tr><td class="mono green">Rc</td><td>Rapporto di copertura</td><td class="mono">30 ÷ 40%</td></tr>
+              <tr><td class="mono green">Ip</td><td>Indice di permeabilità</td><td class="mono">≥ 25 ÷ 30%</td></tr>
+              <tr><td class="mono green">Hp</td><td>Altezza massima</td><td class="mono">10 ÷ 15 m</td></tr>
+              <tr><td class="mono green">Dc</td><td>Distanza dai confini</td><td class="mono">≥ 5 m</td></tr>
+            </tbody>
+          </table>
         </div>
-        <div>
-          <div class="stat-card" style="margin-bottom:12px">
-            <div class="val">40</div>
-            <div class="lbl">Picchetti numerati totali</div>
-          </div>
-          <div class="callout warn" style="margin-bottom:12px">
-            <div class="callout-icon">⚠️</div>
-            <div class="callout-body">
-              <strong>Regola Sterro / Riporto</strong>
-              Q.prog &lt; Q.terr → <strong>STERRO</strong> (scavo)<br>
-              Q.prog &gt; Q.terr → <strong>RIPORTO</strong> (apporto)<br>
-              <em>Non invertire mai!</em>
-            </div>
-          </div>
-          <div class="callout info">
-            <div class="callout-icon">🔗</div>
-            <div class="callout-body">
-              <strong>Usa stessi strumenti rilievo</strong>
-              Trimensura e picchettamento sono complementari.
-            </div>
-          </div>
+        <div class="formula" style="margin-top:16px">
+          <span class="f-label">Volume edificabile</span>V = If × SF
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-label">Testo Unico 380/01 — Titoli Abilitativi</div>
+        <h3>Iter per la Nuova Costruzione</h3>
+        <div class="tbl-wrap" style="margin-top:12px">
+          <table>
+            <thead><tr><th>Titolo</th><th>Intervento</th></tr></thead>
+            <tbody>
+              <tr><td class="mono green" style="font-weight:700">P.d.C.</td><td class="green"><strong>Nuova costruzione ← ALBERGO</strong></td></tr>
+              <tr><td class="mono">S.C.I.A.</td><td>Ristr. leggera, manut. straord. pesante</td></tr>
+              <tr><td class="mono">C.I.L.A.</td><td>Manut. straordinaria leggera</td></tr>
+              <tr><td class="mono">C.I.L.</td><td>Manut. ordinaria</td></tr>
+              <tr><td class="mono">—</td><td>Edilizia libera</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout warn" style="margin-top:12px">
+          <div class="ci">⚠️</div>
+          <div class="cb"><strong>Trappola</strong>Nuova costruzione → SOLO P.d.C. (mai SCIA!). + contributo di costruzione (Legge Bucalossi 10/77).</div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- ══ SLIDE 9 — SEZIONI E VOLUMI ══ -->
-  <div class="slide" id="slide-9">
-    <div class="slide-inner">
-      <div class="slide-title">
-        <span class="label">Progetto Stradale</span>
-        Sezioni Trasversali e <span class="accent">Volumi</span>
-      </div>
-      <div class="grid-2">
-        <div>
-          <div class="panel" style="margin-bottom:16px">
-            <div class="panel-title">📐 Sezione Trasversale</div>
-            <p>Piano perpendicolare all'asse stradale (scala 1:200). La piattaforma è di <strong>7,00 m</strong> = 2 corsie da 3,50 m + cunette laterali.</p>
-          </div>
-          <div class="tbl-wrap">
-            <table>
-              <thead><tr><th>Picch.</th><th>Q.Prog</th><th>Q.Terr</th><th>Stato</th><th>Area</th></tr></thead>
-              <tbody>
-                <tr><td class="mono">1</td><td class="mono">346,01</td><td class="mono">346,01</td><td>Trincea min.</td><td class="mono">2,35 mq riporto</td></tr>
-                <tr><td class="mono">2</td><td class="mono">343,99</td><td class="mono">345,27</td><td class="amber">Sterro</td><td class="mono amber">11,59 mq</td></tr>
-                <tr><td class="mono">3</td><td class="mono">343,25</td><td class="mono">345,00</td><td class="amber">Sterro</td><td class="mono amber">17,88 mq</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div>
-          <div class="formula" style="margin-bottom:16px">
-            <span class="label">Metodo sezioni ragguagliate</span>
-            V<sub>AB</sub> = (S<sub>A</sub> + S<sub>B</sub>) / 2 · L<sub>AB</sub>
-          </div>
-          <div class="callout warn" style="margin-bottom:12px">
-            <div class="callout-icon">⚠️</div>
-            <div class="callout-body">
-              <strong>Trappola</strong>
-              Si usa la <strong>media delle aree</strong>, non la somma!
-            </div>
-          </div>
-          <div class="panel green">
-            <div class="panel-title">⚖️ Bilancio Movimento Terra</div>
-            <div style="font-family:'Share Tech Mono',monospace;font-size:13px;margin-top:8px">
-              Sterro totale: <span style="color:var(--amber)">6.758 mq</span><br>
-              Riporto totale: <span style="color:var(--cyan)">2.228 mq</span><br>
-              <div class="divider" style="margin:8px 0"></div>
-              Sterro netto: <span style="color:var(--red);font-size:16px">~4.530 mq</span>
-            </div>
-            <p style="margin-top:10px;font-family:'Exo 2',sans-serif;font-size:13px;color:var(--muted)">Materiale di risulta da gestire o riutilizzare</p>
-          </div>
-        </div>
-      </div>
+    <div class="g4">
+      <div class="stat"><div class="stat-val">10 anni</div><div class="stat-lbl">Durata PRG/PUC</div></div>
+      <div class="stat"><div class="stat-val">7 step</div><div class="stat-lbl">Iter approvazione PUC</div></div>
+      <div class="stat"><div class="stat-val">18 mq/ab</div><div class="stat-lbl">Standard DM 1444/68</div></div>
+      <div class="stat"><div class="stat-val">1 pt/2 cam</div><div class="stat-lbl">Parcheggi albergo</div></div>
     </div>
   </div>
+</section>
 
-  <!-- ══ SLIDE 10 — GERARCHIA PIANI ══ -->
-  <div class="slide" id="slide-10">
-    <div class="slide-inner">
-      <div class="slide-title">
-        <span class="label">Urbanistica</span>
-        Gerarchia dei <span class="accent">Piani Urbanistici</span>
-      </div>
-      <div class="panel" style="margin-bottom:16px">
-        <div class="panel-title">⚖️ Norma Fondamentale — D.Lgs. 1150/42 (Legge Urbanistica)</div>
-        <p>Ogni piano inferiore deve essere coerente con quello superiore. La gerarchia è rigida e vincolante.</p>
-      </div>
-      <div style="padding: 0 8px">
-        <div class="tier"><div class="tier-label">REG</div><div class="tier-bar tier-1">PTR — Piano Territoriale Regionale (Regione Campania)</div></div>
-        <div class="tier"><div class="tier-label">PROV</div><div class="tier-bar tier-2">PTCP — Piano Territoriale di Coordinamento Provinciale (Salerno)</div></div>
-        <div class="tier"><div class="tier-label">COM</div><div class="tier-bar tier-3">PUC / PRG — Piano Urbanistico Comunale (Montecorice, 10 anni)</div></div>
-        <div class="tier"><div class="tier-label">ATT</div><div class="tier-bar tier-4">PUA — Piano Urbanistico Attuativo (esecutivo, livello di lotto)</div></div>
-      </div>
-      <div class="grid-2" style="margin-top:8px">
-        <div class="panel">
-          <div class="panel-title">🔄 PRG / PUC — Iter Approvazione (7 step)</div>
-          <div class="flow" style="flex-direction:column;align-items:flex-start;gap:4px">
-            <div style="font-family:'Share Tech Mono',monospace;font-size:12px;color:var(--white)">1 · Adozione (Consiglio Comunale)</div>
-            <div style="font-family:'Share Tech Mono',monospace;font-size:12px;color:var(--white)">2 · Pubblicazione (30 gg)</div>
-            <div style="font-family:'Share Tech Mono',monospace;font-size:12px;color:var(--white)">3 · Osservazioni dei cittadini</div>
-            <div style="font-family:'Share Tech Mono',monospace;font-size:12px;color:var(--white)">4 · Controdeduzioni</div>
-            <div style="font-family:'Share Tech Mono',monospace;font-size:12px;color:var(--white)">5 · Approvazione Regione</div>
-            <div style="font-family:'Share Tech Mono',monospace;font-size:12px;color:var(--white)">6 · Pubblicazione BUR</div>
-            <div style="font-family:'Share Tech Mono',monospace;font-size:12px;color:var(--white)">7 · Entrata in vigore</div>
-          </div>
-        </div>
-        <div class="panel">
-          <div class="panel-title">⚖️ Perequazione Urbana</div>
-          <p>Urbanizzando una zona, parte del terreno è <strong>ceduta gratis al Comune</strong> per strade e servizi. Il diritto a costruire è distribuito equamente sui lotti.</p>
-          <br>
-          <div class="callout info" style="padding:10px 12px">
-            <div class="callout-icon">🛣️</div>
-            <div class="callout-body"><strong>Capolavoro</strong> La strada è l'opera di urbanizzazione primaria ceduta in perequazione.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<!-- ══════════════════════════════════
+     ALBERGO
+══════════════════════════════════ -->
+<section id="albergo">
+  <div class="container">
+    <div class="sec-label">🏨 Progetto Albergo</div>
+    <h2 class="sec-title">Distribuzione e <span class="green">Normativa</span></h2>
+    <p class="sec-intro">L'albergo a Montecorice in Zona C — distribuzione su piani, requisiti del D.M. 5/7/1975 e accessibilità L. 13/89.</p>
 
-  <!-- ══ SLIDE 11 — PUC ZONIZZAZIONE INDICI ══ -->
-  <div class="slide" id="slide-11">
-    <div class="slide-inner">
-      <div class="slide-title">
-        <span class="label">Urbanistica</span>
-        PUC, Zonizzazione e <span class="accent">Indici Urbanistici</span>
-      </div>
-      <div class="grid-2">
-        <div>
-          <div class="panel" style="margin-bottom:16px">
-            <div class="panel-title">🗂️ Zone Omogenee (D.M. 1444/68)</div>
-            <div class="tbl-wrap"><table>
-              <thead><tr><th>Zona</th><th>Tipo</th></tr></thead>
-              <tbody>
-                <tr><td class="mono">A</td><td>Centro storico</td></tr>
-                <tr><td class="mono">B</td><td>Completamento</td></tr>
-                <tr><td class="mono cyan"><strong>C</strong></td><td class="cyan"><strong>Espansione ← lotto albergo</strong></td></tr>
-                <tr><td class="mono">D</td><td>Produttiva</td></tr>
-                <tr><td class="mono">E</td><td>Agricola</td></tr>
-                <tr><td class="mono">F</td><td>Attrezzature pubbliche</td></tr>
-              </tbody>
-            </table></div>
-          </div>
-          <div class="callout warn">
-            <div class="callout-icon">⚠️</div>
-            <div class="callout-body">
-              <strong>Standard DM 1444/68</strong>
-              18 mq per <em>abitante</em> (non per lotto!): 4,5 istruzione · 2,0 attr. comuni · 9,0 verde · 2,5 parcheggi.
-            </div>
-          </div>
-        </div>
-        <div>
-          <div class="panel">
-            <div class="panel-title">📐 Indici Urbanistici — Zona C (PUC Montecorice)</div>
-            <div class="tbl-wrap"><table>
-              <thead><tr><th>Sigla</th><th>Indice</th><th>Valore</th></tr></thead>
-              <tbody>
-                <tr><td class="mono cyan">If</td><td>Indice fabbricabilità fondiaria</td><td class="mono">1,5 ÷ 3 mc/mq</td></tr>
-                <tr><td class="mono cyan">Rc</td><td>Rapporto di copertura</td><td class="mono">30 ÷ 40%</td></tr>
-                <tr><td class="mono cyan">Ip</td><td>Indice di permeabilità</td><td class="mono">≥ 25 ÷ 30%</td></tr>
-                <tr><td class="mono cyan">Hp</td><td>Altezza massima</td><td class="mono">10 ÷ 15 m (3-4 piani)</td></tr>
-                <tr><td class="mono cyan">Dc</td><td>Distanza dai confini</td><td class="mono">≥ 5 m</td></tr>
-              </tbody>
-            </table></div>
-            <div class="formula" style="margin-top:14px">
-              <span class="label">Volume edificabile</span>
-              V = If × SF
-            </div>
-          </div>
-          <div class="callout warn" style="margin-top:12px">
-            <div class="callout-icon">⚠️</div>
-            <div class="callout-body">
-              <strong>Trappola: Pilotis aperti</strong>
-              I pilotis aperti del piano terra <strong>non contano nel Rc</strong> (D.M. 1444/68).
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+    <!-- SVG hotel elevation -->
+    <figure class="svg-wrapper" style="margin-bottom:40px">
+      <svg viewBox="0 0 900 320" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+        <!-- sky background -->
+        <defs>
+          <pattern id="hatching" patternUnits="userSpaceOnUse" width="8" height="8">
+            <line x1="0" y1="8" x2="8" y2="0" stroke="rgba(34,197,94,.2)" stroke-width="1"/>
+          </pattern>
+        </defs>
+        <!-- ground -->
+        <rect x="0" y="285" width="900" height="35" fill="rgba(34,197,94,.08)" stroke="rgba(34,197,94,.3)" stroke-width="1"/>
+        <text x="30" y="305" fill="rgba(34,197,94,.5)" font-family="monospace" font-size="9">±0,00 — Piano campagna</text>
 
-  <!-- ══ SLIDE 12 — TITOLI ABILITATIVI ══ -->
-  <div class="slide" id="slide-12">
-    <div class="slide-inner">
-      <div class="slide-title">
-        <span class="label">Urbanistica / Diritto</span>
-        Testo Unico 380/01 e <span class="accent">Titoli Abilitativi</span>
-      </div>
-      <div class="panel" style="margin-bottom:16px">
-        <div class="panel-title">📜 D.P.R. 380/01 — Art. 3: Tipi di Intervento</div>
-        <div class="flow" style="justify-content:center;flex-wrap:wrap;gap:0">
-          <div class="flow-node" style="font-size:12px">Manut. ord.</div>
-          <div class="flow-arrow">→</div>
-          <div class="flow-node" style="font-size:12px">Manut. straord.</div>
-          <div class="flow-arrow">→</div>
-          <div class="flow-node" style="font-size:12px">Restauro</div>
-          <div class="flow-arrow">→</div>
-          <div class="flow-node" style="font-size:12px">Ristrutt.</div>
-          <div class="flow-arrow">→</div>
-          <div class="flow-node" style="font-size:12px;background:rgba(0,212,255,0.20);border-color:var(--cyan);color:var(--cyan);font-weight:700">NUOVA COSTRUZ.</div>
-          <div class="flow-arrow">→</div>
-          <div class="flow-node" style="font-size:12px">Ristr. urbanist.</div>
-        </div>
-      </div>
-      <div class="tbl-wrap">
-        <table>
-          <thead><tr><th>Titolo</th><th>Nome completo</th><th>Intervento</th></tr></thead>
-          <tbody>
-            <tr><td class="mono cyan"><strong>P.d.C.</strong></td><td>Permesso di Costruire</td><td class="cyan"><strong>Nuova costruzione, ristrutturazione pesante</strong></td></tr>
-            <tr><td class="mono">S.C.I.A.</td><td>Segnalaz. Cert. Inizio Attività</td><td>Manut. straord. pesante, ristr. leggera</td></tr>
-            <tr><td class="mono">C.I.L.A.</td><td>Comunicaz. Inizio Lavori Ass.</td><td>Manut. straordinaria leggera</td></tr>
-            <tr><td class="mono">C.I.L.</td><td>Comunicazione Inizio Lavori</td><td>Manut. ordinaria</td></tr>
-            <tr><td class="mono">—</td><td>Edilizia libera</td><td>Opere minime</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="grid-2" style="margin-top:8px">
-        <div class="callout warn">
-          <div class="callout-icon">⚠️</div>
-          <div class="callout-body">
-            <strong>Trappola</strong>
-            Nuova costruzione → <strong>solo Permesso di Costruire</strong>, non SCIA!
-          </div>
-        </div>
-        <div class="callout success">
-          <div class="callout-icon">🏨</div>
-          <div class="callout-body">
-            <strong>Capolavoro — Albergo</strong>
-            L'albergo è <strong>NUOVA COSTRUZIONE</strong> → P.d.C. obbligatorio + contributo di costruzione (Legge Bucalossi 10/77: oneri urbanizzazione + costo costruzione).
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+        <!-- PILOTIS (piano terra) -->
+        <!-- colonne pilotis sx -->
+        <rect x="160" y="215" width="14" height="70" fill="rgba(34,197,94,.25)" stroke="rgba(34,197,94,.6)" stroke-width="1"/>
+        <rect x="230" y="215" width="14" height="70" fill="rgba(34,197,94,.25)" stroke="rgba(34,197,94,.6)" stroke-width="1"/>
+        <rect x="300" y="215" width="14" height="70" fill="rgba(34,197,94,.25)" stroke="rgba(34,197,94,.6)" stroke-width="1"/>
+        <rect x="590" y="215" width="14" height="70" fill="rgba(34,197,94,.25)" stroke="rgba(34,197,94,.6)" stroke-width="1"/>
+        <rect x="660" y="215" width="14" height="70" fill="rgba(34,197,94,.25)" stroke="rgba(34,197,94,.6)" stroke-width="1"/>
+        <rect x="730" y="215" width="14" height="70" fill="rgba(34,197,94,.25)" stroke="rgba(34,197,94,.6)" stroke-width="1"/>
+        <!-- pilotis zone label -->
+        <text x="450" y="260" fill="rgba(34,197,94,.6)" font-family="monospace" font-size="10" text-anchor="middle">① PILOTIS — Piano terra libero (parcheggio)</text>
+        <!-- area libera sotto -->
+        <text x="240" y="240" fill="rgba(34,197,94,.4)" font-family="monospace" font-size="9" text-anchor="middle">AREA LIBERA</text>
+        <text x="660" y="240" fill="rgba(34,197,94,.4)" font-family="monospace" font-size="9" text-anchor="middle">AREA LIBERA</text>
 
-  <!-- ══ SLIDE 13 — LE CORBUSIER ══ -->
-  <div class="slide" id="slide-13">
-    <div class="slide-inner">
-      <div class="slide-title">
-        <span class="label">Progettazione — Architettura Moderna</span>
-        I 5 Punti di <span class="accent">Le Corbusier</span> (1926)
-      </div>
-      <div class="tbl-wrap">
-        <table>
-          <thead>
-            <tr><th>N°</th><th>Punto</th><th>EN</th><th>Applicazione all'Albergo</th><th>Norma Italiana</th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="mono cyan">1°</td>
-              <td><strong>Pilotis</strong></td>
-              <td class="mono">Pilotis</td>
-              <td>Piano terra libero, parcheggio sotto</td>
-              <td class="mono">DM 1444/68 (non conta nel Rc)</td>
-            </tr>
-            <tr>
-              <td class="mono cyan">2°</td>
-              <td><strong>Pianta libera</strong></td>
-              <td class="mono">Free Plan</td>
-              <td>Nessuna parete portante interna</td>
-              <td class="mono">T.U. 380/01 art.3 — DM 5/7/75</td>
-            </tr>
-            <tr>
-              <td class="mono cyan">3°</td>
-              <td><strong>Facciata libera</strong></td>
-              <td class="mono">Free Façade</td>
-              <td>Tamponamenti + cappotto termico</td>
-              <td class="mono">L. 13/89 — DM 236/89</td>
-            </tr>
-            <tr>
-              <td class="mono cyan">4°</td>
-              <td><strong>Finestre a nastro</strong></td>
-              <td class="mono">Ribbon Windows</td>
-              <td>Aeroilluminante 1/8</td>
-              <td class="mono">Art. 24 T.U. 380/01</td>
-            </tr>
-            <tr>
-              <td class="mono cyan">5°</td>
-              <td><strong>Tetto giardino</strong></td>
-              <td class="mono">Roof Garden</td>
-              <td>Terrazza panoramica / solarium</td>
-              <td class="mono">DM 1444/68 — Prot. ITACA</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="grid-2" style="margin-top:8px">
-        <div class="panel">
-          <div class="panel-title">🏛️ Opere di Riferimento</div>
-          <ul>
-            <li><strong>Villa Savoye</strong> — Poissy, 1929-31 (manifesto dei 5 punti)</li>
-            <li><strong>Unité d'Habitation</strong> — Marsiglia (residenza collettiva)</li>
-            <li><strong>Movimento Moderno</strong> → Mies van der Rohe, Gropius (Bauhaus)</li>
-          </ul>
-        </div>
-        <div class="callout warn">
-          <div class="callout-icon">⚠️</div>
-          <div class="callout-body">
-            <strong>Trappola Cronologica</strong>
-            I 5 Punti sono del <strong>1926</strong>; Villa Savoye è del <strong>1929-31</strong>. Non confondere le date!
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+        <!-- PIANO TERRA (hall) -->
+        <rect x="150" y="190" width="600" height="26" fill="rgba(34,197,94,.12)" stroke="rgba(34,197,94,.4)" stroke-width="1"/>
+        <text x="450" y="207" fill="rgba(255,255,255,.7)" font-family="monospace" font-size="9" text-anchor="middle">HALL · RECEPTION · RISTORANTE · SERVIZI · VANO SCALA+ASCENSORE</text>
 
-  <!-- ══ SLIDE 14 — ALBERGO DISTRIBUZIONE ══ -->
-  <div class="slide" id="slide-14">
-    <div class="slide-inner">
-      <div class="slide-title">
-        <span class="label">Progetto Albergo — Montecorice</span>
-        Distribuzione e <span class="accent">Normativa</span>
-      </div>
-      <div class="grid-2">
-        <div>
-          <div class="panel" style="margin-bottom:16px">
-            <div class="panel-title">🏢 Piano Terra (scala 1:100)</div>
-            <ul>
-              <li>Hall / Reception</li>
-              <li>Sala ristorazione + cucina</li>
-              <li>Servizi igienici</li>
-              <li>Locali tecnici</li>
-              <li>Vano scala + ascensore (L. 13/89)</li>
-            </ul>
-          </div>
-          <div class="panel">
-            <div class="panel-title">🏬 Piano Tipo</div>
-            <p>Corridoio centrale + camere laterali (doppia stecca). Ogni camera con bagno privato.</p>
-            <br>
-            <p>Struttura: <strong>solo pilastri in c.a.</strong> (no pareti portanti interne) → schema <em>open floor</em> (2° punto Le Corbusier).</p>
-          </div>
-        </div>
-        <div>
-          <div class="panel" style="margin-bottom:16px">
-            <div class="panel-title">📏 Requisiti DM 5/7/1975</div>
-            <div class="tbl-wrap"><table>
-              <thead><tr><th>Parametro</th><th>Minimo</th></tr></thead>
-              <tbody>
-                <tr><td>Altezza vani</td><td class="mono cyan">≥ 2,70 m</td></tr>
-                <tr><td>Aeroilluminante</td><td class="mono cyan">≥ 1/8</td></tr>
-                <tr><td>Camera singola</td><td class="mono cyan">≥ 9 mq</td></tr>
-                <tr><td>Camera doppia</td><td class="mono cyan">≥ 14 mq</td></tr>
-                <tr><td>Bagno</td><td class="mono cyan">≥ 4 mq</td></tr>
-              </tbody>
-            </table></div>
-          </div>
-          <div class="panel">
-            <div class="panel-title">♿ Accessibilità — L. 13/89 / DM 236/89</div>
-            <ul>
-              <li>≥ 1 camera adattata per piano</li>
-              <li>Corridoi ≥ 1,50 m</li>
-              <li>Ascensore ≥ 1,40×1,10 m</li>
-              <li>Rampa ingresso ≤ 8%</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+        <!-- PIANO 1 -->
+        <rect x="150" y="155" width="600" height="34" fill="rgba(34,197,94,.08)" stroke="rgba(34,197,94,.3)" stroke-width="1"/>
+        <!-- finestre a nastro piano 1 -->
+        <rect x="160" y="160" width="580" height="16" fill="rgba(34,197,94,.20)" stroke="rgba(34,197,94,.5)" stroke-width="0.5"/>
+        <text x="450" y="150" fill="rgba(255,255,255,.5)" font-family="monospace" font-size="8" text-anchor="middle">Piano 1 — Camere</text>
+        <!-- ribbon windows label -->
+        <text x="450" y="172" fill="rgba(34,197,94,.6)" font-family="monospace" font-size="8" text-anchor="middle">④ FINESTRE A NASTRO — Aeroilluminante 1/8</text>
 
-  <!-- ══ SLIDE 15 — TETTO CALDO ══ -->
-  <div class="slide" id="slide-15">
-    <div class="slide-inner">
-      <div class="slide-title">
-        <span class="label">Progetto Albergo — Dettaglio Costruttivo</span>
-        Il <span class="accent">Tetto Caldo</span>
-      </div>
-      <div class="callout info" style="margin-bottom:16px">
-        <div class="callout-icon">💡</div>
-        <div class="callout-body">
-          <strong>5° Punto di Le Corbusier</strong> — Roof Garden. Il tetto caldo realizza la terrazza praticabile / solarium panoramico.
-        </div>
-      </div>
-      <div class="grid-2-1" style="align-items:start">
-        <div class="panel">
-          <div class="panel-title">📦 Stratigrafia — dal basso (interno) verso l'alto (esterno)</div>
-          <div class="strat-layer"><div class="strat-num">1°</div><div>Solaio in c.a. — <em>strato portante</em></div></div>
-          <div class="strat-layer"><div class="strat-num">2°</div><div>Caldana con pendenza 1–2% — <em>deflusso acque meteoriche</em></div></div>
-          <div class="strat-layer"><div class="strat-num">3°</div><div>Barriera al vapore — <em>lamine bituminose</em></div></div>
-          <div class="strat-layer" style="border-left-color:var(--amber)"><div class="strat-num" style="color:var(--amber)">4°</div><div><strong>Isolamento termico</strong> — schiuma poliuretanica (il punto chiave)</div></div>
-          <div class="strat-layer"><div class="strat-num">5°</div><div>Strato impermeabile — manto bituminoso doppio</div></div>
-          <div class="strat-layer"><div class="strat-num">6°</div><div>Strato di separazione — tessuto non tessuto</div></div>
-          <div class="strat-layer"><div class="strat-num">7°</div><div>Massetto + finitura — piastrelle antiscivolo o substrato vegetale</div></div>
-        </div>
-        <div>
-          <div class="callout warn" style="margin-bottom:12px">
-            <div class="callout-icon">⚠️</div>
-            <div class="callout-body">
-              <strong>Perché "CALDO"?</strong>
-              L'<strong>isolante sta SOPRA</strong> la struttura portante, esterno alla barriera al vapore. Evita condensa e ponti termici.
-            </div>
-          </div>
-          <div class="panel green">
-            <div class="panel-title">✅ Vantaggi</div>
-            <ul>
-              <li>Efficienza energetica</li>
-              <li>Terrazza praticabile</li>
-              <li>Punteggio Protocollo ITACA</li>
-              <li>Riduzione ponti termici</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+        <!-- PIANO 2 -->
+        <rect x="150" y="120" width="600" height="34" fill="rgba(34,197,94,.06)" stroke="rgba(34,197,94,.25)" stroke-width="1"/>
+        <rect x="160" y="125" width="580" height="16" fill="rgba(34,197,94,.18)" stroke="rgba(34,197,94,.4)" stroke-width="0.5"/>
+        <text x="450" y="115" fill="rgba(255,255,255,.5)" font-family="monospace" font-size="8" text-anchor="middle">Piano 2 — Camere</text>
 
-  <!-- ══ SLIDE 16 — PONTI TRA MATERIE ══ -->
-  <div class="slide" id="slide-16">
-    <div class="slide-inner">
-      <div class="slide-title">
-        <span class="label">Interdisciplinarità</span>
-        <span class="accent">Ponti</span> tra le Materie
+        <!-- PIANO 3 -->
+        <rect x="150" y="85" width="600" height="34" fill="rgba(34,197,94,.04)" stroke="rgba(34,197,94,.2)" stroke-width="1"/>
+        <rect x="160" y="90" width="580" height="16" fill="rgba(34,197,94,.15)" stroke="rgba(34,197,94,.35)" stroke-width="0.5"/>
+        <text x="450" y="80" fill="rgba(255,255,255,.5)" font-family="monospace" font-size="8" text-anchor="middle">Piano 3 — Camere</text>
+
+        <!-- TETTO GIARDINO -->
+        <rect x="150" y="60" width="600" height="24" fill="rgba(34,197,94,.30)" stroke="rgba(34,197,94,.6)" stroke-width="1.5"/>
+        <!-- vegetazione tetto -->
+        <ellipse cx="250" cy="58" rx="20" ry="10" fill="rgba(34,197,94,.4)"/>
+        <ellipse cx="350" cy="55" rx="15" ry="8" fill="rgba(34,197,94,.3)"/>
+        <ellipse cx="550" cy="57" rx="18" ry="9" fill="rgba(34,197,94,.4)"/>
+        <ellipse cx="650" cy="54" rx="12" ry="7" fill="rgba(34,197,94,.35)"/>
+        <text x="450" y="75" fill="var(--g400)" font-family="monospace" font-size="9" text-anchor="middle">⑤ TETTO GIARDINO — Terrazza panoramica (Protocollo ITACA)</text>
+
+        <!-- facciata libera label -->
+        <line x1="130" y1="60" x2="130" y2="285" stroke="rgba(34,197,94,.4)" stroke-width="1" stroke-dasharray="4,3"/>
+        <text x="120" y="175" fill="rgba(34,197,94,.6)" font-family="monospace" font-size="9" transform="rotate(-90,120,175)" text-anchor="middle">③ FACCIATA LIBERA</text>
+
+        <!-- pianta libera indicator -->
+        <text x="10" y="200" fill="rgba(34,197,94,.5)" font-family="monospace" font-size="9">② PIANTA LIBERA</text>
+        <text x="10" y="212" fill="rgba(34,197,94,.5)" font-family="monospace" font-size="9">No pareti portanti</text>
+
+        <!-- altezze -->
+        <line x1="780" y1="190" x2="780" y2="60" stroke="rgba(74,222,128,.3)" stroke-width="1"/>
+        <line x1="775" y1="190" x2="785" y2="190" stroke="rgba(74,222,128,.3)" stroke-width="1"/>
+        <line x1="775" y1="60" x2="785" y2="60" stroke="rgba(74,222,128,.3)" stroke-width="1"/>
+        <text x="800" y="130" fill="rgba(74,222,128,.5)" font-family="monospace" font-size="9">Hp max</text>
+        <text x="800" y="141" fill="rgba(74,222,128,.5)" font-family="monospace" font-size="9">10-15 m</text>
+
+        <!-- Dc -->
+        <line x1="90" y1="285" x2="150" y2="285" stroke="rgba(251,191,36,.4)" stroke-width="1" stroke-dasharray="3,2"/>
+        <text x="120" y="278" fill="rgba(251,191,36,.6)" font-family="monospace" font-size="8" text-anchor="middle">Dc≥5m</text>
+      </svg>
+      <figcaption>Fig. 3 — Prospetto Albergo · I 5 Punti di Le Corbusier applicati al progetto di Montecorice</figcaption>
+    </figure>
+
+    <div class="g2">
+      <div class="card">
+        <div class="card-label">Piano Terra (scala 1:100)</div>
+        <h3>Distribuzione</h3>
+        <ul>
+          <li>Hall / Reception</li>
+          <li>Sala ristorazione + cucina</li>
+          <li>Servizi igienici</li>
+          <li>Locali tecnici</li>
+          <li>Vano scala + ascensore (L. 13/89)</li>
+        </ul>
+        <div class="divider" style="margin:16px 0"></div>
+        <div class="card-label">Piano Tipo</div>
+        <p>Corridoio centrale + camere laterali (schema a doppia stecca). Ogni camera con bagno privato. <strong>Solo pilastri in c.a.</strong> — schema open floor (2° punto Le Corbusier).</p>
       </div>
-      <div class="big-quote" style="font-size:18px;padding:12px 0">
-        La domanda che faranno: "Che rapporto c'è tra strada e albergo?"
-      </div>
-      <div class="grid-2" style="margin-bottom:16px">
-        <div class="panel">
-          <div class="panel-title">🗺️ Topografia → Strada</div>
-          <div class="bridge-row"><div class="bridge-cell left">Quote e Geoide</div><div class="bridge-cell center">→</div><div class="bridge-cell right">Quota "0" di riferimento</div></div>
-          <div class="bridge-row"><div class="bridge-cell left">Pendenze</div><div class="bridge-cell center">→</div><div class="bridge-cell right">Livellette ≤ 7-8%</div></div>
-          <div class="bridge-row"><div class="bridge-cell left">Piano Quotato</div><div class="bridge-cell center">→</div><div class="bridge-cell right">Base del tracciato</div></div>
-          <div class="bridge-row"><div class="bridge-cell left">Trimensura</div><div class="bridge-cell center">→</div><div class="bridge-cell right">Rilievo ↔ Picchettamento</div></div>
+      <div class="card">
+        <div class="card-label">Requisiti Normativi</div>
+        <h3>D.M. 5/7/1975</h3>
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>Parametro</th><th>Minimo</th></tr></thead>
+            <tbody>
+              <tr><td>Altezza vani</td><td class="mono green">≥ 2,70 m</td></tr>
+              <tr><td>Aeroilluminante</td><td class="mono green">≥ 1/8</td></tr>
+              <tr><td>Camera singola</td><td class="mono green">≥ 9 mq</td></tr>
+              <tr><td>Camera doppia</td><td class="mono green">≥ 14 mq</td></tr>
+              <tr><td>Bagno</td><td class="mono green">≥ 4 mq</td></tr>
+            </tbody>
+          </table>
         </div>
-        <div class="panel">
-          <div class="panel-title">🔭 Topografia → Albergo</div>
-          <div class="bridge-row"><div class="bridge-cell left">Piano Quotato</div><div class="bridge-cell center">→</div><div class="bridge-cell right">Base del PUC</div></div>
-          <div class="bridge-row"><div class="bridge-cell left">Trimensura</div><div class="bridge-cell center">→</div><div class="bridge-cell right">Verifica Dc, Hp in cantiere</div></div>
-          <div class="bridge-row"><div class="bridge-cell left">Quota terreno</div><div class="bridge-cell center">→</div><div class="bridge-cell right">Quota "0" piano campagna</div></div>
-        </div>
-      </div>
-      <div class="panel blue-full">
-        <div class="panel-title">🔗 Strada → Albergo (sistema inscindibile)</div>
-        <ul style="font-family:'Exo 2',sans-serif;font-size:15px;padding-left:18px">
-          <li><strong>Base topografica comune:</strong> stesso piano quotato, stessa quota "0"</li>
-          <li><strong>Opera di urbanizzazione primaria</strong> (D.M. 1444/68): rientra negli oneri del P.d.C.</li>
-          <li><strong>Perequazione urbana:</strong> parte del lotto ceduta al Comune per realizzare la strada</li>
-          <li>Il <strong>rettifilo finale</strong> (L = 135,08 m) arriva al lotto dell'albergo in Zona C</li>
+        <div class="divider" style="margin:16px 0"></div>
+        <div class="card-label">Accessibilità — L. 13/89 / D.M. 236/89</div>
+        <ul style="margin-top:8px">
+          <li>≥ 1 camera adattata per piano</li>
+          <li>Corridoi ≥ 1,50 m</li>
+          <li>Ascensore ≥ 1,40×1,10 m</li>
+          <li>Rampa ingresso ≤ 8%</li>
         </ul>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- ══ SLIDE 17 — INGLESE E ED. CIVICA ══ -->
-  <div class="slide" id="slide-17">
-    <div class="slide-inner">
-      <div class="slide-title">
-        <span class="label">Collegamento</span>
-        English &amp; <span class="accent">Educazione Civica</span>
-      </div>
-      <div class="grid-2">
-        <div class="panel">
-          <div class="panel-title">🇬🇧 English — Modern Architecture</div>
-          <p>The hotel is rooted in the <strong>Modern Movement</strong> (Movimento Moderno).</p>
-          <br>
-          <p><strong>Le Corbusier's Five Points of a New Architecture (1926):</strong></p>
-          <ul style="margin-top:6px">
-            <li>Pilotis (stilts)</li>
-            <li>Free Floor Plan</li>
-            <li>Free Façade</li>
-            <li>Ribbon / Horizontal Windows</li>
-            <li>Roof Garden</li>
-          </ul>
-          <br>
-          <p><strong>Key works:</strong> Villa Savoye (Poissy, 1929-31), Unité d'Habitation (Marseille)</p>
-          <br>
-          <p><strong>International Style:</strong> Mies van der Rohe, Walter Gropius — Bauhaus School, Fagus Factory</p>
-          <br>
-          <p><strong>Modernist city planning:</strong> concentric, sector, multiple nuclei, axial models</p>
+<!-- ══════════════════════════════════
+     LE CORBUSIER + TETTO CALDO
+══════════════════════════════════ -->
+<section id="lecorbusier">
+  <div class="container">
+    <div class="sec-label">🏗️ Architettura Moderna</div>
+    <h2 class="sec-title">I 5 Punti di <span class="green">Le Corbusier</span></h2>
+    <p class="sec-intro">Manifesto del 1926. Ogni punto ha un aggancio normativo italiano — questo è il cuore del collegamento tra Progettazione, Inglese ed Estimo.</p>
+
+    <div class="g2" style="margin-bottom:32px;gap:16px">
+      <div class="lc-card">
+        <div class="lc-num">1°</div>
+        <div class="lc-content">
+          <h4>Pilotis</h4>
+          <p>Piano terra libero, parcheggio sotto. L'edificio si solleva da terra.</p>
+          <div class="lc-norm">DM 1444/68 — Pilotis aperti non contano nel Rc</div>
         </div>
-        <div>
-          <div class="panel" style="margin-bottom:16px">
-            <div class="panel-title">🌍 Educazione Civica</div>
-            <ul>
-              <li><strong>Sviluppo sostenibile:</strong> stili di vita urbani vs. rurali</li>
-              <li><strong>Sicurezza in cantiere:</strong> protezione dei lavoratori edili</li>
-              <li><strong>Parco Nazionale del Cilento:</strong> conservazione ambientale e sviluppo turistico sostenibile</li>
-              <li><strong>Perequazione urbana:</strong> equità nella distribuzione dei diritti edificatori</li>
-            </ul>
-          </div>
-          <div class="callout info">
-            <div class="callout-icon">🔗</div>
-            <div class="callout-body">
-              <strong>Ogni punto architettonico ha un aggancio normativo italiano</strong>
-              Le Corbusier → norma italiana → capolavoro. Questo è il cuore del collegamento Progettazione-Inglese-Estimo.
-            </div>
-          </div>
+      </div>
+      <div class="lc-card">
+        <div class="lc-num">2°</div>
+        <div class="lc-content">
+          <h4>Pianta Libera / Open Plan</h4>
+          <p>Nessuna parete portante interna. Solo pilastri in c.a.</p>
+          <div class="lc-norm">T.U. 380/01 art.3 — DM 5/7/75</div>
+        </div>
+      </div>
+      <div class="lc-card">
+        <div class="lc-num">3°</div>
+        <div class="lc-content">
+          <h4>Facciata Libera / Free Façade</h4>
+          <p>Tamponamenti indipendenti dalla struttura + cappotto termico.</p>
+          <div class="lc-norm">L. 13/89 — DM 236/89</div>
+        </div>
+      </div>
+      <div class="lc-card">
+        <div class="lc-num">4°</div>
+        <div class="lc-content">
+          <h4>Finestre a Nastro / Ribbon Windows</h4>
+          <p>Finestre orizzontali continue. Garantiscono l'aeroilluminante 1/8.</p>
+          <div class="lc-norm">Art. 24 T.U. 380/01</div>
+        </div>
+      </div>
+      <div class="lc-card" style="grid-column:1/-1;border-color:rgba(34,197,94,.4)">
+        <div class="lc-num" style="color:var(--g400)">5°</div>
+        <div class="lc-content">
+          <h4>Tetto Giardino / Roof Garden</h4>
+          <p>Terrazza panoramica / solarium. Recupera lo spazio verde occupato dai pilotis. Realizzato come <strong>tetto caldo</strong> (isolante sopra la struttura). Punteggio Protocollo ITACA.</p>
+          <div class="lc-norm">DM 1444/68 — Protocollo ITACA</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TETTO CALDO SVG -->
+    <figure class="svg-wrapper">
+      <svg viewBox="0 0 900 280" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+        <!-- layer heights -->
+        <defs>
+          <linearGradient id="heat" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="rgba(34,197,94,.3)"/>
+            <stop offset="100%" stop-color="rgba(34,197,94,.0)"/>
+          </linearGradient>
+        </defs>
+        <!-- layers from top to bottom (inside→outside going left to right in legend) -->
+        <!-- 7: massetto+finitura (top) -->
+        <rect x="80" y="20" width="620" height="22" fill="rgba(34,197,94,.35)" stroke="rgba(34,197,94,.6)" stroke-width="1"/>
+        <text x="700" y="35" fill="var(--g400)" font-family="monospace" font-size="11">7° Massetto + finitura (piastrelle/vegetazione)</text>
+        <!-- 6: tessuto non tessuto -->
+        <rect x="80" y="44" width="620" height="10" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.2)" stroke-width="0.5"/>
+        <text x="700" y="53" fill="rgba(255,255,255,.6)" font-family="monospace" font-size="10">6° Strato separazione (tessuto non tessuto)</text>
+        <!-- 5: manto bituminoso -->
+        <rect x="80" y="56" width="620" height="14" fill="rgba(20,20,20,.8)" stroke="rgba(100,100,100,.4)" stroke-width="1"/>
+        <text x="700" y="67" fill="rgba(255,255,255,.6)" font-family="monospace" font-size="11">5° Manto impermeabile (bituminoso doppio)</text>
+        <!-- 4: isolamento TERMICO (key layer) - amber -->
+        <rect x="80" y="72" width="620" height="36" fill="rgba(251,191,36,.15)" stroke="rgba(251,191,36,.5)" stroke-width="1.5"/>
+        <text x="700" y="95" fill="var(--amber)" font-family="monospace" font-size="12" font-weight="bold">4° ISOLANTE TERMICO ← "CALDO" (sopra struttura)</text>
+        <!-- hatching for insulation -->
+        <rect x="80" y="72" width="620" height="36" fill="url(#hatching)"/>
+        <!-- arrow pointing to "caldo" -->
+        <text x="30" y="93" fill="var(--amber)" font-family="monospace" font-size="16" text-anchor="middle">▶</text>
+        <!-- 3: barriera al vapore -->
+        <rect x="80" y="110" width="620" height="8" fill="rgba(0,100,200,.25)" stroke="rgba(0,150,255,.4)" stroke-width="1"/>
+        <text x="700" y="118" fill="rgba(100,180,255,.7)" font-family="monospace" font-size="10">3° Barriera al vapore (lamine bituminose)</text>
+        <!-- 2: caldana -->
+        <rect x="80" y="120" width="620" height="20" fill="rgba(180,180,180,.12)" stroke="rgba(180,180,180,.3)" stroke-width="1"/>
+        <text x="700" y="134" fill="rgba(200,200,200,.6)" font-family="monospace" font-size="11">2° Caldana con pendenza 1–2% (deflusso acque)</text>
+        <!-- 1: solaio c.a. -->
+        <rect x="80" y="142" width="620" height="40" fill="rgba(60,60,60,.6)" stroke="rgba(120,120,120,.4)" stroke-width="1.5"/>
+        <!-- armatura simulata -->
+        <line x1="100" y1="152" x2="680" y2="152" stroke="rgba(255,100,100,.4)" stroke-width="1.5"/>
+        <line x1="100" y1="172" x2="680" y2="172" stroke="rgba(255,100,100,.4)" stroke-width="1.5"/>
+        <line x1="150" y1="142" x2="150" y2="182" stroke="rgba(255,100,100,.3)" stroke-width="1"/>
+        <line x1="250" y1="142" x2="250" y2="182" stroke="rgba(255,100,100,.3)" stroke-width="1"/>
+        <line x1="350" y1="142" x2="350" y2="182" stroke="rgba(255,100,100,.3)" stroke-width="1"/>
+        <line x1="450" y1="142" x2="450" y2="182" stroke="rgba(255,100,100,.3)" stroke-width="1"/>
+        <line x1="550" y1="142" x2="550" y2="182" stroke="rgba(255,100,100,.3)" stroke-width="1"/>
+        <line x1="630" y1="142" x2="630" y2="182" stroke="rgba(255,100,100,.3)" stroke-width="1"/>
+        <text x="700" y="166" fill="rgba(200,200,200,.6)" font-family="monospace" font-size="11">1° Solaio in c.a. (portante)</text>
+
+        <!-- frecce temperatura -->
+        <text x="40" y="30" fill="var(--amber)" font-family="monospace" font-size="11" text-anchor="middle">☀️</text>
+        <text x="40" y="44" fill="var(--amber)" font-family="monospace" font-size="11" text-anchor="middle">↓</text>
+        <text x="40" y="58" fill="var(--amber)" font-family="monospace" font-size="11" text-anchor="middle">↓</text>
+        <text x="40" y="72" fill="var(--amber)" font-family="monospace" font-size="9" text-anchor="middle">CALORE</text>
+        <text x="40" y="84" fill="var(--amber)" font-family="monospace" font-size="16" text-anchor="middle">⊗</text>
+        <text x="40" y="96" fill="var(--amber)" font-family="monospace" font-size="9" text-anchor="middle">BLOCCATO</text>
+
+        <!-- nota -->
+        <rect x="80" y="200" width="620" height="60" fill="rgba(34,197,94,.05)" stroke="rgba(34,197,94,.2)" stroke-width="1" rx="4"/>
+        <text x="390" y="220" fill="var(--g500)" font-family="monospace" font-size="11" text-anchor="middle">⚠ PERCHÉ "CALDO"? → L'isolante sta SOPRA la struttura portante (esterno alla barriera al vapore)</text>
+        <text x="390" y="238" fill="rgba(240,250,242,.6)" font-family="monospace" font-size="10" text-anchor="middle">Evita condensa e ponti termici · Efficienza energetica · Terrazza praticabile</text>
+        <text x="390" y="254" fill="rgba(34,197,94,.5)" font-family="monospace" font-size="10" text-anchor="middle">Nel "tetto FREDDO" l'isolante è SOTTO la struttura → rischio condensa → non usato qui</text>
+      </svg>
+      <figcaption>Fig. 4 — Stratigrafia Tetto Caldo (5° punto Le Corbusier) · 7 strati dall'interno verso l'esterno</figcaption>
+    </figure>
+
+    <div class="callout warn" style="margin-top:20px">
+      <div class="ci">⚠️</div>
+      <div class="cb"><strong>Trappola Cronologica</strong>I 5 Punti di Le Corbusier sono del <strong>1926</strong>. Villa Savoye (opera di riferimento) è del <strong>1929-31</strong>. Non confondere le date — è una trappola classica!</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     PONTI TRA MATERIE
+══════════════════════════════════ -->
+<section id="ponti">
+  <div class="container">
+    <div class="sec-label">🔗 Interdisciplinarità</div>
+    <h2 class="sec-title">Ponti tra le <span class="green">Materie</span></h2>
+    <p class="sec-intro">La domanda che faranno: "Che rapporto c'è tra strada e albergo?" — risposta pronta.</p>
+
+    <div class="bq">"La strada non è isolata: è la viabilità di accesso all'albergo. Stessa base topografica. Stessa quota 0."</div>
+
+    <div class="g2" style="margin-bottom:32px">
+      <div class="card">
+        <div class="card-label">Topografia → Strada</div>
+        <h3>Come si connettono</h3>
+        <div class="bridge-row"><div class="bc left">Quote e Geoide</div><div class="bc mid">→</div><div class="bc right">Quota "0" di riferimento</div></div>
+        <div class="bridge-row"><div class="bc left">Pendenze</div><div class="bc mid">→</div><div class="bc right">Livellette ≤ 7-8%</div></div>
+        <div class="bridge-row"><div class="bc left">Piano Quotato</div><div class="bc mid">→</div><div class="bc right">Base del tracciato</div></div>
+        <div class="bridge-row"><div class="bc left">Trimensura</div><div class="bc mid">→</div><div class="bc right">Rilievo ↔ Picchettamento</div></div>
+      </div>
+      <div class="card">
+        <div class="card-label">Topografia → Albergo</div>
+        <h3>Come si connettono</h3>
+        <div class="bridge-row"><div class="bc left">Piano Quotato</div><div class="bc mid">→</div><div class="bc right">Base del PUC</div></div>
+        <div class="bridge-row"><div class="bc left">Trimensura</div><div class="bc mid">→</div><div class="bc right">Verifica Dc e Hp in cantiere</div></div>
+        <div class="bridge-row"><div class="bc left">Quota terreno</div><div class="bc mid">→</div><div class="bc right">Piano campagna ±0,00</div></div>
+      </div>
+    </div>
+
+    <div class="card" style="border-color:rgba(34,197,94,.4)">
+      <div class="card-label">Strada ↔ Albergo — Sistema Inscindibile</div>
+      <h3>La risposta per la commissione</h3>
+      <div class="g2" style="margin-top:16px">
+        <ul>
+          <li><strong>Base topografica comune:</strong> stesso piano quotato, stessa quota "0" per strada e albergo</li>
+          <li><strong>Opera di urbanizzazione primaria</strong> (D.M. 1444/68): la strada rientra negli oneri del P.d.C.</li>
+        </ul>
+        <ul>
+          <li><strong>Perequazione urbana:</strong> parte del lotto ceduta al Comune per realizzare la strada</li>
+          <li><strong>Rettifilo finale</strong> (L = 135,08 m) arriva direttamente al lotto in Zona C</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     INGLESE & ED. CIVICA
+══════════════════════════════════ -->
+<section id="inglese">
+  <div class="container">
+    <div class="sec-label">🌍 Collegamento</div>
+    <h2 class="sec-title">English &amp; <span class="green">Educazione Civica</span></h2>
+
+    <div class="g2">
+      <div class="card">
+        <div class="card-label">English — Modern Architecture</div>
+        <h3>The Modern Movement</h3>
+        <p>The hotel is rooted in the <strong>Modern Movement</strong>. Le Corbusier's Five Points (1926) became the manifesto of a new way of designing buildings.</p>
+        <br>
+        <p><strong>Key works:</strong></p>
+        <ul>
+          <li>Villa Savoye — Poissy, 1929-31 (manifesto of the 5 points)</li>
+          <li>Unité d'Habitation — Marseille (collective housing)</li>
+        </ul>
+        <br>
+        <p><strong>International Style:</strong> Mies van der Rohe, Walter Gropius — Bauhaus School, Fagus Factory.</p>
+        <br>
+        <p><strong>Modernist city planning models:</strong> concentric, sector, multiple nuclei, axial.</p>
+        <br>
+        <div class="callout info">
+          <div class="ci">🔗</div>
+          <div class="cb"><strong>Key link</strong>Each of Le Corbusier's 5 architectural points has an Italian normative anchor — this is the core of the Progettazione–English–Estimo connection.</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-label">Educazione Civica</div>
+        <h3>Sostenibilità e Diritti</h3>
+        <ul style="margin-bottom:16px">
+          <li><strong>Sviluppo sostenibile:</strong> turismo responsabile nel Parco del Cilento — bilanciare crescita e conservazione ambientale</li>
+          <li><strong>Sicurezza in cantiere:</strong> D.Lgs. 81/2008 — tutela dei lavoratori edili (PSC, DPI, ponteggi)</li>
+          <li><strong>Perequazione urbana:</strong> equità nella distribuzione dei diritti edificatori tra privati e pubblico</li>
+          <li><strong>Accessibilità universale:</strong> L. 13/89 — diritto alla mobilità delle persone con disabilità</li>
+          <li><strong>Efficienza energetica:</strong> Protocollo ITACA — tetto caldo e sostenibilità ambientale</li>
+        </ul>
+        <div class="callout success">
+          <div class="ci">✅</div>
+          <div class="cb"><strong>Parco Nazionale del Cilento</strong>Montecorice si trova in un'area UNESCO. Lo sviluppo turistico (albergo) deve rispettare le norme ambientali del Parco — tema di Ed. Civica perfetto.</div>
         </div>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- ══ SLIDE 18 — FORMULE QUICK REF ══ -->
-  <div class="slide" id="slide-18">
-    <div class="slide-inner">
-      <div class="slide-title">
-        <span class="label">Ripasso Veloce</span>
-        ⚡ Quick Reference — <span class="accent">Formule e Indici</span>
-      </div>
-      <div class="grid-2">
-        <div>
-          <div class="panel" style="margin-bottom:16px">
-            <div class="panel-title">📐 Topografia</div>
-            <div class="tbl-wrap"><table>
+<!-- ══════════════════════════════════
+     FORMULE
+══════════════════════════════════ -->
+<section id="formule">
+  <div class="container">
+    <div class="sec-label">⚡ Ripasso Veloce</div>
+    <h2 class="sec-title">Quick Reference — <span class="green">Formule e Dati</span></h2>
+
+    <div class="g2" style="margin-bottom:24px">
+      <div>
+        <div class="card" style="margin-bottom:20px">
+          <div class="card-label">Topografia</div>
+          <div class="tbl-wrap">
+            <table>
               <thead><tr><th>Grandezza</th><th>Formula</th></tr></thead>
               <tbody>
                 <tr><td>Dislivello</td><td class="mono">Δ<sub>AB</sub> = Q<sub>B</sub> − Q<sub>A</sub></td></tr>
@@ -1535,25 +1250,30 @@
                 <tr><td>Raccordo verticale</td><td class="mono">L = (i₁ − i₂)·R</td></tr>
                 <tr><td>Volume sezioni ragg.</td><td class="mono">V = (S<sub>A</sub>+S<sub>B</sub>)/2·L</td></tr>
               </tbody>
-            </table></div>
-          </div>
-          <div class="panel">
-            <div class="panel-title">🏨 Edilizia (DM 5/7/1975)</div>
-            <div class="tbl-wrap"><table>
-              <thead><tr><th>Parametro</th><th>Valore</th></tr></thead>
-              <tbody>
-                <tr><td>Altezza min. vani</td><td class="mono cyan">2,70 m</td></tr>
-                <tr><td>Aeroilluminante</td><td class="mono cyan">1/8</td></tr>
-                <tr><td>Camera singola</td><td class="mono cyan">≥ 9 mq</td></tr>
-                <tr><td>Camera doppia</td><td class="mono cyan">≥ 14 mq</td></tr>
-              </tbody>
-            </table></div>
+            </table>
           </div>
         </div>
-        <div>
-          <div class="panel" style="margin-bottom:16px">
-            <div class="panel-title">🏛️ Urbanistica — Zona C</div>
-            <div class="tbl-wrap"><table>
+        <div class="card">
+          <div class="card-label">Edilizia — DM 5/7/1975</div>
+          <div class="tbl-wrap">
+            <table>
+              <thead><tr><th>Parametro</th><th>Valore</th></tr></thead>
+              <tbody>
+                <tr><td>Altezza vani</td><td class="mono green">≥ 2,70 m</td></tr>
+                <tr><td>Aeroilluminante</td><td class="mono green">1/8</td></tr>
+                <tr><td>Camera singola</td><td class="mono green">≥ 9 mq</td></tr>
+                <tr><td>Camera doppia</td><td class="mono green">≥ 14 mq</td></tr>
+                <tr><td>Bagno</td><td class="mono green">≥ 4 mq</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="card" style="margin-bottom:20px">
+          <div class="card-label">Urbanistica — Zona C</div>
+          <div class="tbl-wrap">
+            <table>
               <thead><tr><th>Indice</th><th>Valore</th></tr></thead>
               <tbody>
                 <tr><td class="mono">If</td><td class="mono">1,5 ÷ 3 mc/mq</td></tr>
@@ -1561,188 +1281,125 @@
                 <tr><td class="mono">Ip</td><td class="mono">≥ 25÷30%</td></tr>
                 <tr><td class="mono">Hp</td><td class="mono">10 ÷ 15 m</td></tr>
                 <tr><td class="mono">Dc</td><td class="mono">≥ 5 m</td></tr>
-                <tr><td>Standard</td><td class="mono">18 mq/ab (DM 1444/68)</td></tr>
+                <tr><td>Standard</td><td class="mono">18 mq/ab</td></tr>
               </tbody>
-            </table></div>
-            <div class="formula" style="margin-top:12px;font-size:14px">V = If × SF</div>
+            </table>
           </div>
-          <div class="panel">
-            <div class="panel-title">🛣️ Dati Chiave Capolavoro</div>
-            <div class="tbl-wrap"><table>
+          <div class="formula" style="margin-top:12px;font-size:16px">V = If × SF</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Dati Chiave Capolavoro</div>
+          <div class="tbl-wrap">
+            <table>
               <thead><tr><th>Parametro</th><th>Dato</th></tr></thead>
               <tbody>
-                <tr><td>Livellette</td><td class="mono cyan">6,32% / 6,40% / 3,53%</td></tr>
+                <tr><td>Livellette</td><td class="mono green">6,32% / 6,40% / 3,53%</td></tr>
                 <tr><td>Limite normativo</td><td class="mono">&lt; 7–8%</td></tr>
-                <tr><td>N° picchetti</td><td class="mono">40</td></tr>
+                <tr><td>Picchetti totali</td><td class="mono">40</td></tr>
                 <tr><td>Piattaforma</td><td class="mono">7,00 m</td></tr>
                 <tr><td>Sterro netto</td><td class="mono amber">~4.530 mq</td></tr>
-                <tr><td>Rettifilo finale</td><td class="mono">135,08 m</td></tr>
+                <tr><td>Rettifilo finale</td><td class="mono">135,08 m → Albergo</td></tr>
+                <tr><td>Scala profilo (L/H)</td><td class="mono">1:2000 / 1:200</td></tr>
               </tbody>
-            </table></div>
+            </table>
           </div>
         </div>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- ══ SLIDE 19 — TRAPPOLE D'ESAME ══ -->
-  <div class="slide" id="slide-19">
-    <div class="slide-inner">
-      <div class="slide-title">
-        <span class="label">Ripasso Finale</span>
-        ⚠️ <span class="accent">Trappole</span> d'Esame
+<!-- ══════════════════════════════════
+     TRAPPOLE
+══════════════════════════════════ -->
+<section id="trappole">
+  <div class="container">
+    <div class="sec-label">⚠️ Ripasso Finale</div>
+    <h2 class="sec-title">Trappole <span class="green">d'Esame</span></h2>
+    <p class="sec-intro">Le 9 trappole più comuni per la commissione. Impara a schivarle tutte.</p>
+
+    <div class="g3">
+      <div class="trap">
+        <div class="trap-icon">❌</div>
+        <h4>Geoide ≠ Ellissoide</h4>
+        <p>Il <strong>geoide</strong> è il riferimento delle quote (mareografo di Genova). L'<strong>ellissoide</strong> è del GPS (quote ellissoidiche). Differenza: ondulazione N.</p>
       </div>
-      <div class="grid-3">
-        <div>
-          <div style="color:var(--cyan);font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:2px;margin-bottom:12px">📐 TOPOGRAFIA</div>
-          <div class="callout danger" style="margin-bottom:10px">
-            <div class="callout-icon">❌</div>
-            <div class="callout-body">
-              <strong>Geoide ≠ Ellissoide</strong>
-              Geoide → riferimento quote (mareografo). Ellissoide → GPS.
-            </div>
-          </div>
-          <div class="callout danger" style="margin-bottom:10px">
-            <div class="callout-icon">❌</div>
-            <div class="callout-body">
-              <strong>Sterro / Riporto</strong>
-              Q.prog &lt; Q.terr = STERRO. Non invertire!
-            </div>
-          </div>
-          <div class="callout danger">
-            <div class="callout-icon">❌</div>
-            <div class="callout-body">
-              <strong>Sezioni Ragguagliate</strong>
-              Formula: <strong>media</strong> delle aree, non somma!
-            </div>
-          </div>
-        </div>
-        <div>
-          <div style="color:var(--cyan);font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:2px;margin-bottom:12px">🏛️ URBANISTICA</div>
-          <div class="callout danger" style="margin-bottom:10px">
-            <div class="callout-icon">❌</div>
-            <div class="callout-body">
-              <strong>PRG / PUC</strong>
-              Dura <strong>10 anni</strong>, emesso dal Sindaco, approvato dalla Regione.
-            </div>
-          </div>
-          <div class="callout danger" style="margin-bottom:10px">
-            <div class="callout-icon">❌</div>
-            <div class="callout-body">
-              <strong>Pilotis aperti</strong>
-              <strong>Non contano</strong> nel Rc (DM 1444/68).
-            </div>
-          </div>
-          <div class="callout danger">
-            <div class="callout-icon">❌</div>
-            <div class="callout-body">
-              <strong>Standard DM 1444/68</strong>
-              18 mq per <strong>abitante</strong>, non per lotto!
-            </div>
-          </div>
-        </div>
-        <div>
-          <div style="color:var(--cyan);font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:2px;margin-bottom:12px">🏨 EDILIZIA / LE CORBUSIER</div>
-          <div class="callout danger" style="margin-bottom:10px">
-            <div class="callout-icon">❌</div>
-            <div class="callout-body">
-              <strong>Nuova Costruzione</strong>
-              → Solo <strong>Permesso di Costruire</strong> (non SCIA!)
-            </div>
-          </div>
-          <div class="callout danger" style="margin-bottom:10px">
-            <div class="callout-icon">❌</div>
-            <div class="callout-body">
-              <strong>Tetto Caldo</strong>
-              Isolante <strong>SOPRA</strong> il solaio (non sotto!).
-            </div>
-          </div>
-          <div class="callout danger">
-            <div class="callout-icon">❌</div>
-            <div class="callout-body">
-              <strong>Le Corbusier</strong>
-              5 Punti: <strong>1926</strong>. Villa Savoye: <strong>1929-31</strong>.
-            </div>
-          </div>
-        </div>
+      <div class="trap">
+        <div class="trap-icon">❌</div>
+        <h4>Sterro / Riporto</h4>
+        <p>Q.prog &lt; Q.terr → <strong>STERRO</strong> (scavo). Q.prog &gt; Q.terr → <strong>RIPORTO</strong> (apporto). Non invertire mai!</p>
+      </div>
+      <div class="trap">
+        <div class="trap-icon">❌</div>
+        <h4>Sezioni Ragguagliate</h4>
+        <p>Formula: <strong>media</strong> delle aree (S<sub>A</sub>+S<sub>B</sub>)/2, non la somma! Poi moltiplicare per la lunghezza.</p>
+      </div>
+      <div class="trap">
+        <div class="trap-icon">❌</div>
+        <h4>PRG/PUC Durata</h4>
+        <p>Il PUC dura <strong>10 anni</strong>. Emesso dal Sindaco, redatto da urbanista, approvato dalla <strong>Regione</strong>. Iter: 7 step.</p>
+      </div>
+      <div class="trap">
+        <div class="trap-icon">❌</div>
+        <h4>Pilotis e Rc</h4>
+        <p>I <strong>pilotis aperti</strong> del piano terra <strong>non contano</strong> nel Rapporto di copertura (D.M. 1444/68).</p>
+      </div>
+      <div class="trap">
+        <div class="trap-icon">❌</div>
+        <h4>Standard Urbanistici</h4>
+        <p>18 mq per <strong>abitante</strong> (DM 1444/68), non per lotto! Suddivisione: 4,5 istruz. + 2,0 attr. + 9,0 verde + 2,5 parch.</p>
+      </div>
+      <div class="trap">
+        <div class="trap-icon">❌</div>
+        <h4>Nuova Costruzione</h4>
+        <p>Nuova costruzione → <strong>solo Permesso di Costruire</strong> (mai SCIA!). + contributo di costruzione (Legge Bucalossi 10/77).</p>
+      </div>
+      <div class="trap">
+        <div class="trap-icon">❌</div>
+        <h4>Tetto Caldo</h4>
+        <p>Isolante <strong>SOPRA</strong> la struttura portante (sopra la barriera al vapore). Nel tetto freddo è sotto — rischio condensa.</p>
+      </div>
+      <div class="trap">
+        <div class="trap-icon">❌</div>
+        <h4>Le Corbusier Cronologia</h4>
+        <p>I 5 Punti sono del <strong>1926</strong>. Villa Savoye è del <strong>1929-31</strong>. Unité d'Habitation → Marsiglia.</p>
       </div>
     </div>
   </div>
+</section>
 
-</div>
-
-<!-- Footer / Navigation -->
-<div id="footer">
-  <div id="footer-info">
-    <span style="color:var(--cyan)">Jean Christian Tiagouri</span> &nbsp;·&nbsp; Maturità CAT 2026 &nbsp;·&nbsp; Montecorice (SA)
+<!-- ══════════════════════════════════
+     FOOTER
+══════════════════════════════════ -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-brand">CAT · 2026</div>
+    <div class="footer-sub" style="margin-bottom:16px">Jean Christian Tiagouri &nbsp;·&nbsp; Strada + Albergo a Montecorice (SA) &nbsp;·&nbsp; Esame di Stato</div>
+    <div class="footer-sub">Topografia · Progettazione · Urbanistica · Le Corbusier · English</div>
   </div>
-  <div class="nav-btns">
-    <button class="nav-btn" id="btn-prev" onclick="navigate(-1)" disabled>◀ Prec.</button>
-    <button class="nav-btn" id="btn-next" onclick="navigate(1)">Succ. ▶</button>
-  </div>
-</div>
+</footer>
 
 <script>
-  const TOTAL = 20;
-  let current = 0;
+/* progress bar */
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+  document.getElementById('prog').style.width = pct + '%';
+});
 
-  const slides = document.querySelectorAll('.slide');
-  const tabs = document.querySelectorAll('.sec-tab');
-  const progressBar = document.getElementById('progress-bar');
-  const slideCounter = document.getElementById('slide-counter');
-  const btnPrev = document.getElementById('btn-prev');
-  const btnNext = document.getElementById('btn-next');
-
-  function goTo(n) {
-    if (n < 0 || n >= TOTAL) return;
-    const prev = current;
-    slides[prev].classList.remove('active');
-    slides[prev].classList.add('prev');
-    setTimeout(() => slides[prev].classList.remove('prev'), 500);
-
-    current = n;
-    slides[current].classList.add('active');
-
-    // progress
-    const pct = ((current + 1) / TOTAL) * 100;
-    progressBar.style.width = pct + '%';
-
-    // counter
-    const pad = n => String(n).padStart(2, '0');
-    slideCounter.textContent = pad(current + 1) + ' / ' + pad(TOTAL);
-
-    // tabs
-    tabs.forEach((t, i) => t.classList.toggle('active', i === current));
-    tabs[current].scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' });
-
-    // buttons
-    btnPrev.disabled = current === 0;
-    btnNext.disabled = current === TOTAL - 1;
-  }
-
-  function navigate(dir) { goTo(current + dir); }
-
-  // keyboard navigation
-  document.addEventListener('keydown', e => {
-    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') { e.preventDefault(); navigate(1); }
-    if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp') { e.preventDefault(); navigate(-1); }
-    if (e.key === 'Home') goTo(0);
-    if (e.key === 'End')  goTo(TOTAL - 1);
+/* active nav link */
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-link');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      navLinks.forEach(l => l.classList.remove('active'));
+      const a = document.querySelector(`.nav-link[href="#${e.target.id}"]`);
+      if (a) { a.classList.add('active'); a.scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'}); }
+    }
   });
-
-  // tab clicks
-  tabs.forEach((t, i) => t.addEventListener('click', () => goTo(i)));
-
-  // touch support
-  let touchX = 0;
-  document.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; });
-  document.addEventListener('touchend', e => {
-    const dx = e.changedTouches[0].clientX - touchX;
-    if (Math.abs(dx) > 50) navigate(dx < 0 ? 1 : -1);
-  });
-
-  // init
-  goTo(0);
+}, { rootMargin: '-40% 0px -40% 0px' });
+sections.forEach(s => obs.observe(s));
 </script>
 </body>
 </html>
